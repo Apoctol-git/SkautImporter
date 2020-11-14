@@ -1,0 +1,9 @@
+C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\obj\Debug\SKAUTIntgration.csprojAssemblyReference.cache
+C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\obj\Debug\SKAUTIntgration.csproj.CoreCompileInputs.cache
+C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\SKAUTIntgration.exe.config
+C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\SKAUTIntgration.exe
+C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\SKAUTIntgration.pdb
+C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\xNet.dll
+C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\obj\Debug\SKAUTIntgration.csproj.CopyComplete
+C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\obj\Debug\SKAUTIntgration.exe
+C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\obj\Debug\SKAUTIntgration.pdb
