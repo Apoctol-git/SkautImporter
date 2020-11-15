@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,21 +10,23 @@ namespace SKAUTIntgration
 {
     public class XMLFormater
     {
-        static public void XMLSaver(Dictionary<string, Dictionary<string, string>[]> documents)
+        static public void XMLSaver(string basePath, Dictionary<string[], Dictionary<string, string>[]> documents)
         {
+            var i = 0;
             foreach (var array in documents)
             {
                 foreach (var item in array.Value)
                 {
-                    var xdoc = formXML(array.Key, item);
-                    saveXML(array.Key, xdoc);
+                    var xdoc = FormXML(array.Key[0], item);
+                    SaveXML(basePath+array.Key[1], array.Key[0]+i, xdoc);
+                    i++;
                 }          
             }
         }
-        static XDocument formXML(string elementName, Dictionary<string,string> datas)
+        static XDocument FormXML(string elementName, Dictionary<string,string> datas)
         {
             XDocument newDoc = new XDocument();
-            XElement objectName = new XElement("lalal");
+            XElement objectName = new XElement(elementName);
             foreach (var item in datas)
             {
                 XElement datasName = new XElement("Name", item.Key);
@@ -34,9 +37,18 @@ namespace SKAUTIntgration
             newDoc.Add(objectName);
             return newDoc;
         }
-        static void saveXML(string elementName, XDocument newDoc)
+        static void SaveXML(string path, string elementName, XDocument newDoc)
         {
-             newDoc.Save(elementName + ".xml");
+            try
+            {
+                newDoc.Save(path+@"\"+ elementName + ".xml");
+            }
+            catch (DirectoryNotFoundException)
+            {
+                Directory.CreateDirectory(path);
+                newDoc.Save(path + @"\" + elementName + ".xml");
+            }
+             
         }
     }
 }

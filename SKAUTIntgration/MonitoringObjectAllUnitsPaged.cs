@@ -13,15 +13,16 @@ namespace SKAUTIntgration
         public string Token { get; set; }
         public string Name { get; set; }
         public string UrlServer {get;  set; }
+        public string TargetCatalog { get; set; }
         public bool IsActivated { get; set; }
         public string SendParameter { get; set; }
         
         private int countObject;
 
-        public MonitoringObjectAllUnitsPaged()
+        public MonitoringObjectAllUnitsPaged(string baseURL)
         {
-            Name = "MonitoringObjectS";
-            UrlServer = @"http://spic.scout365.ru:8081/spic/units/rest/getAllUnitsPaged";
+            Name = "MonitoringObject";
+            UrlServer = baseURL +  @"/spic/units/rest/getAllUnitsPaged";
         }
         public void RequestNeedParameter()
         {

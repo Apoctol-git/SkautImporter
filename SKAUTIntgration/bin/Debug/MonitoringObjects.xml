@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<lalal>
+<MonitoringObjects>
   <Name>"Brand"</Name>
   <Value>""</Value>
   <Name>"Color"</Name>
@@ -13,7 +13,7 @@
   <Name>"Model"</Name>
   <Value>""</Value>
   <Name>"Name"</Name>
-  <Value>"БМ и КТ №7"</Value>
+  <Value>"БМ и КТ №4"</Value>
   <Name>"OlsonId"</Name>
   <Value>""</Value>
   <Name>"Owner"</Name>
@@ -23,13 +23,13 @@
   <Name>"Registration"</Name>
   <Value>""</Value>
   <Name>"StateNumber"</Name>
-  <Value>"А007АА197"</Value>
+  <Value>"А004АА197"</Value>
   <Name>"UnitId"</Name>
-  <Value>51164</Value>
+  <Value>51008</Value>
   <Name>"UnitTypeId"</Name>
   <Value>2</Value>
   <Name>"VinNumber"</Name>
   <Value>""</Value>
   <Name>"Year"</Name>
   <Value>""</Value>
-</lalal>
+</MonitoringObjects>

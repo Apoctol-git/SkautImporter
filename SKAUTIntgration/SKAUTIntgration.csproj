@@ -50,6 +50,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="INImanager.cs" />
     <Compile Include="IRuleRequster.cs" />
     <Compile Include="LoginRequester.cs" />
     <Compile Include="MonitoringObjectAllUnitsPaged.cs" />
@@ -57,7 +58,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestSender.cs" />
     <Compile Include="RuleActionAgregator.cs" />
-    <Compile Include="Unit.cs" />
     <Compile Include="XMLFormater.cs" />
   </ItemGroup>
   <ItemGroup>

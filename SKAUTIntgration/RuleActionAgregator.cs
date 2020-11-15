@@ -8,30 +8,32 @@ namespace SKAUTIntgration
 {
     class RuleActionAgregator
     {
-        List<IRuleRequster> rules = new List<IRuleRequster>();
-        public void SetRules()
+        readonly List<IRuleRequster> rules = new List<IRuleRequster>();
+        public void SetRules(string baseURL)
         {
-            rules.Add(new MonitoringObjectAllUnitsPaged());
+            rules.Add(new MonitoringObjectAllUnitsPaged(baseURL));
         }
-        public void UpdateRulesValue(string token)
+        public void UpdateRulesValue(INIManager INI, string token)
         {
             foreach (var item in rules)
             {
-                item.IsActivated = true;
+                item.IsActivated = INI.GetPrivateString(item.Name, "IsActive") == "true"?true:false;
+                item.TargetCatalog = INI.GetPrivateString(item.Name, "TargetPath");
                 item.Token = token;
                 item.RequestNeedParameter();
             }
         }
-        public Dictionary<string, Dictionary<string, string>[]> MakeRequest()
+        public Dictionary<string[], Dictionary<string, string>[]> MakeRequest()
         {
-            Dictionary<string,Dictionary<string, string>[]> responses = new Dictionary<string, Dictionary<string, string>[]>();
+            Dictionary<string[],Dictionary<string, string>[]> responses = new Dictionary<string[], Dictionary<string, string>[]>();
             foreach (var item in rules)
             {
                 if (item.IsActivated)
                 {
                     var resp = RequestSender.SendPostRequest(item.Token, item.UrlServer, item.SendParameter);
                     var responseAnswer = item.ResponseParser(resp);
-                    responses.Add(item.Name,responseAnswer);
+                    string[] param = { item.Name, item.TargetCatalog };
+                    responses.Add(param,responseAnswer);
                 }
             }
             return responses;

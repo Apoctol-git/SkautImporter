@@ -12,6 +12,7 @@ namespace SKAUTIntgration
         string Token { get; set; } // токен авторизация. Получается в классе LoginRequester
         string Name { get; set; } // Имя статистики которое указывается в названии папки и в XML документах
         string UrlServer { get; set; } // адрес на который ссылается запрос
+        string TargetCatalog { get; set; }// каталог, в который складываются файлы с этого адреса
         bool IsActivated { get; set; } // параметр который считывается из конфиг файла. Отвечает за активность выгрузки данных
         string SendParameter { get; set; } // здесь описываем JSON запроса
         Dictionary<string, string>[] ResponseParser(string response); // Здесь должен быть метод, который разбивает JSON ответ на словарь из ключей и значений.
