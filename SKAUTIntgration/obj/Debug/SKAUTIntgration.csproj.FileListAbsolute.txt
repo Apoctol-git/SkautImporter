@@ -7,3 +7,5 @@ C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\xNet.dll
 C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\obj\Debug\SKAUTIntgration.csproj.CopyComplete
 C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\obj\Debug\SKAUTIntgration.exe
 C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\obj\Debug\SKAUTIntgration.pdb
+C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\Newtonsoft.Json.xml

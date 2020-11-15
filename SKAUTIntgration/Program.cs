@@ -13,6 +13,11 @@ namespace SKAUTIntgration
         static void Main(string[] args)
         {
             Login();
+            var ruleRunner = new RuleActionAgregator();
+            ruleRunner.SetRules();
+            ruleRunner.UpdateRulesValue(sessionToken);
+            var xmlForm = ruleRunner.MakeRequest();
+            XMLFormater.XMLSaver(xmlForm);
         }
         static void Login() // Верхнеуровневая процедура логирования
         {

@@ -9,10 +9,12 @@ namespace SKAUTIntgration
     //Интерфейс для работы с запросами после логирования. Каждый класс-запрос должен реализовывать интерфейс
     interface IRuleRequster
     {
-        string Token { get; set; }
-        string UrlServer { get; set; }
-        bool IsActivated { get; set; }
-        Dictionary<string, string> SendParameter { get; set; }
-        Dictionary<string, string> ResponseParameter { get; set; }
+        string Token { get; set; } // токен авторизация. Получается в классе LoginRequester
+        string Name { get; set; } // Имя статистики которое указывается в названии папки и в XML документах
+        string UrlServer { get; set; } // адрес на который ссылается запрос
+        bool IsActivated { get; set; } // параметр который считывается из конфиг файла. Отвечает за активность выгрузки данных
+        string SendParameter { get; set; } // здесь описываем JSON запроса
+        Dictionary<string, string>[] ResponseParser(string response); // Здесь должен быть метод, который разбивает JSON ответ на словарь из ключей и значений.
+        void RequestNeedParameter();// Метод запрашивающий дополнительные сведения для запроса. По базе реализуется пустым
     }
 }

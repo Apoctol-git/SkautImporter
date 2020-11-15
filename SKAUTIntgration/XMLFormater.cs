@@ -9,15 +9,21 @@ namespace SKAUTIntgration
 {
     public class XMLFormater
     {
-        public XDocument newDoc;
-        
-        public XMLFormater()
+        static public void XMLSaver(Dictionary<string, Dictionary<string, string>[]> documents)
         {
-            newDoc =  new XDocument();
+            foreach (var array in documents)
+            {
+                foreach (var item in array.Value)
+                {
+                    var xdoc = formXML(array.Key, item);
+                    saveXML(array.Key, xdoc);
+                }          
+            }
         }
-        public void formXML(string elementName, Dictionary<string,string> datas)
+        static XDocument formXML(string elementName, Dictionary<string,string> datas)
         {
-            XElement objectName = new XElement(elementName);
+            XDocument newDoc = new XDocument();
+            XElement objectName = new XElement("lalal");
             foreach (var item in datas)
             {
                 XElement datasName = new XElement("Name", item.Key);
@@ -26,10 +32,11 @@ namespace SKAUTIntgration
                 objectName.Add(datasValue);
             }
             newDoc.Add(objectName);
+            return newDoc;
         }
-        public void saveXML(string elementName)
+        static void saveXML(string elementName, XDocument newDoc)
         {
-            newDoc.Save(elementName + ".xml");
+             newDoc.Save(elementName + ".xml");
         }
     }
 }
