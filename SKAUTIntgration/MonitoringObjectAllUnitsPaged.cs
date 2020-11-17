@@ -15,6 +15,7 @@ namespace SKAUTIntgration
         public string UrlServer {get;  set; }
         public string TargetCatalog { get; set; }
         public bool IsActivated { get; set; }
+        public DateTime Period { get; set; }
         public string SendParameter { get; set; }
         
         private int countObject;
@@ -29,9 +30,14 @@ namespace SKAUTIntgration
             SetCountObject();
             var serializer = new JavaScriptSerializer();
             SendParameter = serializer.Serialize(new { Offset = "0", Count = countObject });
+            if (!IsActivated) // Заглушка на случай, если мониторинги обновлять не надо, а запросить статистики надо.
+            {
+                ResponseParser(RequestResultArray()[0]);
+            }
         }
         public Dictionary<string, string>[] ResponseParser(string response) 
         {
+            Dictionary<string, string> unitsAndTypes = new Dictionary<string, string>();
             var objectArray = response.Split('{', '}', '[', ']');
             var itterator = 0;
             foreach (var item in objectArray)
@@ -49,20 +55,41 @@ namespace SKAUTIntgration
                 {
                     var resultElement = new Dictionary<string, string>();
                     var valueArray = item.Split(',');
+                    string unitId = null;
+                    string unitTypeId = null;
                     foreach (var value in valueArray)
                     {
                         var workArr = value.Split(':');
-                        workArr[0].Trim();
-                        workArr[1].Trim();
                         resultElement.Add(workArr[0], workArr[1]);
+                        if (true)
+                        {
+
+                        }
+                        if (workArr[0] == "\"UnitId\"")
+                        {
+                            unitId = workArr[1];
+                        }
+                        if (workArr[0] == "\"UnitTypeId\"")
+                        {
+                            unitTypeId = workArr[1];
+                        }
+                        
                     }
+                    unitsAndTypes.Add(unitId, unitTypeId);
                     resultArray[itterator] = resultElement;
                     itterator++;
                 }
-            }    
+            }
+            Program.UnitsAndTypes = unitsAndTypes;
             return resultArray;
         }
-
+        public List<string> RequestResultArray()
+        {
+            var result = new List<string>();
+            var resp = RequestSender.SendPostRequest(Token, UrlServer, SendParameter);
+            result.Add(resp);
+            return result;
+        }
         public void SetCountObject()
         {
             var url = @"http://spic.scout365.ru:8081/spic/units/rest/";

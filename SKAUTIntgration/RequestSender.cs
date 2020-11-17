@@ -24,10 +24,23 @@ namespace SKAUTIntgration
         {
             using (var request = new HttpRequest())
             {
-                request.UserAgent = "";
-                request.AddHeader("ScoutAuthorization", token);
-                string content = request.Post(url,json, "application/json").ToString();
-                return content;
+                try
+                {
+                    request.UserAgent = "";
+                    request.AddHeader("ScoutAuthorization", token);
+                    string content = request.Post(url,json, "application/json").ToString();
+                    return content;
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("Нажмите люубую клавишу что бы закрыть программу");
+                    Console.ReadKey();
+                    System.Environment.Exit(500);
+                    return null;
+                }
+
             }
         }
         static public string SendLoginRequest(string url, string loginData)

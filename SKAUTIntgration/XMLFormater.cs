@@ -13,13 +13,23 @@ namespace SKAUTIntgration
         static public void XMLSaver(string basePath, Dictionary<string[], Dictionary<string, string>[]> documents)
         {
             var i = 0;
+            string lastName = null;
             foreach (var array in documents)
             {
+                if (array.Key[0]!=lastName)
+                {
+                    lastName = array.Key[0];
+                    i = 0;
+                }
                 foreach (var item in array.Value)
                 {
-                    var xdoc = FormXML(array.Key[0], item);
-                    SaveXML(basePath+array.Key[1], array.Key[0]+i, xdoc);
-                    i++;
+                    if (item !=null)
+                    {
+                        var xdoc = FormXML(array.Key[0], item);
+                        SaveXML(basePath+array.Key[1], array.Key[0]+i, xdoc);
+                        i++;
+                    }
+
                 }          
             }
         }

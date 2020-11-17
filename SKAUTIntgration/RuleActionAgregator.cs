@@ -9,9 +9,10 @@ namespace SKAUTIntgration
     class RuleActionAgregator
     {
         readonly List<IRuleRequster> rules = new List<IRuleRequster>();
-        public void SetRules(string baseURL)
+        public void SetRules(string baseURL,DateTime period)
         {
             rules.Add(new MonitoringObjectAllUnitsPaged(baseURL));
+            rules.Add(new FuelDefuelStat(baseURL, period));
         }
         public void UpdateRulesValue(INIManager INI, string token)
         {
@@ -30,10 +31,13 @@ namespace SKAUTIntgration
             {
                 if (item.IsActivated)
                 {
-                    var resp = RequestSender.SendPostRequest(item.Token, item.UrlServer, item.SendParameter);
-                    var responseAnswer = item.ResponseParser(resp);
-                    string[] param = { item.Name, item.TargetCatalog };
-                    responses.Add(param,responseAnswer);
+                    var respCollection = item.RequestResultArray();
+                    foreach (var resp in respCollection)
+                    {
+                        var responseAnswer = item.ResponseParser(resp);
+                        string[] param = { item.Name, item.TargetCatalog };
+                        responses.Add(param,responseAnswer);
+                    }
                 }
             }
             return responses;

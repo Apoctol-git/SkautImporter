@@ -50,6 +50,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseStaticticReqestClass.cs" />
+    <Compile Include="FuelDefuelStat.cs" />
     <Compile Include="INImanager.cs" />
     <Compile Include="IRuleRequster.cs" />
     <Compile Include="LoginRequester.cs" />
