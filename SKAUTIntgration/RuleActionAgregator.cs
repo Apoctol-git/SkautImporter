@@ -13,6 +13,7 @@ namespace SKAUTIntgration
         {
             rules.Add(new MonitoringObjectAllUnitsPaged(baseURL));
             rules.Add(new FuelDefuelStat(baseURL, period));
+            rules.Add(new MotorModesStat(baseURL, period));
         }
         public void UpdateRulesValue(INIManager INI, string token)
         {
@@ -24,9 +25,10 @@ namespace SKAUTIntgration
                 item.RequestNeedParameter();
             }
         }
-        public Dictionary<string[], Dictionary<string, string>[]> MakeRequest()
+        public List<SavingDocument> MakeRequest()
         {
-            Dictionary<string[],Dictionary<string, string>[]> responses = new Dictionary<string[], Dictionary<string, string>[]>();
+            //Dictionary<string[],Dictionary<string, string>[]> responses = new Dictionary<string[], Dictionary<string, string>[]>();
+            List<SavingDocument> responses = new List<SavingDocument>();
             foreach (var item in rules)
             {
                 if (item.IsActivated)
@@ -35,8 +37,7 @@ namespace SKAUTIntgration
                     foreach (var resp in respCollection)
                     {
                         var responseAnswer = item.ResponseParser(resp);
-                        string[] param = { item.Name, item.TargetCatalog };
-                        responses.Add(param,responseAnswer);
+                        responses.Add(new SavingDocument(item.Name, item.TargetCatalog, responseAnswer));
                     }
                 }
             }

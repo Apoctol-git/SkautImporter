@@ -1,4 +1,3 @@
-C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\obj\Debug\SKAUTIntgration.csprojAssemblyReference.cache
 C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\obj\Debug\SKAUTIntgration.csproj.CoreCompileInputs.cache
 C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\SKAUTIntgration.exe.config
 C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\SKAUTIntgration.exe
@@ -9,3 +8,4 @@ C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\obj\Debug\SKAUTInt
 C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\obj\Debug\SKAUTIntgration.pdb
 C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\obj\Debug\SKAUTIntgration.csprojAssemblyReference.cache

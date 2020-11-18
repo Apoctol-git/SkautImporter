@@ -16,7 +16,7 @@ namespace SKAUTIntgration
             Login();
             var period = GetDateTime();
             //var baseURL = @"http://spic.scout365.ru:8081";
-            var INI = GetINIManager(@"C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\config.ini");
+            var INI = GetINIManager(Environment.CurrentDirectory+@"\config.ini");
             var param = GetConfigParameter(INI);
             var baseURL = param[1];
             var ruleRunner = new RuleActionAgregator();

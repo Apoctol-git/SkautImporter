@@ -10,30 +10,30 @@ namespace SKAUTIntgration
 {
     public class XMLFormater
     {
-        static public void XMLSaver(string basePath, Dictionary<string[], Dictionary<string, string>[]> documents)
+        static public void XMLSaver(string basePath, List<SavingDocument> documents)
         {
             var i = 0;
             string lastName = null;
             foreach (var array in documents)
             {
-                if (array.Key[0]!=lastName)
+                if (array.Name!=lastName)
                 {
-                    lastName = array.Key[0];
+                    lastName = array.Name;
                     i = 0;
                 }
-                foreach (var item in array.Value)
+                foreach (var item in array.XMLElevents)
                 {
                     if (item !=null)
                     {
-                        var xdoc = FormXML(array.Key[0], item);
-                        SaveXML(basePath+array.Key[1], array.Key[0]+i, xdoc);
+                        var xdoc = FormXML(array.Name, item);
+                        SaveXML(basePath+array.Path, array.Name+i, xdoc);
                         i++;
                     }
 
                 }          
             }
         }
-        static XDocument FormXML(string elementName, Dictionary<string,string> datas)
+        static XDocument FormXML(string elementName, List<XMLelement> datas)
         {
             XDocument newDoc = new XDocument();
             XElement objectName = new XElement(elementName);

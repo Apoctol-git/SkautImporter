@@ -6,20 +6,23 @@ using System.Threading.Tasks;
 
 namespace SKAUTIntgration
 {
-    public class FuelDefuelStat:BaseStaticticReqestClass,IRuleRequster
+    class MotorModesStat : BaseStaticticReqestClass,IRuleRequster
     {
-
-        public FuelDefuelStat(string baseUrl, DateTime period)
+        public MotorModesStat(string baseUrl, DateTime period)
         {
-            Name = "FuelingDefuelingStatistic";
+            Name = "MotorModesStatistic";
             UrlServer = baseUrl;
             Period = period;
         }
         public void RequestNeedParameter()
         {
-            SetAllUrl(UrlServer, "fdstat");
+            SetAllUrl(UrlServer, "MotorModes");
         }
-        
+        private void PrepairParameters()
+        {
+            JSONprepare(Period);
+            PrepareStatistic(Token);
+        }
         public List<string> RequestResultArray()
         {
             PrepairParameters();
@@ -30,11 +33,5 @@ namespace SKAUTIntgration
             }
             return result;
         }
-        private void PrepairParameters()
-        {
-            JSONprepare(Period);
-            PrepareStatistic(Token);
-        }
-
     }
 }

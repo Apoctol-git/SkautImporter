@@ -10,6 +10,15 @@ namespace SKAUTIntgration
     public abstract class BaseStaticticReqestClass // Базовый класс для наследования статистик. 
     {
         /*
+         Параметры которые нужны каждому запросу, что бы не копировать много раз.
+             */
+        public string Token { get; set; }
+        public string Name { get; set; }
+        public string UrlServer { get; set; }
+        public string TargetCatalog { get; set; }
+        public bool IsActivated { get; set; }
+        public DateTime Period { get; set; }
+        /*
          * Сессия запроса идёт в четыре этапа
          * Начало сессии
          * Добавление статистики в запрос
@@ -74,27 +83,30 @@ namespace SKAUTIntgration
             }
         }
 
-        public Dictionary<string, string>[] ResponseParser(string response)
+        public List<List<XMLelement>> ResponseParser(string response)
         {
-            Dictionary<string, string>[] resultArray = new Dictionary<string, string>[1];
-            var resultElement = new Dictionary<string, string>();
-            var objectArray = SeparateResponse(response.Split('{', '}', '[', ']')); 
+            List<List<XMLelement>> resultArray = new List<List<XMLelement>>();
+            var objectArray = SeparateResponse(response.Split('{', '}', '[', ']'));
+            var resultElement = new List<XMLelement>();
             foreach (var item in objectArray)
             {
                 var valueArray = item.Split(',');
                 foreach (var value in valueArray)
                 {
-                    try
+                    if (value!="")
                     {
-                        var workArr = value.Split(':');
-                        resultElement.Add(workArr[0], workArr[1]);
-                    }
-                    catch (IndexOutOfRangeException ex)
-                    {
+                        try
+                        {
+                            var workArr = value.Split(':');
+                            resultElement.Add(new XMLelement(workArr[0], workArr[1]));
+                        }
+                        catch (IndexOutOfRangeException)
+                        {
 
+                        }
                     }
                 }
-                resultArray[0] = resultElement;
+                resultArray.Add(resultElement);
             }
             return resultArray;
         }

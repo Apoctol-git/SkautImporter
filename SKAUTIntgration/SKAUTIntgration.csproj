@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="BaseStaticticReqestClass.cs" />
     <Compile Include="FuelDefuelStat.cs" />
+    <Compile Include="MotorModesStat.cs" />
     <Compile Include="INImanager.cs" />
     <Compile Include="IRuleRequster.cs" />
     <Compile Include="LoginRequester.cs" />
@@ -60,6 +61,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestSender.cs" />
     <Compile Include="RuleActionAgregator.cs" />
+    <Compile Include="SavingDocument.cs" />
+    <Compile Include="XMLelement.cs" />
     <Compile Include="XMLFormater.cs" />
   </ItemGroup>
   <ItemGroup>

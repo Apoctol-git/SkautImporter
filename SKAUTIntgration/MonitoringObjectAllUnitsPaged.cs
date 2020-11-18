@@ -35,32 +35,32 @@ namespace SKAUTIntgration
                 ResponseParser(RequestResultArray()[0]);
             }
         }
-        public Dictionary<string, string>[] ResponseParser(string response) 
+        public List<List<XMLelement>> ResponseParser(string response) 
         {
             Dictionary<string, string> unitsAndTypes = new Dictionary<string, string>();
             var objectArray = response.Split('{', '}', '[', ']');
-            var itterator = 0;
-            foreach (var item in objectArray)
-            {
-                if (item.Length>10)
-                {
-                    itterator++;
-                }
-            }
-            Dictionary<string, string>[] resultArray = new Dictionary<string, string>[itterator];
-            itterator = 0;
+            //var itterator = 0;
+            //foreach (var item in objectArray)
+            //{
+            //    if (item.Length>10)
+            //    {
+            //        itterator++;
+            //    }
+            //}
+            List<List<XMLelement>> resultArray = new List<List<XMLelement>>();
+            //itterator = 0;
             foreach (var item in objectArray)
             {
                 if (item.Length > 10)
                 {
-                    var resultElement = new Dictionary<string, string>();
+                    var resultElement = new List<XMLelement>();
                     var valueArray = item.Split(',');
                     string unitId = null;
                     string unitTypeId = null;
                     foreach (var value in valueArray)
                     {
                         var workArr = value.Split(':');
-                        resultElement.Add(workArr[0], workArr[1]);
+                        resultElement.Add(new XMLelement(workArr[0], workArr[1]));
                         if (true)
                         {
 
@@ -76,8 +76,8 @@ namespace SKAUTIntgration
                         
                     }
                     unitsAndTypes.Add(unitId, unitTypeId);
-                    resultArray[itterator] = resultElement;
-                    itterator++;
+                    resultArray.Add( resultElement);
+                    //itterator++;
                 }
             }
             Program.UnitsAndTypes = unitsAndTypes;
