@@ -9,14 +9,15 @@ namespace SKAUTIntgration
     public  class SavingDocument
     {
         public string Name { get; private set; }
+        public string UnitId { get; private set; }
         public string Path { get; private set; }
-        public List<List<XMLelement>> XMLElevents { get; private set; }
+        public List<List<XMLelement>> SavingElevents { get; private set; }
 
-        public SavingDocument(string name, string path, List<List<XMLelement>> xMLElevents)
+        public SavingDocument(string name, string path, List<List<XMLelement>> savingElevents)
         {
             Name = name;
             Path = path;
-            XMLElevents = xMLElevents;
+            SavingElevents = savingElevents;
         }
     }
 }

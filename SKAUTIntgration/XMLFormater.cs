@@ -8,9 +8,9 @@ using System.Xml.Linq;
 
 namespace SKAUTIntgration
 {
-    public class XMLFormater
+    public class XMLFormater:IFormater
     {
-        static public void XMLSaver(string basePath, List<SavingDocument> documents)
+        public void Saver(string basePath, List<SavingDocument> documents)
         {
             var i = 0;
             string lastName = null;
@@ -21,7 +21,7 @@ namespace SKAUTIntgration
                     lastName = array.Name;
                     i = 0;
                 }
-                foreach (var item in array.XMLElevents)
+                foreach (var item in array.SavingElevents)
                 {
                     if (item !=null)
                     {
@@ -33,7 +33,7 @@ namespace SKAUTIntgration
                 }          
             }
         }
-        static XDocument FormXML(string elementName, List<XMLelement> datas)
+        XDocument FormXML(string elementName, List<XMLelement> datas)
         {
             XDocument newDoc = new XDocument();
             XElement objectName = new XElement(elementName);
@@ -47,7 +47,7 @@ namespace SKAUTIntgration
             newDoc.Add(objectName);
             return newDoc;
         }
-        static void SaveXML(string path, string elementName, XDocument newDoc)
+        void SaveXML(string path, string elementName, XDocument newDoc)
         {
             try
             {

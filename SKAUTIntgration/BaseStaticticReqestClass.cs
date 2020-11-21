@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -73,16 +74,30 @@ namespace SKAUTIntgration
         {
             foreach (var item in JSONparameterStart)
             {
-                var statisticcSessionRecponse = RequestSender.SendPostRequest(token, urlStartStatSession, item);
+                var statisticcSessionRecponse = StartStatisticSession(token, item);
                 string statisticSessionId = GetSessionStaticticId(statisticcSessionRecponse);
                 var ser = new JavaScriptSerializer();
                 var json = ser.Serialize(new { StatisticsSessionId  = statisticSessionId });
                 JSONRunSession.Add(json);
-                var addedStatistic = RequestSender.SendPostRequest(token, addStatisticToRequest, json);
-                var buildedStatistic = RequestSender.SendPostRequest(token, urlBuildStatistic, json);
+                var addedStatistic = AddStatistic(token, json);
+                var buildedStatistic = BuildStatistic(token, json);
             }
         }
-
+        public virtual string StartStatisticSession(string token, string json)
+        {
+            var statisticcSessionRecponse = RequestSender.SendPostRequest(token, urlStartStatSession, json);
+            return statisticcSessionRecponse;
+        }
+        public virtual string AddStatistic (string token, string json)
+        {
+            var res =  RequestSender.SendPostRequest(token, addStatisticToRequest, json);
+            return res;
+        }
+        public virtual string BuildStatistic(string token, string json)
+        {
+            var res = RequestSender.SendPostRequest(token, urlBuildStatistic, json);
+            return res;
+        }
         public List<List<XMLelement>> ResponseParser(string response)
         {
             List<List<XMLelement>> resultArray = new List<List<XMLelement>>();
@@ -132,6 +147,6 @@ namespace SKAUTIntgration
                 }
             }
             return workArray;
-        }
+        }        
     }
 }

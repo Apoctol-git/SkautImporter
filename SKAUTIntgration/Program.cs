@@ -20,10 +20,11 @@ namespace SKAUTIntgration
             var param = GetConfigParameter(INI);
             var baseURL = param[1];
             var ruleRunner = new RuleActionAgregator();
+            IFormater formater = new CSVFormater();
             ruleRunner.SetRules(baseURL,period);
             ruleRunner.UpdateRulesValue(INI, sessionToken);
             var xmlForm = ruleRunner.MakeRequest();
-            XMLFormater.XMLSaver(param[0],xmlForm);
+            formater.Saver(param[0],xmlForm);
         }
         static void Login() // Верхнеуровневая процедура логирования
         {

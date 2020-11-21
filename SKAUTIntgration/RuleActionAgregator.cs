@@ -14,6 +14,8 @@ namespace SKAUTIntgration
             rules.Add(new MonitoringObjectAllUnitsPaged(baseURL));
             rules.Add(new FuelDefuelStat(baseURL, period));
             rules.Add(new MotorModesStat(baseURL, period));
+            rules.Add(new NavigationValidationStat(baseURL, period));
+            rules.Add(new TrackPeriodStat(baseURL, period));
         }
         public void UpdateRulesValue(INIManager INI, string token)
         {
