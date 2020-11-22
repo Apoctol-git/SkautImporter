@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace SKAUTIntgration
 {
-    class TrackPeriodStat:BaseStaticticReqestClass,IRuleRequster
+    class FuelEventStat:BaseStaticticReqestClass,IRuleRequster
     {
-        public TrackPeriodStat(string baseUrl, DateTime period)
+        public FuelEventStat(string baseUrl, DateTime period)
         {
-            Name = "TrackPeriodStatistic";
+            Name = "FuelEventStatistic";
             UrlServer = baseUrl;
             Period = period;
         }
         public void RequestNeedParameter()
         {
-            SetAllUrl(UrlServer, "TrackPeriod");
+            SetAllUrl(UrlServer, "FuelEvent");
         }
 
         public Dictionary<string, string> RequestResultArray()

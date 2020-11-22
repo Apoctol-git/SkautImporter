@@ -19,11 +19,13 @@ namespace SKAUTIntgration
         public string SendParameter { get; set; }
         
         private int countObject;
+        private string urlCount;
 
         public MonitoringObjectAllUnitsPaged(string baseURL)
         {
             Name = "MonitoringObject";
             UrlServer = baseURL +  @"/spic/units/rest/getAllUnitsPaged";
+            urlCount = baseURL + @"/spic/units/rest/";
         }
         public void RequestNeedParameter()
         {
@@ -32,7 +34,7 @@ namespace SKAUTIntgration
             SendParameter = serializer.Serialize(new { Offset = "0", Count = countObject });
             if (!IsActivated) // Заглушка на случай, если мониторинги обновлять не надо, а запросить статистики надо.
             {
-                ResponseParser(RequestResultArray()[0]);
+                ResponseParser(RequestResultArray()["0"]);
             }
         }
         public List<List<XMLelement>> ResponseParser(string response) 
@@ -60,10 +62,13 @@ namespace SKAUTIntgration
                     foreach (var value in valueArray)
                     {
                         var workArr = value.Split(':');
-                        resultElement.Add(new XMLelement(workArr[0], workArr[1]));
-                        if (true)
+                        if (workArr.Length==1)
                         {
-
+                            resultElement.Add(new XMLelement(workArr[0],null));
+                        }
+                        else
+                        {
+                            resultElement.Add(new XMLelement(workArr[0], workArr[1]));
                         }
                         if (workArr[0] == "\"UnitId\"")
                         {
@@ -83,17 +88,16 @@ namespace SKAUTIntgration
             Program.UnitsAndTypes = unitsAndTypes;
             return resultArray;
         }
-        public List<string> RequestResultArray()
+        public Dictionary<string, string> RequestResultArray()
         {
-            var result = new List<string>();
+            var result = new Dictionary<string, string>();
             var resp = RequestSender.SendPostRequest(Token, UrlServer, SendParameter);
-            result.Add(resp);
+            result.Add("0", resp);
             return result;
         }
         public void SetCountObject()
         {
-            var url = @"http://spic.scout365.ru:8081/spic/units/rest/";
-            this.countObject = int.Parse(RequestSender.SendGetRequest(Token, url));
+             countObject = int.Parse(RequestSender.SendGetRequest(Token, urlCount));
         }
     }
 }

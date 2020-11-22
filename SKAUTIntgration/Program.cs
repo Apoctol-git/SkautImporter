@@ -13,12 +13,13 @@ namespace SKAUTIntgration
         public static Dictionary<string, string> UnitsAndTypes = new Dictionary<string, string>();
         static void Main()
         {
-            Login();
-            var period = GetDateTime();
+            
             //var baseURL = @"http://spic.scout365.ru:8081";
             var INI = GetINIManager(Environment.CurrentDirectory+@"\config.ini");
             var param = GetConfigParameter(INI);
             var baseURL = param[1];
+            Login(baseURL);
+            var period = GetDateTime();
             var ruleRunner = new RuleActionAgregator();
             IFormater formater = new CSVFormater();
             ruleRunner.SetRules(baseURL,period);
@@ -26,7 +27,7 @@ namespace SKAUTIntgration
             var xmlForm = ruleRunner.MakeRequest();
             formater.Saver(param[0],xmlForm);
         }
-        static void Login() // Верхнеуровневая процедура логирования
+        static void Login(string baseURL) // Верхнеуровневая процедура логирования
         {
             bool isRepeat = true;
             while (isRepeat)
@@ -36,7 +37,7 @@ namespace SKAUTIntgration
                 var login = (string)Console.ReadLine();
                 Console.WriteLine("Введите пароль");
                 var password = (string)Console.ReadLine();
-                var data = loginreq.Login(login, password);
+                var data = loginreq.Login(login, password, baseURL);
                 if (data[0] == "true" && data[1] == "true")
                 {
                     sessionToken = data[2];

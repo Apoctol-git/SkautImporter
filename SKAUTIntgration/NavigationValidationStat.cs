@@ -19,13 +19,13 @@ namespace SKAUTIntgration
             SetAllUrl(UrlServer, "NavigationValidation");
         }
 
-        public List<string> RequestResultArray()
+        public Dictionary<string, string> RequestResultArray()
         {
             PrepairParameters();
-            var result = new List<string>();
+            var result = new Dictionary<string, string>();
             foreach (var item in JSONRunSession)
             {
-                result.Add(RequestSender.SendPostRequest(Token, getStatistics, item));
+                result.Add(item.Key, RequestSender.SendPostRequest(Token, getStatistics, item.Value));
             }
             return result;
         }

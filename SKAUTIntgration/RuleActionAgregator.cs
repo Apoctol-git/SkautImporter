@@ -12,6 +12,7 @@ namespace SKAUTIntgration
         public void SetRules(string baseURL,DateTime period)
         {
             rules.Add(new MonitoringObjectAllUnitsPaged(baseURL));
+            rules.Add(new FuelFlowStat(baseURL, period));
             rules.Add(new FuelDefuelStat(baseURL, period));
             rules.Add(new MotorModesStat(baseURL, period));
             rules.Add(new NavigationValidationStat(baseURL, period));
@@ -38,8 +39,8 @@ namespace SKAUTIntgration
                     var respCollection = item.RequestResultArray();
                     foreach (var resp in respCollection)
                     {
-                        var responseAnswer = item.ResponseParser(resp);
-                        responses.Add(new SavingDocument(item.Name, item.TargetCatalog, responseAnswer));
+                        var responseAnswer = item.ResponseParser(resp.Value);
+                        responses.Add(new SavingDocument(item.Name, item.Period, resp.Key, item.TargetCatalog, responseAnswer));
                     }
                 }
             }

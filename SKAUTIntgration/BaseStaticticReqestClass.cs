@@ -32,8 +32,8 @@ namespace SKAUTIntgration
         private string addStatisticToRequest = null;
         private string urlBuildStatistic = "/spic/StatisticsController/rest/StartBuild";
         protected string getStatistics = null;
-        private List<string> JSONparameterStart = new List<string>(); // список тел начала сессии
-        protected List<string> JSONRunSession = new List<string>(); // Список ID запущенных сессий
+        private Dictionary<string,string> JSONparameterStart = new Dictionary<string,string>(); // список тел начала сессии
+        protected Dictionary<string, string> JSONRunSession = new Dictionary<string, string>(); // Список ID запущенных сессий
 
         // Метод должен вызываться из дочернего класса, и компоновать конкретные Url котороые сейчас null
         public void SetAllUrl (string baseUrl, string UrlServer)
@@ -66,7 +66,7 @@ namespace SKAUTIntgration
                         ObjectId = item.Key
                     }
                 });
-                JSONparameterStart.Add(json);
+                JSONparameterStart.Add(item.Key,json);
             }
         }
         //Метод подготавливает все статистики для выгрузки.
@@ -74,11 +74,11 @@ namespace SKAUTIntgration
         {
             foreach (var item in JSONparameterStart)
             {
-                var statisticcSessionRecponse = StartStatisticSession(token, item);
+                var statisticcSessionRecponse = StartStatisticSession(token, item.Value);
                 string statisticSessionId = GetSessionStaticticId(statisticcSessionRecponse);
                 var ser = new JavaScriptSerializer();
                 var json = ser.Serialize(new { StatisticsSessionId  = statisticSessionId });
-                JSONRunSession.Add(json);
+                JSONRunSession.Add(item.Key,json);
                 var addedStatistic = AddStatistic(token, json);
                 var buildedStatistic = BuildStatistic(token, json);
             }

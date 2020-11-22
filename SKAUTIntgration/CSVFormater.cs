@@ -12,24 +12,19 @@ namespace SKAUTIntgration
     {
         public void Saver(string basePath, List<SavingDocument> documents)
         {
-            var i = 0;
-            string lastName = null;
             foreach (var document in documents)
             {
                 foreach (var savingElevent in document.SavingElevents)
                 {
 
-                    if (document.Name != lastName)
-                    {
-                        lastName = document.Name;
-                        i = 0;
-                    }
                     var notCatched = true;
                     while (notCatched)
                     {
                         try
                         {
-                            using (StreamWriter streamReader = new StreamWriter(basePath + document.Path + @"\" + document.Name + i + ".csv"))
+                            var path = basePath + document.Path + @"\";
+                            var name = document.Period+"_" +document.Name +"_"+document.UnitId+ ".csv";
+                            using (StreamWriter streamReader = new StreamWriter(path + name))
                             {
                                 using (CsvWriter csvReader = new CsvWriter(streamReader, System.Globalization.CultureInfo.CurrentCulture))
                                 {
@@ -47,7 +42,6 @@ namespace SKAUTIntgration
                             Directory.CreateDirectory(basePath + document.Path);
                         }
                     }
-                    i++;
                 }
             }
         }

@@ -18,6 +18,6 @@ namespace SKAUTIntgration
         DateTime Period { get; set; } // Период запроса статистики
         List<List<XMLelement>> ResponseParser(string response); // Здесь должен быть метод, который разбивает JSON ответ на словарь из ключей и значений.
         void RequestNeedParameter();// Метод запрашивающий дополнительные сведения для запроса. По базе реализуется пустым
-        List<string> RequestResultArray(); // Метод который отсылает запросы пачками на сервер. По одному за раз
+        Dictionary<string, string> RequestResultArray(); // Метод который отсылает запросы пачками на сервер. По одному за раз
     }
 }
