@@ -80,7 +80,10 @@ namespace SKAUTIntgration
                         }
                         
                     }
-                    unitsAndTypes.Add(unitId, unitTypeId);
+                    if (unitsAndTypes.Count <10)
+                    {
+                        unitsAndTypes.Add(unitId, unitTypeId);
+                    }
                     resultArray.Add( resultElement);
                     //itterator++;
                 }
