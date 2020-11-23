@@ -37,10 +37,13 @@ namespace SKAUTIntgration
                 if (item.IsActivated)
                 {
                     var respCollection = item.RequestResultArray();
+                    var logger = new Logger();
+                    logger.WriteLog(item.Name, "-1", "ответ получен");
                     foreach (var resp in respCollection)
                     {
                         var responseAnswer = item.ResponseParser(resp.Value);
                         responses.Add(new SavingDocument(item.Name, item.Period, resp.Key, item.TargetCatalog, responseAnswer));
+                        logger.WriteLog(item.Name, resp.Key, "загружен");
                     }
                 }
             }

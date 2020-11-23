@@ -68,6 +68,7 @@
     <Compile Include="FuelEventStat.cs" />
     <Compile Include="FuelFlowStat.cs" />
     <Compile Include="IFormater.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="MotorModesStat.cs" />
     <Compile Include="INImanager.cs" />
     <Compile Include="IRuleRequster.cs" />

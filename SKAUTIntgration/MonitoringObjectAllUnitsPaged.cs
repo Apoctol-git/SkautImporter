@@ -34,7 +34,7 @@ namespace SKAUTIntgration
             SendParameter = serializer.Serialize(new { Offset = "0", Count = countObject });
             if (!IsActivated) // Заглушка на случай, если мониторинги обновлять не надо, а запросить статистики надо.
             {
-                ResponseParser(RequestResultArray()["0"]);
+                ResponseParser(RequestResultArray()["-1"]);
             }
         }
         public List<List<XMLelement>> ResponseParser(string response) 
@@ -92,12 +92,12 @@ namespace SKAUTIntgration
         {
             var result = new Dictionary<string, string>();
             var resp = RequestSender.SendPostRequest(Token, UrlServer, SendParameter);
-            result.Add("0", resp);
+            result.Add("-1", resp);
             return result;
         }
         public void SetCountObject()
         {
-             countObject = int.Parse(RequestSender.SendGetRequest(Token, urlCount));
+            countObject = int.Parse(RequestSender.SendGetRequest(Token, urlCount));
         }
     }
 }

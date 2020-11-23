@@ -14,6 +14,7 @@ namespace SKAUTIntgration
         {
             foreach (var document in documents)
             {
+                var logger = new Logger();
                 foreach (var savingElevent in document.SavingElevents)
                 {
 
@@ -23,7 +24,8 @@ namespace SKAUTIntgration
                         try
                         {
                             var path = basePath + document.Path + @"\";
-                            var name = document.Period+"_" +document.Name +"_"+document.UnitId+ ".csv";
+                            var unitId = document.UnitId == "-1" ? null : "_" + document.UnitId;
+                            var name = document.Period.ToLongDateString()+"_" +document.Name+"_" +unitId+ ".csv";
                             using (StreamWriter streamReader = new StreamWriter(path + name))
                             {
                                 using (CsvWriter csvReader = new CsvWriter(streamReader, System.Globalization.CultureInfo.CurrentCulture))
@@ -32,7 +34,6 @@ namespace SKAUTIntgration
 
                                     csvReader.Configuration.Delimiter = ",";
                                     csvReader.WriteRecords(savingElevent);
-
                                 }
                             }
                             notCatched = false;
@@ -43,6 +44,7 @@ namespace SKAUTIntgration
                         }
                     }
                 }
+                logger.WriteLog(document.Name, document.UnitId, "сохранён");
             }
         }
     }
