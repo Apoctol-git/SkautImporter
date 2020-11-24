@@ -26,7 +26,8 @@ namespace SKAUTIntgration
                         {
                             var path = basePath + document.Path + @"\";
                             var unitId = document.UnitId == "-1" ? i.ToString() : "_" + document.UnitId;
-                            var name = document.Period.ToLongDateString()+"_" +document.Name+"_" +unitId+ ".csv";
+                            var period = document.Period.Year + document.Period.Month + document.Period.Day;
+                            var name = period+ "_" +document.Name+"_" +unitId+ ".csv";
                             using (StreamWriter streamReader = new StreamWriter(path + name))
                             {
                                 using (CsvWriter csvReader = new CsvWriter(streamReader, System.Globalization.CultureInfo.CurrentCulture))
@@ -50,5 +51,6 @@ namespace SKAUTIntgration
         {
             i++;
         }
+
     }
 }
