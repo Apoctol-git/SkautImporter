@@ -14,9 +14,13 @@ namespace SKAUTIntgration
             rules.Add(new MonitoringObjectAllUnitsPaged(baseURL));
             rules.Add(new FuelFlowStat(baseURL, period));
             rules.Add(new FuelDefuelStat(baseURL, period));
+            rules.Add(new FuelEventStat(baseURL, period));
             rules.Add(new MotorModesStat(baseURL, period));
             rules.Add(new NavigationValidationStat(baseURL, period));
             rules.Add(new TrackPeriodStat(baseURL, period));
+            rules.Add(new TrackPeriodsMileageStat(baseURL, period));
+            rules.Add(new NavigationFiltrationStat(baseURL, period));
+            rules.Add(new DiscreteSensorStat(baseURL, period));
         }
         public void UpdateRulesValue(INIManager INI, string token)
         {
@@ -31,13 +35,14 @@ namespace SKAUTIntgration
         public List<SavingDocument> MakeRequest()
         {
             //Dictionary<string[],Dictionary<string, string>[]> responses = new Dictionary<string[], Dictionary<string, string>[]>();
+            var logger = new Logger();
+            logger.RemoveOldLogs();
             List<SavingDocument> responses = new List<SavingDocument>();
             foreach (var item in rules)
             {
                 if (item.IsActivated)
                 {
                     var respCollection = item.RequestResultArray();
-                    var logger = new Logger();
                     logger.WriteLog(item.Name, "-1", "ответ получен");
                     foreach (var resp in respCollection)
                     {

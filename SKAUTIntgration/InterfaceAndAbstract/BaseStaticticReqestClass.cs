@@ -98,6 +98,16 @@ namespace SKAUTIntgration
             var res = RequestSender.SendPostRequest(token, urlBuildStatistic, json);
             return res;
         }
+        public Dictionary<string, string> RequestResultArray()
+        {
+            PrepairParameters();
+            var result = new Dictionary<string, string>();
+            foreach (var item in JSONRunSession)
+            {
+                result.Add(item.Key, RequestSender.SendPostRequest(Token, getStatistics, item.Value));
+            }
+            return result;
+        }
         public List<List<XMLelement>> ResponseParser(string response)
         {
             List<List<XMLelement>> resultArray = new List<List<XMLelement>>();
@@ -113,7 +123,7 @@ namespace SKAUTIntgration
                         try
                         {
                             var workArr = value.Split(':');
-                            resultElement.Add(new XMLelement(workArr[0], workArr[1]));
+                            resultElement.Add(new XMLelement(GetUndoublequotesString(workArr[0]), GetUndoublequotesString(workArr[1])));
                         }
                         catch (IndexOutOfRangeException)
                         {
@@ -147,6 +157,17 @@ namespace SKAUTIntgration
                 }
             }
             return workArray;
-        }        
+        }
+        private void PrepairParameters()
+        {
+            JSONprepare(Period);
+            PrepareStatistic(Token);
+        }
+        private string GetUndoublequotesString(string doublequotesString)
+        {
+            var workArray = doublequotesString.Split('"');
+            return workArray.Length == 1 ? workArray[0] : workArray[1];
+        }
+
     }
 }

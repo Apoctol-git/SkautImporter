@@ -1,7 +1,4 @@
-﻿Объект MonitoringObject  загружен
-Объект FuelingDefuelingStatistic Для объекта мониторинга 10126 загружен
-Объект FuelingDefuelingStatistic Для объекта мониторинга 9775 загружен
-Объект MonitoringObject  ответ получен
+﻿Объект MonitoringObject  ответ получен
 Объект MonitoringObject  загружен
 Объект FuelFlowStatistic  ответ получен
 Объект FuelFlowStatistic Для объекта мониторинга 10126 загружен
@@ -12,12 +9,15 @@
 Объект MotorModesStatistic  ответ получен
 Объект MotorModesStatistic Для объекта мониторинга 10126 загружен
 Объект MotorModesStatistic Для объекта мониторинга 9775 загружен
-Объект NavigationValidationStatistic  ответ получен
-Объект NavigationValidationStatistic Для объекта мониторинга 10126 загружен
-Объект NavigationValidationStatistic Для объекта мониторинга 9775 загружен
 Объект TrackPeriodStatistic  ответ получен
 Объект TrackPeriodStatistic Для объекта мониторинга 10126 загружен
 Объект TrackPeriodStatistic Для объекта мониторинга 9775 загружен
+Объект TrackPeriodsMileageStatistic  ответ получен
+Объект TrackPeriodsMileageStatistic Для объекта мониторинга 10126 загружен
+Объект TrackPeriodsMileageStatistic Для объекта мониторинга 9775 загружен
+Объект DiscreteSensorStatistic  ответ получен
+Объект DiscreteSensorStatistic Для объекта мониторинга 10126 загружен
+Объект DiscreteSensorStatistic Для объекта мониторинга 9775 загружен
 Объект MonitoringObject  сохранён
 Объект FuelFlowStatistic Для объекта мониторинга 10126 сохранён
 Объект FuelFlowStatistic Для объекта мониторинга 9775 сохранён
@@ -25,3 +25,7 @@
 Объект FuelingDefuelingStatistic Для объекта мониторинга 9775 сохранён
 Объект MotorModesStatistic Для объекта мониторинга 10126 сохранён
 Объект MotorModesStatistic Для объекта мониторинга 9775 сохранён
+Объект TrackPeriodStatistic Для объекта мониторинга 10126 сохранён
+Объект TrackPeriodStatistic Для объекта мониторинга 9775 сохранён
+Объект TrackPeriodsMileageStatistic Для объекта мониторинга 10126 сохранён
+Объект TrackPeriodsMileageStatistic Для объекта мониторинга 9775 сохранён

@@ -41,16 +41,7 @@ namespace SKAUTIntgration
         {
             Dictionary<string, string> unitsAndTypes = new Dictionary<string, string>();
             var objectArray = response.Split('{', '}', '[', ']');
-            //var itterator = 0;
-            //foreach (var item in objectArray)
-            //{
-            //    if (item.Length>10)
-            //    {
-            //        itterator++;
-            //    }
-            //}
             List<List<XMLelement>> resultArray = new List<List<XMLelement>>();
-            //itterator = 0;
             foreach (var item in objectArray)
             {
                 if (item.Length > 10)
@@ -64,11 +55,11 @@ namespace SKAUTIntgration
                         var workArr = value.Split(':');
                         if (workArr.Length==1)
                         {
-                            resultElement.Add(new XMLelement(workArr[0],null));
+                            resultElement.Add(new XMLelement(GetUndoublequotesString(workArr[0]),null));
                         }
                         else
                         {
-                            resultElement.Add(new XMLelement(workArr[0], workArr[1]));
+                            resultElement.Add(new XMLelement(GetUndoublequotesString(workArr[0]), GetUndoublequotesString(workArr[1])));
                         }
                         if (workArr[0] == "\"UnitId\"")
                         {
@@ -100,7 +91,12 @@ namespace SKAUTIntgration
         }
         public void SetCountObject()
         {
-            countObject = int.Parse(RequestSender.SendGetRequest(Token, urlCount));
+            countObject = 2;//int.Parse(RequestSender.SendGetRequest(Token, urlCount));
+        }
+        private string GetUndoublequotesString(string doublequotesString)
+        {
+            var workArray = doublequotesString.Split('"');
+            return workArray.Length==1?workArray[0]: workArray[1];
         }
     }
 }

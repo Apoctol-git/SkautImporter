@@ -24,5 +24,9 @@ namespace SKAUTIntgration
                 writer.WriteLine(text);
             }
         }
+        public void RemoveOldLogs()
+        {
+            File.Delete(path);
+        }
     }
 }

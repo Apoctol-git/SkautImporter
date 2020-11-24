@@ -18,20 +18,6 @@ namespace SKAUTIntgration
         {
             SetAllUrl(UrlServer, "MotorModes");
         }
-        private void PrepairParameters()
-        {
-            JSONprepare(Period);
-            PrepareStatistic(Token);
-        }
-        public Dictionary<string, string> RequestResultArray()
-        {
-            PrepairParameters();
-            var result = new Dictionary<string, string>();
-            foreach (var item in JSONRunSession)
-            {
-                result.Add(item.Key, RequestSender.SendPostRequest(Token, getStatistics, item.Value));
-            }
-            return result;
-        }
+
     }
 }

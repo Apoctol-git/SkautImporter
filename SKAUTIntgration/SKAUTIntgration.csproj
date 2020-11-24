@@ -62,27 +62,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseStaticticReqestClass.cs" />
-    <Compile Include="CSVFormater.cs" />
-    <Compile Include="FuelDefuelStat.cs" />
-    <Compile Include="FuelEventStat.cs" />
-    <Compile Include="FuelFlowStat.cs" />
-    <Compile Include="IFormater.cs" />
-    <Compile Include="Logger.cs" />
-    <Compile Include="MotorModesStat.cs" />
-    <Compile Include="INImanager.cs" />
-    <Compile Include="IRuleRequster.cs" />
-    <Compile Include="LoginRequester.cs" />
-    <Compile Include="MonitoringObjectAllUnitsPaged.cs" />
-    <Compile Include="NavigationValidationStat.cs" />
+    <Compile Include="InterfaceAndAbstract\BaseStaticticReqestClass.cs" />
+    <Compile Include="EnviromentTouch\CSVFormater.cs" />
+    <Compile Include="UploadClass\DiscreteSensorStat.cs" />
+    <Compile Include="UploadClass\FuelDefuelStat.cs" />
+    <Compile Include="UploadClass\FuelEventStat.cs" />
+    <Compile Include="UploadClass\FuelFlowStat.cs" />
+    <Compile Include="InterfaceAndAbstract\IFormater.cs" />
+    <Compile Include="EnviromentTouch\Logger.cs" />
+    <Compile Include="UploadClass\MotorModesStat.cs" />
+    <Compile Include="EnviromentTouch\INImanager.cs" />
+    <Compile Include="InterfaceAndAbstract\IRuleRequster.cs" />
+    <Compile Include="REST\LoginRequester.cs" />
+    <Compile Include="UploadClass\MonitoringObjectAllUnitsPaged.cs" />
+    <Compile Include="UploadClass\NavigationFiltrationStat.cs" />
+    <Compile Include="UploadClass\NavigationValidationStat.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestSender.cs" />
+    <Compile Include="REST\RequestSender.cs" />
     <Compile Include="RuleActionAgregator.cs" />
-    <Compile Include="SavingDocument.cs" />
-    <Compile Include="TrackPeriodStat.cs" />
-    <Compile Include="XMLelement.cs" />
-    <Compile Include="XMLFormater.cs" />
+    <Compile Include="REST\TechicalElement\SavingDocument.cs" />
+    <Compile Include="UploadClass\TrackPeriodsMileageStat.cs" />
+    <Compile Include="UploadClass\TrackPeriodStat.cs" />
+    <Compile Include="REST\TechicalElement\XMLelement.cs" />
+    <Compile Include="EnviromentTouch\XMLFormater.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -91,5 +94,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
