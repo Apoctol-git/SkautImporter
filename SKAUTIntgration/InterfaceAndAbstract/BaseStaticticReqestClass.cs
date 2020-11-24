@@ -123,6 +123,11 @@ namespace SKAUTIntgration
                         try
                         {
                             var workArr = value.Split(':');
+                            if (workArr[1].Contains(@"\/Data"))
+                            {
+                                var milisec = long.Parse(SepareteDateTime(GetUndoublequotesString(workArr[1])));
+                                workArr[1] = CountDateTime(milisec).ToShortDateString() + " " + CountDateTime(milisec).ToShortTimeString();
+                            }
                             resultElement.Add(new XMLelement(GetUndoublequotesString(workArr[0]), GetUndoublequotesString(workArr[1])));
                         }
                         catch (IndexOutOfRangeException)
@@ -167,6 +172,14 @@ namespace SKAUTIntgration
         {
             var workArray = doublequotesString.Split('"');
             return workArray.Length == 1 ? workArray[0] : workArray[1];
+        }
+        private string SepareteDateTime(string JSONdt)
+        {
+            return JSONdt.Split('(', ')', '+')[1];
+        }
+        private DateTime CountDateTime(long milisec)
+        {
+            return new DateTime(1970, 1, 1).AddMilliseconds(milisec);
         }
 
     }
