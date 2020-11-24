@@ -11,7 +11,7 @@ namespace SKAUTIntgration
         readonly List<IRuleRequster> rules = new List<IRuleRequster>();
         public void SetRules(string baseURL,DateTime period)
         {
-            rules.Add(new MonitoringObjectAllUnitsPaged(baseURL));
+            rules.Add(new MonitoringObjectAllUnitsPaged(baseURL,period));
             rules.Add(new FuelFlowStat(baseURL, period));
             rules.Add(new FuelDefuelStat(baseURL, period));
             rules.Add(new FuelEventStat(baseURL, period));

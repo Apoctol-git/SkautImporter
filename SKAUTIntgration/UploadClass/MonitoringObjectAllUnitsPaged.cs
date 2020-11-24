@@ -27,6 +27,15 @@ namespace SKAUTIntgration
             UrlServer = baseURL +  @"/spic/units/rest/getAllUnitsPaged";
             urlCount = baseURL + @"/spic/units/rest/";
         }
+
+        public MonitoringObjectAllUnitsPaged(string baseURL, DateTime period) : this(baseURL)
+        {
+            Name = "MonitoringObject";
+            UrlServer = baseURL + @"/spic/units/rest/getAllUnitsPaged";
+            urlCount = baseURL + @"/spic/units/rest/";
+            Period = period;
+        }
+
         public void RequestNeedParameter()
         {
             SetCountObject();
