@@ -13,14 +13,14 @@ namespace SKAUTIntgration
 
         public Logger()
         {
-            path = Environment.CurrentDirectory + @"\Log.txt";
+            path = Environment.CurrentDirectory + @"\SKAUTIntegrationLog.txt";
         }
         public void WriteLog(string loggingObject, string unitId, string status)
         {
             using (var writer = new StreamWriter(path,true, Encoding.UTF8))
             {
                 var dinamicText = unitId == "-1" ? null : "Для объекта мониторинга " + unitId;
-                var text = "Объект " + loggingObject + " " + dinamicText + " " + status;
+                var text = DateTime.Now.TimeOfDay + " : "+ "Объект " + loggingObject + " " + dinamicText + " " + status;
                 writer.WriteLine(text);
             }
         }
