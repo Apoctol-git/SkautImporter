@@ -19,6 +19,7 @@ namespace SKAUTIntgration
         public string TargetCatalog { get; set; }
         public bool IsActivated { get; set; }
         public DateTime Period { get; set; }
+        protected List<string> unitsId;
         /*
          * Сессия запроса идёт в четыре этапа
          * Начало сессии
@@ -51,7 +52,7 @@ namespace SKAUTIntgration
             var serializer = new JavaScriptSerializer();
             var begin = (periodStart - new DateTime(1970, 1, 1)).TotalMilliseconds;
             var end = (periodStart.AddDays(1) - new DateTime(1970, 1, 1)).TotalMilliseconds;
-            foreach (var item in Program.UnitsAndTypes)
+            foreach (var item in unitsId)
             {
                 var json= serializer.Serialize(new
                 {
@@ -63,10 +64,10 @@ namespace SKAUTIntgration
                     TargetObject = new
                     {
                         ObjectTypeId = "0F1E3A4A-88F5-4166-9BE8-76033DD85D08",//item.Value,
-                        ObjectId = item.Key
+                        ObjectId = item
                     }
                 });
-                JSONparameterStart.Add(item.Key,json);
+                JSONparameterStart.Add(item,json);
             }
         }
         //Метод подготавливает все статистики для выгрузки.
@@ -108,9 +109,41 @@ namespace SKAUTIntgration
             }
             return result;
         }
-        public List<List<XMLelement>> ResponseParser(string response)
+        //public List<List<XMLelement>> ResponseParser(string response)
+        //{
+        //    List<List<XMLelement>> resultArray = new List<List<XMLelement>>();
+        //    var objectArray = SeparateResponse(response.Split('{', '}', '[', ']'));
+        //    var resultElement = new List<XMLelement>();
+        //    foreach (var item in objectArray)
+        //    {
+        //        var valueArray = item.Split(',');
+        //        foreach (var value in valueArray)
+        //        {
+        //            if (value!="")
+        //            {
+        //                try
+        //                {
+        //                    var workArr = value.Split(':');
+        //                    if (workArr[1].Contains("Date"))
+        //                    {
+        //                        var milisec = long.Parse(SepareteDateTime(GetUndoublequotesString(workArr[1])));
+        //                        workArr[1] = CountDateTime(milisec).ToShortDateString() + " " + CountDateTime(milisec).ToShortTimeString();
+        //                    }
+        //                    resultElement.Add(new XMLelement(GetUndoublequotesString(workArr[0]), GetUndoublequotesString(workArr[1])));
+        //                }
+        //                catch (IndexOutOfRangeException)
+        //                {
+
+        //                }
+        //            }
+        //        }
+        //        resultArray.Add(resultElement);
+        //    }
+        //    return resultArray;
+        //} 
+        public List<string> ResponseParser(string response)
         {
-            List<List<XMLelement>> resultArray = new List<List<XMLelement>>();
+            List<string> resultArray = new List<string>();
             var objectArray = SeparateResponse(response.Split('{', '}', '[', ']'));
             var resultElement = new List<XMLelement>();
             foreach (var item in objectArray)
@@ -118,12 +151,12 @@ namespace SKAUTIntgration
                 var valueArray = item.Split(',');
                 foreach (var value in valueArray)
                 {
-                    if (value!="")
+                    if (value != "")
                     {
                         try
                         {
                             var workArr = value.Split(':');
-                            if (workArr[1].Contains(@"\/Data"))
+                            if (workArr[1].Contains("Date"))
                             {
                                 var milisec = long.Parse(SepareteDateTime(GetUndoublequotesString(workArr[1])));
                                 workArr[1] = CountDateTime(milisec).ToShortDateString() + " " + CountDateTime(milisec).ToShortTimeString();
@@ -136,9 +169,19 @@ namespace SKAUTIntgration
                         }
                     }
                 }
-                resultArray.Add(resultElement);
+                resultArray.Add(GetStringFromArray(resultElement));
             }
             return resultArray;
+        }
+        private string GetStringFromArray(List<XMLelement> array)
+        {
+            string result = null;
+            foreach (var item in array)
+            {
+                var workstring = item.Key + " : " + item.Value + ",";
+                result += workstring;
+            }
+            return result;
         }
         private string GetSessionStaticticId(string response)
         {

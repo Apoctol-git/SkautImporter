@@ -27,9 +27,9 @@ namespace SKAUTIntgration
             foreach (var item in rules)
             {
                 item.IsActivated = INI.GetPrivateString(item.Name, "IsActive") == "true"?true:false;
-                item.TargetCatalog = INI.GetPrivateString(item.Name, "TargetPath");
+                item.TargetCatalog = INI.GetPrivateString("ChildPath ", "TargetPath");
                 item.Token = token;
-                item.RequestNeedParameter();
+                item.RequestNeedParameter((MonitoringObjectAllUnitsPaged)rules[0]);
             }
         }
         public List<SavingDocument> MakeRequest()
@@ -47,12 +47,34 @@ namespace SKAUTIntgration
                     foreach (var resp in respCollection)
                     {
                         var responseAnswer = item.ResponseParser(resp.Value);
-                        responses.Add(new SavingDocument(item.Name, item.Period, resp.Key, item.TargetCatalog, responseAnswer));
+                        var i = UnitIdKeyFinder(resp.Key, responses);
+                        if (i == -1)
+                        {
+                            var name = resp.Key == "-1"? item.Name: "Object:" + resp.Key;
+                            responses.Add(new SavingDocument(name,item.Period, resp.Key, item.TargetCatalog));
+                            responses.Last().SavingElevents.Add(responseAnswer);
+                        }
+                        else
+                        {
+                            responses[i].SavingElevents.Add(responseAnswer);
+                        }
+                        //responses.Add(new SavingDocument(item.Name, item.Period, resp.Key, item.TargetCatalog, responseAnswer));
                         logger.WriteLog(item.Name, resp.Key, "загружен");
                     }
                 }
             }
             return responses;
+        }
+        private int UnitIdKeyFinder(string unitId, List<SavingDocument> array)
+        {
+            for (int i = 0; i < array.Count; i++)
+            {
+                if (array[i].UnitId==unitId)
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
     }
 }

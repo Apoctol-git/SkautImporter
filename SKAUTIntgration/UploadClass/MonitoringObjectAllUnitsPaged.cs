@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace SKAUTIntgration
 {
-    class MonitoringObjectAllUnitsPaged: IRuleRequster
+    public class MonitoringObjectAllUnitsPaged: IRuleRequster
     {
         public string Token { get; set; }
         public string Name { get; set; }
@@ -18,6 +18,7 @@ namespace SKAUTIntgration
         public DateTime Period { get; set; }
         public string SendParameter { get; set; }
         
+        public List<string> unitsId { get; private set; }
         private int countObject;
         private string urlCount;
 
@@ -33,10 +34,11 @@ namespace SKAUTIntgration
             Name = "MonitoringObject";
             UrlServer = baseURL + @"/spic/units/rest/getAllUnitsPaged";
             urlCount = baseURL + @"/spic/units/rest/";
+            unitsId = new List<string>();
             Period = period;
         }
 
-        public void RequestNeedParameter()
+        public void RequestNeedParameter(MonitoringObjectAllUnitsPaged rule)
         {
             SetCountObject();
             var serializer = new JavaScriptSerializer();
@@ -46,25 +48,26 @@ namespace SKAUTIntgration
                 ResponseParser(RequestResultArray()["-1"]);
             }
         }
-        public List<List<XMLelement>> ResponseParser(string response) 
+        public List<string> ResponseParser(string response)
         {
-            Dictionary<string, string> unitsAndTypes = new Dictionary<string, string>();
+            //Dictionary<string, string> unitsAndTypes = new Dictionary<string, string>();
             var objectArray = response.Split('{', '}', '[', ']');
-            List<List<XMLelement>> resultArray = new List<List<XMLelement>>();
+            //List<List<XMLelement>> resultArray = new List<List<XMLelement>>();
+            List<string> resultArray = new List<string>();
             foreach (var item in objectArray)
             {
                 if (item.Length > 10)
                 {
                     var resultElement = new List<XMLelement>();
                     var valueArray = item.Split(',');
-                    string unitId = null;
-                    string unitTypeId = null;
+                    //string unitId = null;
+                    //string unitTypeId = null;
                     foreach (var value in valueArray)
                     {
                         var workArr = value.Split(':');
-                        if (workArr.Length==1)
+                        if (workArr.Length == 1)
                         {
-                            resultElement.Add(new XMLelement(GetUndoublequotesString(workArr[0]),null));
+                            resultElement.Add(new XMLelement(GetUndoublequotesString(workArr[0]), null));
                         }
                         else
                         {
@@ -72,25 +75,70 @@ namespace SKAUTIntgration
                         }
                         if (workArr[0] == "\"UnitId\"")
                         {
-                            unitId = workArr[1];
+                            unitsId.Add(GetUndoublequotesString(workArr[1]));
                         }
-                        if (workArr[0] == "\"UnitTypeId\"")
-                        {
-                            unitTypeId = workArr[1];
-                        }
-                        
+                        //if (workArr[0] == "\"UnitTypeId\"")
+                        //{
+                        //    unitTypeId = workArr[1];
+                        //}
+
                     }
-                    if (unitsAndTypes.Count <10)
-                    {
-                        unitsAndTypes.Add(unitId, unitTypeId);
-                    }
-                    resultArray.Add( resultElement);
-                    //itterator++;
+                    //if (unitsAndTypes.Count < 10)
+                    //{
+                    //    unitsAndTypes.Add(unitId, unitTypeId);
+                    //}
+                    resultArray.Add(GetStringFromArray(resultElement));
                 }
             }
-            Program.UnitsAndTypes = unitsAndTypes;
+            //Program.UnitsAndTypes = unitsAndTypes;
             return resultArray;
         }
+        
+        //public List<List<XMLelement>> ResponseParser(string response) 
+        //{
+        //    Dictionary<string, string> unitsAndTypes = new Dictionary<string, string>();
+        //    var objectArray = response.Split('{', '}', '[', ']');
+        //    List<List<XMLelement>> resultArray = new List<List<XMLelement>>();
+        //    foreach (var item in objectArray)
+        //    {
+        //        if (item.Length > 10)
+        //        {
+        //            var resultElement = new List<XMLelement>();
+        //            var valueArray = item.Split(',');
+        //            string unitId = null;
+        //            string unitTypeId = null;
+        //            foreach (var value in valueArray)
+        //            {
+        //                var workArr = value.Split(':');
+        //                if (workArr.Length==1)
+        //                {
+        //                    resultElement.Add(new XMLelement(GetUndoublequotesString(workArr[0]),null));
+        //                }
+        //                else
+        //                {
+        //                    resultElement.Add(new XMLelement(GetUndoublequotesString(workArr[0]), GetUndoublequotesString(workArr[1])));
+        //                }
+        //                if (workArr[0] == "\"UnitId\"")
+        //                {
+        //                    unitId = workArr[1];
+        //                }
+        //                if (workArr[0] == "\"UnitTypeId\"")
+        //                {
+        //                    unitTypeId = workArr[1];
+        //                }
+                        
+        //            }
+        //            if (unitsAndTypes.Count <10)
+        //            {
+        //                unitsAndTypes.Add(unitId, unitTypeId);
+        //            }
+        //            resultArray.Add( resultElement);
+        //            //itterator++;
+        //        }
+        //    }
+        //    Program.UnitsAndTypes = unitsAndTypes;
+        //    return resultArray;
+        //}
         public Dictionary<string, string> RequestResultArray()
         {
             var result = new Dictionary<string, string>();
@@ -106,6 +154,16 @@ namespace SKAUTIntgration
         {
             var workArray = doublequotesString.Split('"');
             return workArray.Length==1?workArray[0]: workArray[1];
+        }
+        private string GetStringFromArray(List<XMLelement> array)
+        {
+            string result = null;
+            foreach (var item in array)
+            {
+                var workstring = item.Key + " : " + item.Value + ",";
+                result += workstring;
+            }
+            return result;
         }
     }
 }

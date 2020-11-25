@@ -10,7 +10,7 @@ namespace SKAUTIntgration
     class Program
     {
         static string sessionToken;
-        public static Dictionary<string, string> UnitsAndTypes = new Dictionary<string, string>();
+        //public static Dictionary<string, string> UnitsAndTypes = new Dictionary<string, string>();
         static void Main()
         {
             

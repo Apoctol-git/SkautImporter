@@ -12,10 +12,10 @@ namespace SKAUTIntgration
         public DateTime Period { get; private set; }
         public string UnitId { get; private set; }
         public string Path { get; private set; }
-        public List<List<XMLelement>> SavingElevents { get; private set; }
+        public List<List<string>> SavingElevents { get; private set; }
 
  
-        public SavingDocument(string name, DateTime period, string unitId, string path, List<List<XMLelement>> savingElevents)
+        public SavingDocument(string name, DateTime period, string unitId, string path, List<List<string>> savingElevents)
         {
             Name = name;
             Period = period;
@@ -23,5 +23,15 @@ namespace SKAUTIntgration
             Path = path;
             SavingElevents = savingElevents;
         }
+
+        public SavingDocument(string name, DateTime period, string unitId, string path)
+        {
+            Name = name;
+            Period = period;
+            UnitId = unitId;
+            Path = path;
+            SavingElevents = new List<List<string>>();
+        }
+
     }
 }

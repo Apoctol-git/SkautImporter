@@ -32,8 +32,11 @@ namespace SKAUTIntgration
                             {
                                 using (CsvWriter csvReader = new CsvWriter(streamReader, System.Globalization.CultureInfo.CurrentCulture))
                                 {
-                                    csvReader.Configuration.Delimiter = ",";
-                                    csvReader.WriteRecords(savingElevent);
+                                    if (savingElevent.Count!=0)
+                                    {
+                                        csvReader.Configuration.Delimiter = ",";
+                                        csvReader.WriteRecords(savingElevent);
+                                    }
                                 }
                             }
                             notCatched = false;

@@ -15,9 +15,10 @@ namespace SKAUTIntgration
             UrlServer = baseUrl;
             Period = period;
         }
-        public void RequestNeedParameter()
+        public void RequestNeedParameter(MonitoringObjectAllUnitsPaged monitoring)
         {
             SetAllUrl(UrlServer, "fdstat");
+            unitsId = monitoring.unitsId;
         }
     }
 }
