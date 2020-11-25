@@ -178,7 +178,7 @@ namespace SKAUTIntgration
             string result = null;
             foreach (var item in array)
             {
-                var workstring = item.Key + " : " + item.Value + ",";
+                var workstring = item.Key + " : " + item.Value + ";";
                 result += workstring;
             }
             return result;

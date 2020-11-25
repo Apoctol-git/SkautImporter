@@ -50,7 +50,7 @@ namespace SKAUTIntgration
                         var i = UnitIdKeyFinder(resp.Key, responses);
                         if (i == -1)
                         {
-                            var name = resp.Key == "-1"? item.Name: "Object:" + resp.Key;
+                            var name = resp.Key == "-1"? item.Name: "Object-" + resp.Key;
                             responses.Add(new SavingDocument(name,item.Period, resp.Key, item.TargetCatalog));
                             responses.Last().SavingElevents.Add(responseAnswer);
                         }
