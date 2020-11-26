@@ -37,7 +37,7 @@ namespace SKAUTIntgration
                                         foreach (var item in savingElevent)
                                         {
                                             csvReader.Configuration.Delimiter = ",";
-                                            csvReader.WriteRecords(item);
+                                            csvReader.WriteField(item);
                                         }
                                         
                                     }
