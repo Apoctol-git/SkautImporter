@@ -20,6 +20,6 @@ namespace SKAUTIntgration
         //List<List<XMLelement>> ResponseParser(string response); был раньше, оставлен про запас
         void RequestNeedParameter(MonitoringObjectAllUnitsPaged rule);// Метод запрашивающий дополнительные сведения для запроса. По базе реализуется пустым
 
-        Dictionary<string, string> RequestResultArray(); // Метод который отсылает запросы пачками на сервер. По одному за раз
+        Dictionary<string, string> RequestResultArray(int iterationNumber, int compare); // Метод который отсылает запросы пачками на сервер. По одному за раз
     }
 }

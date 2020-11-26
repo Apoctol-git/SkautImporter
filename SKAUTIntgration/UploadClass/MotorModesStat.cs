@@ -18,6 +18,7 @@ namespace SKAUTIntgration
         {
             SetAllUrl(UrlServer, "MotorModes");
             unitsId = monitoring.unitsId;
+            JSONprepare(Period);
         }
 
     }

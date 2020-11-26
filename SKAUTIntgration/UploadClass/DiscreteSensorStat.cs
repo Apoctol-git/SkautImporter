@@ -18,6 +18,7 @@ namespace SKAUTIntgration
         {
             SetAllUrl(UrlServer, "DiscreteSensor");
             unitsId = monitoring.unitsId;
+            JSONprepare(Period);
         }
     }
 }

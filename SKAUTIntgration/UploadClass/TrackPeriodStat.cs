@@ -18,6 +18,7 @@ namespace SKAUTIntgration
         {
             SetAllUrl(UrlServer, "TrackPeriod");
             unitsId = monitoring.unitsId;
+            JSONprepare(Period);
         }
     }
 }

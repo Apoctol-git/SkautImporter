@@ -18,6 +18,7 @@ namespace SKAUTIntgration
         {
             SetAllUrl(UrlServer, "FuelFlow");
             unitsId = monitoring.unitsId;
+            JSONprepare(Period);
         }
     }
 }

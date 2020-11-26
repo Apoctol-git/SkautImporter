@@ -33,8 +33,8 @@ namespace SKAUTIntgration
         private string addStatisticToRequest = null;
         private string urlBuildStatistic = "/spic/StatisticsController/rest/StartBuild";
         protected string getStatistics = null;
-        private Dictionary<string,string> JSONparameterStart = new Dictionary<string,string>(); // список тел начала сессии
-        protected Dictionary<string, string> JSONRunSession = new Dictionary<string, string>(); // Список ID запущенных сессий
+        private List<XMLelement> JSONparameterStart = new List <XMLelement> (); // список тел начала сессии
+        protected List<XMLelement> JSONRunSession = new List<XMLelement>(); // Список ID запущенных сессий
 
         // Метод должен вызываться из дочернего класса, и компоновать конкретные Url котороые сейчас null
         public void SetAllUrl (string baseUrl, string UrlServer)
@@ -67,23 +67,11 @@ namespace SKAUTIntgration
                         ObjectId = item
                     }
                 });
-                JSONparameterStart.Add(item,json);
+                JSONparameterStart.Add(new XMLelement(item,json));
             }
         }
         //Метод подготавливает все статистики для выгрузки.
-        public void PrepareStatistic(string token)
-        {
-            foreach (var item in JSONparameterStart)
-            {
-                var statisticcSessionRecponse = StartStatisticSession(token, item.Value);
-                string statisticSessionId = GetSessionStaticticId(statisticcSessionRecponse);
-                var ser = new JavaScriptSerializer();
-                var json = ser.Serialize(new { StatisticsSessionId  = statisticSessionId });
-                JSONRunSession.Add(item.Key,json);
-                var addedStatistic = AddStatistic(token, json);
-                var buildedStatistic = BuildStatistic(token, json);
-            }
-        }
+
         public virtual string StartStatisticSession(string token, string json)
         {
             var statisticcSessionRecponse = RequestSender.SendPostRequest(token, urlStartStatSession, json);
@@ -99,48 +87,17 @@ namespace SKAUTIntgration
             var res = RequestSender.SendPostRequest(token, urlBuildStatistic, json);
             return res;
         }
-        public Dictionary<string, string> RequestResultArray()
+        public Dictionary<string, string> RequestResultArray(int iterationNumber, int compare)
         {
-            PrepairParameters();
-            var result = new Dictionary<string, string>();
-            foreach (var item in JSONRunSession)
-            {
-                result.Add(item.Key, RequestSender.SendPostRequest(Token, getStatistics, item.Value));
-            }
-            return result;
+            PrepairParameters(iterationNumber, compare);
+            
+            //foreach (var item in JSONRunSession)
+            //{
+  
+            //}
+            return GetResponseArray(iterationNumber,compare);
         }
-        //public List<List<XMLelement>> ResponseParser(string response)
-        //{
-        //    List<List<XMLelement>> resultArray = new List<List<XMLelement>>();
-        //    var objectArray = SeparateResponse(response.Split('{', '}', '[', ']'));
-        //    var resultElement = new List<XMLelement>();
-        //    foreach (var item in objectArray)
-        //    {
-        //        var valueArray = item.Split(',');
-        //        foreach (var value in valueArray)
-        //        {
-        //            if (value!="")
-        //            {
-        //                try
-        //                {
-        //                    var workArr = value.Split(':');
-        //                    if (workArr[1].Contains("Date"))
-        //                    {
-        //                        var milisec = long.Parse(SepareteDateTime(GetUndoublequotesString(workArr[1])));
-        //                        workArr[1] = CountDateTime(milisec).ToShortDateString() + " " + CountDateTime(milisec).ToShortTimeString();
-        //                    }
-        //                    resultElement.Add(new XMLelement(GetUndoublequotesString(workArr[0]), GetUndoublequotesString(workArr[1])));
-        //                }
-        //                catch (IndexOutOfRangeException)
-        //                {
-
-        //                }
-        //            }
-        //        }
-        //        resultArray.Add(resultElement);
-        //    }
-        //    return resultArray;
-        //} 
+        
         public List<string> ResponseParser(string response)
         {
             List<string> resultArray = new List<string>();
@@ -206,10 +163,38 @@ namespace SKAUTIntgration
             }
             return workArray;
         }
-        private void PrepairParameters()
+        
+        private void PrepairParameters(int iterationNumber, int compare)
         {
-            JSONprepare(Period);
-            PrepareStatistic(Token);
+            //JSONprepare(Period);
+            for (int i = iterationNumber * compare; i < (iterationNumber + 1) * compare; i++)
+            {
+                PrepareStatistic(Token, JSONparameterStart[i]);
+            }
+
+        }
+        private void PrepareStatistic(string token, XMLelement item)
+        {
+            //foreach (var item in JSONparameterStart)
+            //{
+                var statisticcSessionRecponse = StartStatisticSession(token, item.Value);
+                string statisticSessionId = GetSessionStaticticId(statisticcSessionRecponse);
+                var ser = new JavaScriptSerializer();
+                var json = ser.Serialize(new { StatisticsSessionId = statisticSessionId });
+                JSONRunSession.Add(new XMLelement(item.Key, json));
+                var addedStatistic = AddStatistic(token, json);
+                var buildedStatistic = BuildStatistic(token, json);
+            //}
+        }
+        private Dictionary<string, string> GetResponseArray(int iterationNumber, int compare)
+        {
+            var result = new Dictionary<string, string>();
+            for (int i = iterationNumber * compare; i < (iterationNumber + 1) * compare; i++)
+            {
+                var item = JSONRunSession[i];
+                result.Add(item.Key, RequestSender.SendPostRequest(Token, getStatistics, item.Value));
+            }
+            return result;
         }
         private string GetUndoublequotesString(string doublequotesString)
         {

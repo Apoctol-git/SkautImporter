@@ -43,10 +43,11 @@ namespace SKAUTIntgration
             SetCountObject();
             var serializer = new JavaScriptSerializer();
             SendParameter = serializer.Serialize(new { Offset = "0", Count = countObject });
-            if (!IsActivated) // Заглушка на случай, если мониторинги обновлять не надо, а запросить статистики надо.
-            {
-                ResponseParser(RequestResultArray()["-1"]);
-            }
+            IsActivated = true;
+            //if (!IsActivated) // Заглушка на случай, если мониторинги обновлять не надо, а запросить статистики надо.
+            //{
+            //    ResponseParser(RequestResultArray(1,1)["-1"]);
+            //}
         }
         public List<string> ResponseParser(string response)
         {
@@ -139,7 +140,7 @@ namespace SKAUTIntgration
         //    Program.UnitsAndTypes = unitsAndTypes;
         //    return resultArray;
         //}
-        public Dictionary<string, string> RequestResultArray()
+        public Dictionary<string, string> RequestResultArray(int iterationNumber, int compare)
         {
             var result = new Dictionary<string, string>();
             var resp = RequestSender.SendPostRequest(Token, UrlServer, SendParameter);
@@ -148,7 +149,7 @@ namespace SKAUTIntgration
         }
         public void SetCountObject()
         {
-            countObject = 2;//int.Parse(RequestSender.SendGetRequest(Token, urlCount));
+            countObject = int.Parse(RequestSender.SendGetRequest(Token, urlCount));
         }
         private string GetUndoublequotesString(string doublequotesString)
         {

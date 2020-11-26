@@ -22,10 +22,14 @@ namespace SKAUTIntgration
             var period = GetDateTime();
             var ruleRunner = new RuleActionAgregator();
             IFormater formater = new CSVFormater();
+            ruleRunner.SetMonitoring(baseURL, period);
+            ruleRunner.UpdateMonitoring(INI, sessionToken);
+            ruleRunner.SaveMonitoringObject(formater, param[0]);
             ruleRunner.SetRules(baseURL,period);
             ruleRunner.UpdateRulesValue(INI, sessionToken);
-            var xmlForm = ruleRunner.MakeRequest();
-            formater.Saver(param[0],xmlForm);
+            ruleRunner.MakeRequestAndSave(formater, param[0], int.Parse(param[2]));
+            //var xmlForm = ruleRunner.MakeRequest();
+            //formater.Saver(param[0],xmlForm);
         }
         static void Login(string baseURL) // Верхнеуровневая процедура логирования
         {
@@ -108,7 +112,8 @@ namespace SKAUTIntgration
         {
             var rootCatalog = INI.GetPrivateString("RootCatalog", "BasePath");
             var BaseURL = INI.GetPrivateString("BaseURL", "RootURL");
-            string[] result = { rootCatalog, BaseURL };
+            var compare = INI.GetPrivateString("CompareValue", "Value");
+            string[] result = { rootCatalog, BaseURL, compare };
             return result;
         }
     }

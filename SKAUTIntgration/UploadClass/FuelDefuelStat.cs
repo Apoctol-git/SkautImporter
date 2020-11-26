@@ -19,6 +19,7 @@ namespace SKAUTIntgration
         {
             SetAllUrl(UrlServer, "fdstat");
             unitsId = monitoring.unitsId;
+            JSONprepare(Period);
         }
     }
 }

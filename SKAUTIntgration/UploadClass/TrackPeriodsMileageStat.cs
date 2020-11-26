@@ -18,6 +18,7 @@ namespace SKAUTIntgration
         {
             SetAllUrl(UrlServer, "trackPeriodsMileage");
             unitsId = monitoring.unitsId;
+            JSONprepare(Period);
         }
 
 
