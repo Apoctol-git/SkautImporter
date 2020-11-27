@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Authorization" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Authorization" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="SpicAuthorizationRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CultureName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeStampUtc" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeZoneOlsonId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UiCultureName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicAuthorizationRequest" nillable="true" type="tns:SpicAuthorizationRequest" />
+  <xs:complexType name="SpicAuthorizationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExpireDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsAuthenticated" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsAuthorized" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicAuthorizationResponse" nillable="true" type="tns:SpicAuthorizationResponse" />
+</xs:schema>

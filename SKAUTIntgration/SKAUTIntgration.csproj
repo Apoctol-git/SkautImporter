@@ -47,6 +47,8 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -62,6 +64,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\Auth\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="InterfaceAndAbstract\BaseStaticticReqestClass.cs" />
     <Compile Include="EnviromentTouch\CSVFormater.cs" />
     <Compile Include="UploadClass\DiscreteSensorStat.cs" />
@@ -89,11 +96,41 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\Auth\SKAUTIntgration.Auth.SpicAuthorizationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Auth\soap.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Auth\soap1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Auth\soap2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Auth\SpicAuthorizationService.wsdl" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\Auth\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Auth\soap.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Auth\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Auth\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Auth\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

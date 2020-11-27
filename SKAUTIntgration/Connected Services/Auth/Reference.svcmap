@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2b451146-21d8-49a8-806d-0f8c347f361f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://gpnt.scoutonline.ru:8081/spic/auth/soap" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="soap.xsd" MetadataType="Schema" ID="61994d82-76f0-4439-bd6d-ccf5756bb524" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/auth/soap?xsd=xsd0" />
+    <MetadataFile FileName="soap1.xsd" MetadataType="Schema" ID="f5dc6100-10ab-4d42-b10c-f87525cdf0ec" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/auth/soap?xsd=xsd1" />
+    <MetadataFile FileName="soap.disco" MetadataType="Disco" ID="535c35ad-21bb-413a-b4f6-8c2d0d62062f" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/auth/soap?disco" />
+    <MetadataFile FileName="SpicAuthorizationService.wsdl" MetadataType="Wsdl" ID="3780ddc2-6bce-4d28-8ab4-152eff9f22a4" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/auth/soap?wsdl" />
+    <MetadataFile FileName="soap2.xsd" MetadataType="Schema" ID="f27b7df8-8257-4fc5-af43-aabe496f383d" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/auth/soap?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
