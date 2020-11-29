@@ -12,10 +12,10 @@ namespace SKAUTIntgration
         public DateTime Period { get; private set; }
         public string UnitId { get; private set; }
         public string Path { get; private set; }
-        public List<List<string>> SavingElevents { get; private set; }
+        public List<object> SavingElevents { get; private set; }
 
  
-        public SavingDocument(string name, DateTime period, string unitId, string path, List<List<string>> savingElevents)
+        public SavingDocument(string name, DateTime period, string unitId, string path, List<object> savingElevents)
         {
             Name = name;
             Period = period;
@@ -30,8 +30,7 @@ namespace SKAUTIntgration
             Period = period;
             UnitId = unitId;
             Path = path;
-            SavingElevents = new List<List<string>>();
+            SavingElevents = new List<object> ();
         }
-
     }
 }

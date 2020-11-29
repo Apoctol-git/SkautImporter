@@ -16,7 +16,7 @@ namespace SKAUTIntgration
         bool IsActivated { get; set; } // параметр который считывается из конфиг файла. Отвечает за активность выгрузки данных
         //string SendParameter { get; set; } // здесь описываем JSON запроса пока убран как ненужный
         DateTime Period { get; set; } // Период запроса статистики
-        List<string> ResponseParser(string response); // Здесь должен быть метод, который разбивает JSON ответ на словарь из ключей и значений.
+        List<List<XMLelement>> ResponseParser(string response); // Здесь должен быть метод, который разбивает JSON ответ на словарь из ключей и значений.
         //List<List<XMLelement>> ResponseParser(string response); был раньше, оставлен про запас
         void RequestNeedParameter(MonitoringObjectAllUnitsPaged rule);// Метод запрашивающий дополнительные сведения для запроса. По базе реализуется пустым
 

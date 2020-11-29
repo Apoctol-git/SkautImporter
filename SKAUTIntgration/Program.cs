@@ -25,7 +25,7 @@ namespace SKAUTIntgration
             ruleRunner.SetMonitoring(baseURL, period);
             ruleRunner.UpdateMonitoring(INI, sessionToken);
             ruleRunner.SaveMonitoringObject(formater, param[0]);
-            ruleRunner.SetRules(baseURL,period);
+            ruleRunner.SetRules(baseURL, period);
             ruleRunner.UpdateRulesValue(INI, sessionToken);
             ruleRunner.MakeRequestAndSave(formater, param[0], int.Parse(param[2]));
             //var xmlForm = ruleRunner.MakeRequest();

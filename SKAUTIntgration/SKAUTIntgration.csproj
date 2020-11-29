@@ -71,6 +71,17 @@
     </Compile>
     <Compile Include="InterfaceAndAbstract\BaseStaticticReqestClass.cs" />
     <Compile Include="EnviromentTouch\CSVFormater.cs" />
+    <Compile Include="TableCreator\BaseFieldFinder.cs" />
+    <Compile Include="TableCreator\FuelFlowStatisticTableClass.cs" />
+    <Compile Include="TableCreator\FuelingDefuelingTableClass.cs" />
+    <Compile Include="TableCreator\IDocument.cs" />
+    <Compile Include="TableCreator\MotorModesStatisticTableClass.cs" />
+    <Compile Include="TableCreator\NavigationFiltrationStatisticTableClass.cs" />
+    <Compile Include="TableCreator\NavigationValidationStatisticTableClass.cs" />
+    <Compile Include="TableCreator\TableClassBuilder.cs" />
+    <Compile Include="TableCreator\TrackPeriodsMileageStatisticTableClass.cs" />
+    <Compile Include="TableCreator\TrackPeriodStatisticTableClass.cs" />
+    <Compile Include="TableCreator\UnitTableClass.cs" />
     <Compile Include="UploadClass\DiscreteSensorStat.cs" />
     <Compile Include="UploadClass\FuelDefuelStat.cs" />
     <Compile Include="UploadClass\FuelEventStat.cs" />

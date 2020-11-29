@@ -49,12 +49,12 @@ namespace SKAUTIntgration
             //    ResponseParser(RequestResultArray(1,1)["-1"]);
             //}
         }
-        public List<string> ResponseParser(string response)
+        public List<List<XMLelement>> ResponseParser(string response)
         {
             //Dictionary<string, string> unitsAndTypes = new Dictionary<string, string>();
             var objectArray = response.Split('{', '}', '[', ']');
-            //List<List<XMLelement>> resultArray = new List<List<XMLelement>>();
-            List<string> resultArray = new List<string>();
+            List<List<XMLelement>> resultArray = new List<List<XMLelement>>();
+            //List<string> resultArray = new List<string>();
             foreach (var item in objectArray)
             {
                 if (item.Length > 10)
@@ -88,7 +88,7 @@ namespace SKAUTIntgration
                     //{
                     //    unitsAndTypes.Add(unitId, unitTypeId);
                     //}
-                    resultArray.Add(GetStringFromArray(resultElement));
+                    resultArray.Add(resultElement);
                 }
             }
             //Program.UnitsAndTypes = unitsAndTypes;

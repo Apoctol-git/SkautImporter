@@ -98,9 +98,9 @@ namespace SKAUTIntgration
             return GetResponseArray(iterationNumber,compare);
         }
         
-        public List<string> ResponseParser(string response)
+        public List<List<XMLelement>> ResponseParser(string response)
         {
-            List<string> resultArray = new List<string>();
+            List<List<XMLelement>> resultArray = new List<List<XMLelement>>();
             var objectArray = SeparateResponse(response.Split('{', '}', '[', ']'));
             var resultElement = new List<XMLelement>();
             foreach (var item in objectArray)
@@ -126,7 +126,7 @@ namespace SKAUTIntgration
                         }
                     }
                 }
-                resultArray.Add(GetStringFromArray(resultElement));
+                resultArray.Add(resultElement);
             }
             return resultArray;
         }

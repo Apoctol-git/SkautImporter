@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SKAUTIntgration.TableCreator;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,11 +26,18 @@ namespace SKAUTIntgration
         {
             var respCollection = monitoring.RequestResultArray(1, 1);
             List<SavingDocument> responses = new List<SavingDocument>();
+            TableClassBuilder builder = new TableClassBuilder();
+            builder.SetClassList();
             foreach (var resp in respCollection)
             {
                 var responseAnswer = monitoring.ResponseParser(resp.Value);
-                responses.Add(new SavingDocument(monitoring.Name, monitoring.Period, resp.Key, monitoring.TargetCatalog));
-                responses[0].SavingElevents.Add(responseAnswer);
+                var document = new SavingDocument(monitoring.Name, monitoring.Period, resp.Key, monitoring.TargetCatalog);
+                foreach (var item in responseAnswer)
+                {
+                    var table = builder.GetTable(monitoring.Name, item);
+                    document.SavingElevents.Add(table);
+                }
+                responses.Add(document);
             }
             saver.Saver(rootCatalog, responses);
             //rules[0].IsActivated = false;
@@ -52,7 +60,7 @@ namespace SKAUTIntgration
             foreach (var item in rules)
             {
                 item.IsActivated = INI.GetPrivateString(item.Name, "IsActive") == "true"?true:false;
-                item.TargetCatalog = INI.GetPrivateString("ChildPath ", "TargetPath");
+                item.TargetCatalog = INI.GetPrivateString(item.Name, "TargetPath");
                 item.Token = token;
                 item.RequestNeedParameter(monitoring);
             }
@@ -62,16 +70,13 @@ namespace SKAUTIntgration
             //Dictionary<string[],Dictionary<string, string>[]> responses = new Dictionary<string[], Dictionary<string, string>[]>();
             var logger = new Logger();
             logger.RemoveOldLogs();
-            var totalCount = GetArrayLeght((MonitoringObjectAllUnitsPaged)monitoring);
+            var totalCount = GetArrayLeght(monitoring);
             var totalIterration = Math.Round((double)totalCount / compare);
             for (int i = 0; i < totalIterration; i++)
             {
                 var xmlForm = RequestMaker(logger,i,compare);
                 saver.Saver(rootCatalog, xmlForm);
-                //if (i!=0)
-                //{
-                //    rules[0].IsActivated = false;
-                //}
+
             }
 
         }
@@ -83,6 +88,8 @@ namespace SKAUTIntgration
         private List<SavingDocument> RequestMaker(Logger logger, int it, int compare)
         {
             List<SavingDocument> responses = new List<SavingDocument>();
+            TableClassBuilder builder = new TableClassBuilder();
+            builder.SetClassList();
             foreach (var item in rules)
             {
                 if (item.IsActivated)
@@ -92,18 +99,17 @@ namespace SKAUTIntgration
                     foreach (var resp in respCollection)
                     {
                         var responseAnswer = item.ResponseParser(resp.Value);
-                        var i = UnitIdKeyFinder(resp.Key, responses);
-                        if (i == -1)
+                        //var name = resp.Key == "-1" ? item.Name : "Object-" + resp.Key;
+                        var document = new SavingDocument(item.Name, item.Period, resp.Key, item.TargetCatalog);
+                        foreach (var ra in responseAnswer)
                         {
-                            var name = resp.Key == "-1" ? item.Name : "Object-" + resp.Key;
-                            responses.Add(new SavingDocument(name, item.Period, resp.Key, item.TargetCatalog));
-                            responses.Last().SavingElevents.Add(responseAnswer);
+                            var tables = builder.GetTables(item.Name, ra);
+                            foreach (var table in tables)
+                            {
+                                document.SavingElevents.Add(table);
+                            }
                         }
-                        else
-                        {
-                            responses[i].SavingElevents.Add(responseAnswer);
-                        }
-                        //responses.Add(new SavingDocument(item.Name, item.Period, resp.Key, item.TargetCatalog, responseAnswer));
+                        responses.Add(document);
                         logger.WriteLog(item.Name, resp.Key, "загружен");
                     }
                 }

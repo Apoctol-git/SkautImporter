@@ -24,6 +24,21 @@ namespace SKAUTIntgration
                 writer.WriteLine(text);
             }
         }
+        public void WriteExeption(string message)
+        {
+            using (var writer = new StreamWriter(path, true, Encoding.UTF8))
+            {
+               writer.WriteLine(DateTime.Now.TimeOfDay+" : "+message);
+            }
+        }
+        public void WriteKeyNotFoundExeption(string message, string keyValue)
+        {
+            using (var writer = new StreamWriter(path, true, Encoding.UTF8))
+            {
+                writer.WriteLine(DateTime.Now.TimeOfDay + " : "+message);
+                writer.WriteLine("Ключ: " + keyValue + " не найден");
+            }
+        }
         public void RemoveOldLogs()
         {
             File.Delete(path);
