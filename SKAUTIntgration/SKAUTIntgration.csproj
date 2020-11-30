@@ -69,8 +69,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\FuelFlow\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\FuelingDefueling\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MonitoringObject\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MotorModes\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\StatisticController\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="InterfaceAndAbstract\BaseStaticticReqestClass.cs" />
     <Compile Include="EnviromentTouch\CSVFormater.cs" />
+    <Compile Include="SOAP\CSVPrinter.cs" />
+    <Compile Include="SOAP\WriteFileManager.cs" />
     <Compile Include="TableCreator\BaseFieldFinder.cs" />
     <Compile Include="TableCreator\FuelFlowStatisticTableClass.cs" />
     <Compile Include="TableCreator\FuelingDefuelingTableClass.cs" />
@@ -120,6 +147,131 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Auth\SpicAuthorizationService.wsdl" />
+    <None Include="Connected Services\FuelFlow\SKAUTIntgration.FuelFlow.SpicAddonStatisticsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\FuelFlow\SKAUTIntgration.FuelFlow.SpicFuelFlowStatisticsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\FuelFlow\soap.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FuelFlow\soap1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FuelFlow\soap2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FuelFlow\soap3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FuelFlow\soap4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FuelFlow\soap5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FuelFlow\SpicFuelFlowStatisticsService.wsdl" />
+    <None Include="Connected Services\FuelingDefueling\SKAUTIntgration.FuelingDefueling.SpicAddonStatisticsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\FuelingDefueling\SKAUTIntgration.FuelingDefueling.SpicFuelingDefuelingStatisticsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\FuelingDefueling\soap.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FuelingDefueling\soap1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FuelingDefueling\soap2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FuelingDefueling\soap3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FuelingDefueling\soap4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FuelingDefueling\soap5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FuelingDefueling\soap6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FuelingDefueling\SpicFuelingDefuelingStatisticsService.wsdl" />
+    <None Include="Connected Services\MonitoringObject\SKAUTIntgration.MonitoringObject.SpicUnit.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MonitoringObject\SKAUTIntgration.MonitoringObject.SpicUnitCollectionDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MonitoringObject\soap.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MonitoringObject\soap1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MonitoringObject\soap2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MonitoringObject\soap3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MonitoringObject\soap4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MonitoringObject\SpicUnitsService.wsdl" />
+    <None Include="Connected Services\MotorModes\SKAUTIntgration.MotorModes.SpicAddonStatisticsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MotorModes\SKAUTIntgration.MotorModes.SpicMotorModesStatisticsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MotorModes\soap.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MotorModes\soap1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MotorModes\soap2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MotorModes\soap3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MotorModes\soap4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MotorModes\soap5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MotorModes\SpicMotorModesStatisticsService.wsdl" />
+    <None Include="Connected Services\StatisticController\SKAUTIntgration.StatisticController.SpicStatisticsChunkInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\StatisticController\SKAUTIntgration.StatisticController.SpicStatisticsOperationResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\StatisticController\SKAUTIntgration.StatisticController.SpicStatisticsSessionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\StatisticController\soap.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\StatisticController\soap1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\StatisticController\soap2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\StatisticController\soap3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\StatisticController\soap4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\StatisticController\SpicStatisticsControllerService.wsdl" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +279,11 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\Auth\" />
+    <WCFMetadataStorage Include="Connected Services\FuelFlow\" />
+    <WCFMetadataStorage Include="Connected Services\FuelingDefueling\" />
+    <WCFMetadataStorage Include="Connected Services\MonitoringObject\" />
+    <WCFMetadataStorage Include="Connected Services\MotorModes\" />
+    <WCFMetadataStorage Include="Connected Services\StatisticController\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\Auth\soap.disco" />
@@ -139,6 +296,81 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\Auth\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MotorModes\soap.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MotorModes\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MotorModes\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MotorModes\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\FuelFlow\soap.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\FuelFlow\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\FuelFlow\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\FuelFlow\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\FuelingDefueling\soap.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\FuelingDefueling\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\FuelingDefueling\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\FuelingDefueling\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MonitoringObject\soap.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MonitoringObject\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MonitoringObject\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MonitoringObject\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\StatisticController\soap.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\StatisticController\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\StatisticController\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\StatisticController\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

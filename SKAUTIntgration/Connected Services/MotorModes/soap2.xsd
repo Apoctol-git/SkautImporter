@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.MotorModesStat" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.MotorModesStat" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://178.63.30.148:8081/spic/MotorModes/soap?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Concrete" />
+  <xs:import schemaLocation="http://178.63.30.148:8081/spic/MotorModes/soap?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://178.63.30.148:8081/spic/MotorModes/soap?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" />
+  <xs:complexType name="SpicMotorModesStatisticsResult">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Concrete" minOccurs="0" name="ChunkInfo" nillable="true" type="q1:SpicStatisticsChunkInfo" />
+      <xs:element minOccurs="0" name="Statistics" nillable="true" type="tns:SpicMotorModesStatistics" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicMotorModesStatisticsResult" nillable="true" type="tns:SpicMotorModesStatisticsResult" />
+  <xs:complexType name="SpicMotorModesStatistics">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EngineActiveWorkHours" type="ser:duration" />
+      <xs:element minOccurs="0" name="EngineIdleHours" type="ser:duration" />
+      <xs:element minOccurs="0" name="EngineOffHours" type="ser:duration" />
+      <xs:element minOccurs="0" name="EngineOnHours" type="ser:duration" />
+      <xs:element minOccurs="0" name="Periods" nillable="true" type="tns:ArrayOfSpicMotorPeriod" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicMotorModesStatistics" nillable="true" type="tns:SpicMotorModesStatistics" />
+  <xs:complexType name="ArrayOfSpicMotorPeriod">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SpicMotorPeriod" nillable="true" type="tns:SpicMotorPeriod" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpicMotorPeriod" nillable="true" type="tns:ArrayOfSpicMotorPeriod" />
+  <xs:complexType name="SpicMotorPeriod">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsActiveWork" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsIgnitionOn" type="xs:boolean" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" minOccurs="0" name="Period" nillable="true" type="q2:SpicDateTimeRange" />
+      <xs:element minOccurs="0" name="TypeId" nillable="true" type="tns:SpicMotorPeriodType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicMotorPeriod" nillable="true" type="tns:SpicMotorPeriod" />
+  <xs:complexType name="SpicMotorPeriodType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicMotorPeriodType" nillable="true" type="tns:SpicMotorPeriodType" />
+</xs:schema>

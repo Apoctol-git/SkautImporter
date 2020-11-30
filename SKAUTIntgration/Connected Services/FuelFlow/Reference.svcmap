@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1d5497a7-3b38-44ea-849f-bdc8701118c7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://gpnt.scoutonline.ru:8081/spic/FuelFlow/soap" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="soap.xsd" MetadataType="Schema" ID="8b94fb6d-5aba-4267-9461-958eae773112" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/FuelFlow/soap?xsd=xsd5" />
+    <MetadataFile FileName="SpicFuelFlowStatisticsService.wsdl" MetadataType="Wsdl" ID="9c2f7ca6-bfb2-4924-829d-53cafd324679" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/FuelFlow/soap?wsdl" />
+    <MetadataFile FileName="soap1.xsd" MetadataType="Schema" ID="229a865a-b413-4b4a-be46-303407be0c1a" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/FuelFlow/soap?xsd=xsd1" />
+    <MetadataFile FileName="soap2.xsd" MetadataType="Schema" ID="04df4afc-ca4d-47dc-9984-c01104e25158" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/FuelFlow/soap?xsd=xsd0" />
+    <MetadataFile FileName="soap3.xsd" MetadataType="Schema" ID="f94ee6f3-f5a3-46a6-a68d-4011a4779eb6" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/FuelFlow/soap?xsd=xsd3" />
+    <MetadataFile FileName="soap4.xsd" MetadataType="Schema" ID="a5f22eeb-16cd-4180-b5b3-619c98ebb765" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/FuelFlow/soap?xsd=xsd2" />
+    <MetadataFile FileName="soap.disco" MetadataType="Disco" ID="b7d8a915-e245-4788-989c-06022779f10f" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/FuelFlow/soap?disco" />
+    <MetadataFile FileName="soap5.xsd" MetadataType="Schema" ID="3be04fb2-c504-4e68-a218-8f8a3f39c440" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/FuelFlow/soap?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

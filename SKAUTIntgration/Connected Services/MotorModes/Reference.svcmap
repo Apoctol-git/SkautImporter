@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7c1e09a8-549d-45e8-811d-1eb33cecc5ee" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://gpnt.scoutonline.ru:8081/spic/MotorModes/soap" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="soap.xsd" MetadataType="Schema" ID="ba4e7540-64bf-4dbd-81ce-f1696c1fb7a0" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/MotorModes/soap?xsd=xsd4" />
+    <MetadataFile FileName="soap.disco" MetadataType="Disco" ID="289e9d30-8a2b-47cf-b162-8eec4957031b" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/MotorModes/soap?disco" />
+    <MetadataFile FileName="soap1.xsd" MetadataType="Schema" ID="a0f01a19-6247-435d-b09d-9ccfa395d933" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/MotorModes/soap?xsd=xsd2" />
+    <MetadataFile FileName="SpicMotorModesStatisticsService.wsdl" MetadataType="Wsdl" ID="a175f0cb-60e4-470c-8d4d-73052a72d38a" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/MotorModes/soap?wsdl" />
+    <MetadataFile FileName="soap2.xsd" MetadataType="Schema" ID="58d3a03f-7f79-478c-af79-e35e6fd2f24d" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/MotorModes/soap?xsd=xsd5" />
+    <MetadataFile FileName="soap3.xsd" MetadataType="Schema" ID="66904832-ee2b-4687-a802-2bd728f8f376" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/MotorModes/soap?xsd=xsd0" />
+    <MetadataFile FileName="soap4.xsd" MetadataType="Schema" ID="4666e5a1-8c64-44cc-af66-1d3acbbcbc9a" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/MotorModes/soap?xsd=xsd3" />
+    <MetadataFile FileName="soap5.xsd" MetadataType="Schema" ID="3b0fdc28-4a35-49ac-b481-ae99b52b9f80" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/MotorModes/soap?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

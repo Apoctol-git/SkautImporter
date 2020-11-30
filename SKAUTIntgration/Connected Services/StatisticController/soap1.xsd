@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://178.63.30.148:8081/spic/StatisticsController/soap?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="SpicDateTimeRange">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Begin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="End" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicDateTimeRange" nillable="true" type="tns:SpicDateTimeRange" />
+  <xs:complexType name="SpicObjectIdentity">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ObjectId" type="xs:int" />
+      <xs:element minOccurs="0" name="ObjectTypeId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicObjectIdentity" nillable="true" type="tns:SpicObjectIdentity" />
+  <xs:complexType name="SpicStatisticsOperationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicStatisticsOperationResult" nillable="true" type="tns:SpicStatisticsOperationResult" />
+</xs:schema>

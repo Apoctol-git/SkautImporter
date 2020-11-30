@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://178.63.30.148:8081/spic/StatisticsController/soap?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Controller" />
+  <xs:import schemaLocation="http://178.63.30.148:8081/spic/StatisticsController/soap?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" />
+  <xs:import schemaLocation="http://178.63.30.148:8081/spic/StatisticsController/soap?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Concrete" />
+  <xs:element name="StartStatisticsSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Controller" minOccurs="0" name="request" nillable="true" type="q1:SpicStatisticsSessionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartStatisticsSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Controller" minOccurs="0" name="StartStatisticsSessionResult" nillable="true" type="q2:SpicStatisticsSessionResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopStatisticsSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Controller" minOccurs="0" name="session" nillable="true" type="q3:SpicStatisticsSession" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopStatisticsSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" minOccurs="0" name="StopStatisticsSessionResult" nillable="true" type="q4:SpicStatisticsOperationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentChunkInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Controller" minOccurs="0" name="session" nillable="true" type="q5:SpicStatisticsSession" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentChunkInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Concrete" minOccurs="0" name="GetCurrentChunkInfoResult" nillable="true" type="q6:SpicStatisticsChunkInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildNextChunk">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Controller" minOccurs="0" name="session" nillable="true" type="q7:SpicStatisticsSession" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildNextChunkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" minOccurs="0" name="BuildNextChunkResult" nillable="true" type="q8:SpicStatisticsOperationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartBuild">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Controller" minOccurs="0" name="session" nillable="true" type="q9:SpicStatisticsSession" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartBuildResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" minOccurs="0" name="StartBuildResult" nillable="true" type="q10:SpicStatisticsOperationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

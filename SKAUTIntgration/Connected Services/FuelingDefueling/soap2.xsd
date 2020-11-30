@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.FuelingDefuelingStat" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.FuelingDefuelingStat" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://178.63.30.148:8081/spic/fdstat/soap?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Concrete" />
+  <xs:import schemaLocation="http://178.63.30.148:8081/spic/fdstat/soap?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.SpicNavigationFiltrationStat" />
+  <xs:import schemaLocation="http://178.63.30.148:8081/spic/fdstat/soap?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" />
+  <xs:complexType name="SpicFuelingDefuelingStatisticsResult">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Concrete" minOccurs="0" name="ChunkInfo" nillable="true" type="q1:SpicStatisticsChunkInfo" />
+      <xs:element minOccurs="0" name="Statistics" nillable="true" type="tns:SpicFuelingDefuelingStatistics" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicFuelingDefuelingStatisticsResult" nillable="true" type="tns:SpicFuelingDefuelingStatisticsResult" />
+  <xs:complexType name="SpicFuelingDefuelingStatistics">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BeginFuelVolumeL" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="DefuelingCount" type="xs:int" />
+      <xs:element minOccurs="0" name="DefuelingTotalVolumeL" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="EndFuelVolumeL" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Events" nillable="true" type="tns:ArrayOfSpicFuelingDefuelingStatisticsEvent" />
+      <xs:element minOccurs="0" name="FuelingCount" type="xs:int" />
+      <xs:element minOccurs="0" name="FuelingTotalVolumeL" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="MaxFuelVolumeL" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="MinFuelVolumeL" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="TotalFuelConsumptionL" nillable="true" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicFuelingDefuelingStatistics" nillable="true" type="tns:SpicFuelingDefuelingStatistics" />
+  <xs:complexType name="ArrayOfSpicFuelingDefuelingStatisticsEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SpicFuelingDefuelingStatisticsEvent" nillable="true" type="tns:SpicFuelingDefuelingStatisticsEvent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpicFuelingDefuelingStatisticsEvent" nillable="true" type="tns:ArrayOfSpicFuelingDefuelingStatisticsEvent" />
+  <xs:complexType name="SpicFuelingDefuelingStatisticsEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BeginFuelVolumeL" type="xs:double" />
+      <xs:element minOccurs="0" name="EndFuelVolumeL" type="xs:double" />
+      <xs:element minOccurs="0" name="EventType" nillable="true" type="tns:SpicFdStatisticsFuelEventType" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.SpicNavigationFiltrationStat" minOccurs="0" name="Location" nillable="true" type="q2:SpicLocation" />
+      <xs:element minOccurs="0" name="OriginalBeginFuelVolumeL" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="OriginalEndFuelVolumeL" nillable="true" type="xs:double" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" minOccurs="0" name="OriginalPeriod" nillable="true" type="q3:SpicDateTimeRange" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" minOccurs="0" name="Period" nillable="true" type="q4:SpicDateTimeRange" />
+      <xs:element minOccurs="0" name="Timestamp" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicFuelingDefuelingStatisticsEvent" nillable="true" type="tns:SpicFuelingDefuelingStatisticsEvent" />
+  <xs:complexType name="SpicFdStatisticsFuelEventType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicFdStatisticsFuelEventType" nillable="true" type="tns:SpicFdStatisticsFuelEventType" />
+</xs:schema>

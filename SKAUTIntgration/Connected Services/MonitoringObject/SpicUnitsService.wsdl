@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SpicUnitsService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://178.63.30.148:8081/spic/units/soap?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://178.63.30.148:8081/spic/units/soap?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://178.63.30.148:8081/spic/units/soap?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://178.63.30.148:8081/spic/units/soap?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" />
+      <xsd:import schemaLocation="http://178.63.30.148:8081/spic/units/soap?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Units.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISpicSoapUnitsService_GetAllUnitsCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUnitsCount" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetAllUnitsCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUnitsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetAllUnitsIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUnitsIds" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetAllUnitsIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUnitsIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnit" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetAllUnits_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUnits" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetAllUnits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetUnits_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnits" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetUnits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetAllUnitsPaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUnitsPaged" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetAllUnitsPaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUnitsPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetUnpluggedUnitsCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnpluggedUnitsCount" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetUnpluggedUnitsCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnpluggedUnitsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetUnpluggedUnits_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnpluggedUnits" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetUnpluggedUnits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnpluggedUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetScopeUnitsCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetScopeUnitsCount" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetScopeUnitsCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetScopeUnitsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetScopeUnits_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetScopeUnits" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetScopeUnits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetScopeUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetPositionUnitsCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPositionUnitsCount" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetPositionUnitsCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPositionUnitsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetPositionUnits_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPositionUnits" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetPositionUnits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPositionUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetAccountUnitsCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountUnitsCount" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetAccountUnitsCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountUnitsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetAccountUnits_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountUnits" />
+  </wsdl:message>
+  <wsdl:message name="ISpicSoapUnitsService_GetAccountUnits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountUnitsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISpicSoapUnitsService">
+    <wsdl:operation name="GetAllUnitsCount">
+      <wsdl:input wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetAllUnitsCount" message="tns:ISpicSoapUnitsService_GetAllUnitsCount_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetAllUnitsCountResponse" message="tns:ISpicSoapUnitsService_GetAllUnitsCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnitsIds">
+      <wsdl:input wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetAllUnitsIds" message="tns:ISpicSoapUnitsService_GetAllUnitsIds_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetAllUnitsIdsResponse" message="tns:ISpicSoapUnitsService_GetAllUnitsIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnit">
+      <wsdl:input wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetUnit" message="tns:ISpicSoapUnitsService_GetUnit_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetUnitResponse" message="tns:ISpicSoapUnitsService_GetUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnits">
+      <wsdl:input wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetAllUnits" message="tns:ISpicSoapUnitsService_GetAllUnits_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetAllUnitsResponse" message="tns:ISpicSoapUnitsService_GetAllUnits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnits">
+      <wsdl:input wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetUnits" message="tns:ISpicSoapUnitsService_GetUnits_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetUnitsResponse" message="tns:ISpicSoapUnitsService_GetUnits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnitsPaged">
+      <wsdl:input wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetAllUnitsPaged" message="tns:ISpicSoapUnitsService_GetAllUnitsPaged_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetAllUnitsPagedResponse" message="tns:ISpicSoapUnitsService_GetAllUnitsPaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnpluggedUnitsCount">
+      <wsdl:input wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetUnpluggedUnitsCount" message="tns:ISpicSoapUnitsService_GetUnpluggedUnitsCount_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetUnpluggedUnitsCountResponse" message="tns:ISpicSoapUnitsService_GetUnpluggedUnitsCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnpluggedUnits">
+      <wsdl:input wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetUnpluggedUnits" message="tns:ISpicSoapUnitsService_GetUnpluggedUnits_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetUnpluggedUnitsResponse" message="tns:ISpicSoapUnitsService_GetUnpluggedUnits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScopeUnitsCount">
+      <wsdl:input wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetScopeUnitsCount" message="tns:ISpicSoapUnitsService_GetScopeUnitsCount_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetScopeUnitsCountResponse" message="tns:ISpicSoapUnitsService_GetScopeUnitsCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScopeUnits">
+      <wsdl:input wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetScopeUnits" message="tns:ISpicSoapUnitsService_GetScopeUnits_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetScopeUnitsResponse" message="tns:ISpicSoapUnitsService_GetScopeUnits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPositionUnitsCount">
+      <wsdl:input wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetPositionUnitsCount" message="tns:ISpicSoapUnitsService_GetPositionUnitsCount_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetPositionUnitsCountResponse" message="tns:ISpicSoapUnitsService_GetPositionUnitsCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPositionUnits">
+      <wsdl:input wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetPositionUnits" message="tns:ISpicSoapUnitsService_GetPositionUnits_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetPositionUnitsResponse" message="tns:ISpicSoapUnitsService_GetPositionUnits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountUnitsCount">
+      <wsdl:input wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetAccountUnitsCount" message="tns:ISpicSoapUnitsService_GetAccountUnitsCount_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetAccountUnitsCountResponse" message="tns:ISpicSoapUnitsService_GetAccountUnitsCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountUnits">
+      <wsdl:input wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetAccountUnits" message="tns:ISpicSoapUnitsService_GetAccountUnits_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISpicSoapUnitsService/GetAccountUnitsResponse" message="tns:ISpicSoapUnitsService_GetAccountUnits_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISpicSoapUnitsService" type="tns:ISpicSoapUnitsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllUnitsCount">
+      <soap:operation soapAction="http://tempuri.org/ISpicSoapUnitsService/GetAllUnitsCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnitsIds">
+      <soap:operation soapAction="http://tempuri.org/ISpicSoapUnitsService/GetAllUnitsIds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnit">
+      <soap:operation soapAction="http://tempuri.org/ISpicSoapUnitsService/GetUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnits">
+      <soap:operation soapAction="http://tempuri.org/ISpicSoapUnitsService/GetAllUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnits">
+      <soap:operation soapAction="http://tempuri.org/ISpicSoapUnitsService/GetUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnitsPaged">
+      <soap:operation soapAction="http://tempuri.org/ISpicSoapUnitsService/GetAllUnitsPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnpluggedUnitsCount">
+      <soap:operation soapAction="http://tempuri.org/ISpicSoapUnitsService/GetUnpluggedUnitsCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnpluggedUnits">
+      <soap:operation soapAction="http://tempuri.org/ISpicSoapUnitsService/GetUnpluggedUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScopeUnitsCount">
+      <soap:operation soapAction="http://tempuri.org/ISpicSoapUnitsService/GetScopeUnitsCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScopeUnits">
+      <soap:operation soapAction="http://tempuri.org/ISpicSoapUnitsService/GetScopeUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPositionUnitsCount">
+      <soap:operation soapAction="http://tempuri.org/ISpicSoapUnitsService/GetPositionUnitsCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPositionUnits">
+      <soap:operation soapAction="http://tempuri.org/ISpicSoapUnitsService/GetPositionUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountUnitsCount">
+      <soap:operation soapAction="http://tempuri.org/ISpicSoapUnitsService/GetAccountUnitsCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountUnits">
+      <soap:operation soapAction="http://tempuri.org/ISpicSoapUnitsService/GetAccountUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SpicUnitsService">
+    <wsdl:port name="BasicHttpBinding_ISpicSoapUnitsService" binding="tns:BasicHttpBinding_ISpicSoapUnitsService">
+      <soap:address location="http://178.63.30.148:8081/spic/units/soap" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

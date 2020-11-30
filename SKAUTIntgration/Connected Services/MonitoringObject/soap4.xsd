@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Units.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Units.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://178.63.30.148:8081/spic/units/soap?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" />
+  <xs:complexType name="SpicUnit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Color" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyId" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GarageNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OlsonId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Owner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Power" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Registration" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StateNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitId" type="xs:int" />
+      <xs:element minOccurs="0" name="UnitTypeId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="VinNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Year" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicUnit" nillable="true" type="tns:SpicUnit" />
+  <xs:complexType name="SpicUnitCollectionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Units" nillable="true" type="tns:ArrayOfSpicUnit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicUnitCollectionDto" nillable="true" type="tns:SpicUnitCollectionDto" />
+  <xs:complexType name="ArrayOfSpicUnit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SpicUnit" nillable="true" type="tns:SpicUnit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpicUnit" nillable="true" type="tns:ArrayOfSpicUnit" />
+  <xs:complexType name="SpicIdObjectsChunkRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" minOccurs="0" name="ObjectsChunkRequest" nillable="true" type="q1:SpicObjectsChunkRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicIdObjectsChunkRequest" nillable="true" type="tns:SpicIdObjectsChunkRequest" />
+</xs:schema>

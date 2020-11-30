@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b71d57ee-dc9f-4eca-a0aa-89506d96c97f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://gpnt.scoutonline.ru:8081/spic/fdstat/soap" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="soap.xsd" MetadataType="Schema" ID="72ca4eab-ba63-4745-a48c-868ee8d726ec" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/fdstat/soap?xsd=xsd1" />
+    <MetadataFile FileName="soap.disco" MetadataType="Disco" ID="ae4e2e6d-004a-4c56-8e3a-33759774b5dc" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/fdstat/soap?disco" />
+    <MetadataFile FileName="SpicFuelingDefuelingStatisticsService.wsdl" MetadataType="Wsdl" ID="0cd3f73d-8351-4ee0-8658-0793ff80d497" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/fdstat/soap?wsdl" />
+    <MetadataFile FileName="soap1.xsd" MetadataType="Schema" ID="78c61657-1467-4a7a-96de-e2577f127838" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/fdstat/soap?xsd=xsd6" />
+    <MetadataFile FileName="soap2.xsd" MetadataType="Schema" ID="037e6d36-705b-43d0-ac7a-02b767cd4c84" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/fdstat/soap?xsd=xsd5" />
+    <MetadataFile FileName="soap3.xsd" MetadataType="Schema" ID="9f163202-8e19-4950-b37e-7c9553bae4a0" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/fdstat/soap?xsd=xsd3" />
+    <MetadataFile FileName="soap4.xsd" MetadataType="Schema" ID="8b136ddd-b528-4c1b-a28e-9a5d5348af1d" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/fdstat/soap?xsd=xsd0" />
+    <MetadataFile FileName="soap5.xsd" MetadataType="Schema" ID="f8cc5fcd-5ccb-4491-8022-39fa0ea09cb3" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/fdstat/soap?xsd=xsd2" />
+    <MetadataFile FileName="soap6.xsd" MetadataType="Schema" ID="f6b6c759-a07a-4613-b1e4-74a95751601c" SourceId="1" SourceUrl="http://178.63.30.148:8081/spic/fdstat/soap?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

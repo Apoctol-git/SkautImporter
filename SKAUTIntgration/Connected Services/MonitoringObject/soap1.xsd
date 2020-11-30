@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Infrastructure.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://178.63.30.148:8081/spic/units/soap?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="SpicObjectRequest">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExtensionIds" nillable="true" type="q1:ArrayOfguid" />
+      <xs:element minOccurs="0" name="ObjectId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicObjectRequest" nillable="true" type="tns:SpicObjectRequest" />
+  <xs:complexType name="SpicObjectRequests">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Requests" nillable="true" type="tns:ArrayOfSpicObjectRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicObjectRequests" nillable="true" type="tns:SpicObjectRequests" />
+  <xs:complexType name="ArrayOfSpicObjectRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SpicObjectRequest" nillable="true" type="tns:SpicObjectRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpicObjectRequest" nillable="true" type="tns:ArrayOfSpicObjectRequest" />
+  <xs:complexType name="SpicObjectsChunkRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExtensionIds" nillable="true" type="q2:ArrayOfguid" />
+      <xs:element minOccurs="0" name="Offset" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicObjectsChunkRequest" nillable="true" type="tns:SpicObjectsChunkRequest" />
+</xs:schema>

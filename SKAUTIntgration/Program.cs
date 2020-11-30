@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SKAUTIntgration.SOAP;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,20 +17,42 @@ namespace SKAUTIntgration
             
             //var baseURL = @"http://spic.scout365.ru:8081";
             var INI = GetINIManager(Environment.CurrentDirectory+@"\config.ini");
-            var param = GetConfigParameter(INI);
-            var baseURL = param[1];
-            Login(baseURL);
+            //var param = GetConfigParameter(INI);
+            //var baseURL = param[1];
+            //Login(baseURL);
+            var request = GetRequest();
+            var token = LoginSoap(request);
             var period = GetDateTime();
-            var ruleRunner = new RuleActionAgregator();
-            IFormater formater = new CSVFormater();
-            ruleRunner.SetMonitoring(baseURL, period);
-            ruleRunner.UpdateMonitoring(INI, sessionToken);
-            ruleRunner.SaveMonitoringObject(formater, param[0]);
-            ruleRunner.SetRules(baseURL, period);
-            ruleRunner.UpdateRulesValue(INI, sessionToken);
-            ruleRunner.MakeRequestAndSave(formater, param[0], int.Parse(param[2]));
+            var action = new WriteFileManager(token);
+            action.RunWriter(INI,period);
+            //var ruleRunner = new RuleActionAgregator();
+            //IFormater formater = new CSVFormater();
+            //ruleRunner.SetMonitoring(baseURL, period);
+            //ruleRunner.UpdateMonitoring(INI, sessionToken);
+            //ruleRunner.SaveMonitoringObject(formater, param[0]);
+            //ruleRunner.SetRules(baseURL, period);
+            //ruleRunner.UpdateRulesValue(INI, sessionToken);
+            //ruleRunner.MakeRequestAndSave(formater, param[0], int.Parse(param[2]));
             //var xmlForm = ruleRunner.MakeRequest();
             //formater.Saver(param[0],xmlForm);
+        }
+        static Auth.SpicAuthorizationResponse LoginSoap(Auth.SpicAuthorizationRequest request)
+        {
+            var loginClient = new Auth.SpicAuthorizationSoapServiceClient();
+            var response = loginClient.Login(request);
+            return response;
+        }
+        static Auth.SpicAuthorizationRequest GetRequest()
+        {
+            var loginreq = new LoginRequester();
+            Console.WriteLine("Введите логин");
+            var login = (string)Console.ReadLine();
+            Console.WriteLine("Введите пароль");
+            var password = (string)Console.ReadLine();
+            var info = new Auth.SpicAuthorizationRequest();
+            info.Login = login;
+            info.Password = password;
+            return info;
         }
         static void Login(string baseURL) // Верхнеуровневая процедура логирования
         {

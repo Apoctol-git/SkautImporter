@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.FuelFlowStat" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.FuelFlowStat" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://178.63.30.148:8081/spic/FuelFlow/soap?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Concrete" />
+  <xs:complexType name="SpicFuelFlowStatisticsResult">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Concrete" minOccurs="0" name="ChunkInfo" nillable="true" type="q1:SpicStatisticsChunkInfo" />
+      <xs:element minOccurs="0" name="Statistics" nillable="true" type="tns:SpicFuelFlowStatistics" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicFuelFlowStatisticsResult" nillable="true" type="tns:SpicFuelFlowStatisticsResult" />
+  <xs:complexType name="SpicFuelFlowStatistics">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Sensors" nillable="true" type="tns:ArrayOfSpicFuelFlowStatisticsSensor" />
+      <xs:element minOccurs="0" name="Summary" nillable="true" type="tns:SpicFuelFlowStatisticsSensor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicFuelFlowStatistics" nillable="true" type="tns:SpicFuelFlowStatistics" />
+  <xs:complexType name="ArrayOfSpicFuelFlowStatisticsSensor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SpicFuelFlowStatisticsSensor" nillable="true" type="tns:SpicFuelFlowStatisticsSensor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpicFuelFlowStatisticsSensor" nillable="true" type="tns:ArrayOfSpicFuelFlowStatisticsSensor" />
+  <xs:complexType name="SpicFuelFlowStatisticsSensor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EngineActiveWorkConsumptionL" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="EngineIdleConsumptionL" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="MovementConsumptionL" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Points" nillable="true" type="tns:ArrayOfSpicAnalogSensorValuePoint" />
+      <xs:element minOccurs="0" name="SensorNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="SensorTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalConsumptionVolumeL" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="TotalConsumptionWeightKg" nillable="true" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicFuelFlowStatisticsSensor" nillable="true" type="tns:SpicFuelFlowStatisticsSensor" />
+  <xs:complexType name="ArrayOfSpicAnalogSensorValuePoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SpicAnalogSensorValuePoint" nillable="true" type="tns:SpicAnalogSensorValuePoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpicAnalogSensorValuePoint" nillable="true" type="tns:ArrayOfSpicAnalogSensorValuePoint" />
+  <xs:complexType name="SpicAnalogSensorValuePoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Timestamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Value" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicAnalogSensorValuePoint" nillable="true" type="tns:SpicAnalogSensorValuePoint" />
+</xs:schema>

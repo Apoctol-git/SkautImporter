@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Controller" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Scout.Plugins.Spic.Server.Statistics.Controller" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://178.63.30.148:8081/spic/FuelFlow/soap?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="SpicStatisticsSession">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StatisticsSessionId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpicStatisticsSession" nillable="true" type="tns:SpicStatisticsSession" />
+</xs:schema>
