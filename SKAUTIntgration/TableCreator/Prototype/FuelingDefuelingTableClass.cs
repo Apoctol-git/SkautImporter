@@ -1,6 +1,6 @@
 ﻿namespace SKAUTIntgration.TableCreator
 {
-    internal class FuelingDefuelingTableClass :BaseFieldFinder, IDocument
+    internal class FuelingDefuelingTableClass :BaseFieldFinder, IPrototype
     {
         //internal string BeginFuelVolumeL { get; set; }
         //internal string EndFuelVolumeL { get; set; }

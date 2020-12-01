@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SKAUTIntgration.TableCreator
 {
-    public class DiscreteSensorStatisticTableClass:BaseFieldFinder, IDocument
+    public class DiscreteSensorStatisticTableClass:BaseFieldFinder, IPrototype
     {
         public string Brand { get; set; }
         public string Color { get; set; }

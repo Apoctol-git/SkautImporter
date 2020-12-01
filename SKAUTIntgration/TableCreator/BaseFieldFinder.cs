@@ -43,8 +43,8 @@ namespace SKAUTIntgration.TableCreator
             }
             catch (KeyNotFoundException ex)
             {
-                var log = new Logger();
-                log.WriteKeyNotFoundExeption(ex.Message, condition);
+                //var log = new Logger();
+                //log.WriteKeyNotFoundExeption(ex.Message, condition);
             }
         }
         public virtual void RunSetterField(string condition, string value, bool isStatistic)
@@ -86,6 +86,10 @@ namespace SKAUTIntgration.TableCreator
             }
             return isAll;
         }
+        public List<ITable> GetTablesList()
+        {
+            return null;
+        }
         protected void SetStaticValue(string condition, string value)
         {
             staticValueList[condition] = value;
@@ -115,7 +119,7 @@ namespace SKAUTIntgration.TableCreator
         {
             isFilledField[condition] = state;
         }
-        
+
     }
 
 }

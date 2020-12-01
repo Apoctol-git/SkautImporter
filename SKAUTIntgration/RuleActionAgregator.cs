@@ -35,6 +35,7 @@ namespace SKAUTIntgration
                 foreach (var item in responseAnswer)
                 {
                     var table = builder.GetTable(monitoring.Name, item);
+
                     document.SavingElevents.Add(table);
                 }
                 responses.Add(document);
@@ -103,9 +104,11 @@ namespace SKAUTIntgration
                         var document = new SavingDocument(item.Name, item.Period, resp.Key, item.TargetCatalog);
                         foreach (var ra in responseAnswer)
                         {
-                            var tables = builder.GetTables(item.Name, ra);
+                            var tablePrototype = builder.GetTable(item.Name, ra);
+                            var tables = tablePrototype.GetTablesList();
                             foreach (var table in tables)
                             {
+                                table.SetUnitId(resp.Key);
                                 document.SavingElevents.Add(table);
                             }
                         }
@@ -116,16 +119,16 @@ namespace SKAUTIntgration
             }
             return responses;
         }
-        private int UnitIdKeyFinder(string unitId, List<SavingDocument> array)
-        {
-            for (int i = 0; i < array.Count; i++)
-            {
-                if (array[i].UnitId==unitId)
-                {
-                    return i;
-                }
-            }
-            return -1;
-        }
+        //private int UnitIdKeyFinder(string unitId, List<SavingDocument> array)
+        //{
+        //    for (int i = 0; i < array.Count; i++)
+        //    {
+        //        if (array[i].UnitId==unitId)
+        //        {
+        //            return i;
+        //        }
+        //    }
+        //    return -1;
+        //}
     }
 }

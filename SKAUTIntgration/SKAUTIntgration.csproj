@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ChoETL, Version=1.2.1.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ChoETL.1.2.1.4\lib\net45\ChoETL.dll</HintPath>
+    </Reference>
+    <Reference Include="ChoETL.JSON, Version=1.2.1.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ChoETL.JSON.1.2.1.4\lib\net45\ChoETL.JSON.dll</HintPath>
+    </Reference>
     <Reference Include="CsvHelper, Version=16.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <HintPath>..\packages\CsvHelper.16.1.0\lib\net47\CsvHelper.dll</HintPath>
     </Reference>
@@ -42,8 +48,23 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.CodeDom, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.4.4.0\lib\net461\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.4.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.2.0.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.4.3\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
@@ -52,6 +73,7 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -72,15 +94,17 @@
     <Compile Include="InterfaceAndAbstract\BaseStaticticReqestClass.cs" />
     <Compile Include="EnviromentTouch\CSVFormater.cs" />
     <Compile Include="TableCreator\BaseFieldFinder.cs" />
-    <Compile Include="TableCreator\FuelFlowStatisticTableClass.cs" />
-    <Compile Include="TableCreator\FuelingDefuelingTableClass.cs" />
-    <Compile Include="TableCreator\IDocument.cs" />
-    <Compile Include="TableCreator\MotorModesStatisticTableClass.cs" />
-    <Compile Include="TableCreator\NavigationFiltrationStatisticTableClass.cs" />
-    <Compile Include="TableCreator\NavigationValidationStatisticTableClass.cs" />
+    <Compile Include="TableCreator\ITable.cs" />
+    <Compile Include="TableCreator\Prototype\FuelFlowStatisticTableClass.cs" />
+    <Compile Include="TableCreator\Prototype\FuelingDefuelingTableClass.cs" />
+    <Compile Include="TableCreator\Prototype\IPrototype.cs" />
+    <Compile Include="TableCreator\Prototype\MotorModesStatisticTableClass.cs" />
+    <Compile Include="TableCreator\Prototype\NavigationFiltrationStatisticTableClass.cs" />
+    <Compile Include="TableCreator\Prototype\NavigationValidationStatisticTableClass.cs" />
     <Compile Include="TableCreator\TableClassBuilder.cs" />
-    <Compile Include="TableCreator\TrackPeriodsMileageStatisticTableClass.cs" />
-    <Compile Include="TableCreator\TrackPeriodStatisticTableClass.cs" />
+    <Compile Include="TableCreator\Prototype\TrackPeriodsMileageStatisticTableClass.cs" />
+    <Compile Include="TableCreator\Prototype\TrackPeriodStatisticTableClass.cs" />
+    <Compile Include="TableCreator\Table\MotorModesStatisticTable.cs" />
     <Compile Include="TableCreator\UnitTableClass.cs" />
     <Compile Include="UploadClass\DiscreteSensorStat.cs" />
     <Compile Include="UploadClass\FuelDefuelStat.cs" />
@@ -143,5 +167,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

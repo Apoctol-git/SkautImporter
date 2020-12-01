@@ -54,7 +54,7 @@ namespace SKAUTIntgration
                 logger.WriteLog(document.Name, document.UnitId, "сохранён");
             }
         }
-
+        
         private void SetNextNumber()
         {
             i++;

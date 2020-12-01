@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace SKAUTIntgration.TableCreator
 {
-    public interface IDocument
+    public interface IPrototype
     {
         void RunSetterField(string condition, string value);
-        void RunSetterField(string condition, string value, bool isStatic);
-        bool IsAllFieldFilling();
+        List<ITable> GetTablesList();
+        //void RunSetterField(string condition, string value, bool isStatic);
+        //bool IsAllFieldFilling();
     }
 }

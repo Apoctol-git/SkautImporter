@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SKAUTIntgration.TableCreator
 {
-    internal class FuelFlowStatisticTableClass: BaseFieldFinder,IDocument
+    internal class FuelFlowStatisticTableClass: BaseFieldFinder, IPrototype
     {
         internal string SensorNumber { get; set; }
 

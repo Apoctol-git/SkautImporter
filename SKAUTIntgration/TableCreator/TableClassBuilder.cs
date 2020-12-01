@@ -8,7 +8,7 @@ namespace SKAUTIntgration.TableCreator
 {
     public class TableClassBuilder
     {
-        Dictionary<string, IDocument> ClassList = new Dictionary<string, IDocument>();
+        Dictionary<string, IPrototype> ClassList = new Dictionary<string, IPrototype>();
         public virtual void SetClassList()
         {
             ClassList.Add("MonitoringObject", new DiscreteSensorStatisticTableClass());
@@ -21,11 +21,11 @@ namespace SKAUTIntgration.TableCreator
             ClassList.Add("NavigationFiltrationStatistic", new NavigationFiltrationStatisticTableClass());
             ClassList.Add("DiscreteSensorStatistic", new DiscreteSensorStatisticTableClass());
         }
-        IDocument GetTableClass(string condition)
+        IPrototype GetTableClass(string condition)
         {
             return ClassList[condition];
         }
-        IDocument FuelField(string className, List<XMLelement> workArray)
+        IPrototype FuelField(string className, List<XMLelement> workArray)
         {
             var workClass = GetTableClass(className);
             foreach (var item in workArray)
@@ -34,33 +34,35 @@ namespace SKAUTIntgration.TableCreator
             }
             return workClass;
         }
-        List<IDocument> FuelFieldArray(string className, List<XMLelement> workArray)
-        {
-            List<IDocument> documents = new List<IDocument>();
-            foreach (var item in workArray)
-            {
-                var workClass = GetTableClass(className);
-                workClass.RunSetterField(item.Key, item.Value,true);
-                if (workClass.IsAllFieldFilling())
-                {
-                    documents.Add(workClass);
-                    RefreshClassList();
-                }
-            }
-            return documents;
-        }
+        //List<IDocument> FuelFieldArray(string className, List<XMLelement> workArray)
+        //{
+        //    List<IDocument> documents = new List<IDocument>();
+        //    foreach (var item in workArray)
+        //    {
+        //        var workClass = GetTableClass(className);
+        //        workClass.RunSetterField(item.Key, item.Value, true);
+        //        if (workClass.IsAllFieldFilling())
+        //        {
+        //            documents.Add(workClass);
+        //            RefreshClassList();
+        //        }
+        //    }
+        //    return documents;
+        //}
         void RefreshClassList()
         {
             ClassList.Clear();
             SetClassList();
         }
-        public IDocument GetTable(string className, List<XMLelement> workArray)
+        public IPrototype GetTable(string className, List<XMLelement> workArray)
         {
+            RefreshClassList();
             return FuelField(className, workArray);
         }
-        public List<IDocument> GetTables(string className, List<XMLelement> workArray)
-        {
-            return FuelFieldArray(className, workArray);
-        }
+        //public List<IDocument> GetTables(string className, List<XMLelement> workArray)
+        //{
+        //    RefreshClassList();
+        //    return FuelFieldArray(className, workArray);
+        //}
     }
 }
