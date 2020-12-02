@@ -22,10 +22,10 @@ namespace SKAUTIntgration.TableCreator
             Timebegin = new List<string>();
             TimeEnd = new List<string>();
             TypeId = new List<string>();
-            AddFieldRules("EngineActiveWorkHours", (string value) => EngineActiveWorkHours = value, true);
-            AddFieldRules("EngineIdleHours", (string value) => EngineIdleHours = value, true);
-            AddFieldRules("EngineOffHours", (string value) => EngineOffHours = value, true);
-            AddFieldRules("EngineOnHours", (string value) => EngineOnHours = value, true);
+            AddFieldRules("EngineActiveWorkHours", (string value) => EngineActiveWorkHours = value);
+            AddFieldRules("EngineIdleHours", (string value) => EngineIdleHours = value);
+            AddFieldRules("EngineOffHours", (string value) => EngineOffHours = value);
+            AddFieldRules("EngineOnHours", (string value) => EngineOnHours = value);
             AddFieldRules("IsActiveWork", (string value) => PeriodsIsActiveWork.Add(value));
             AddFieldRules("IsIgnitionOn", (string value) => PeriodsIsIgnitionOn.Add(value));
             AddFieldRules("Begin", (string value) => Timebegin.Add(value));
