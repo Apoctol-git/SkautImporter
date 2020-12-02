@@ -126,8 +126,9 @@ namespace SKAUTIntgration
                         }
                     }
                 }
-                resultArray.Add(resultElement);
+                
             }
+            resultArray.Add(resultElement);
             return resultArray;
         }
         private string GetStringFromArray(List<XMLelement> array)

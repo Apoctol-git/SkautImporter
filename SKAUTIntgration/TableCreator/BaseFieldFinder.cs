@@ -43,8 +43,8 @@ namespace SKAUTIntgration.TableCreator
             }
             catch (KeyNotFoundException ex)
             {
-                //var log = new Logger();
-                //log.WriteKeyNotFoundExeption(ex.Message, condition);
+                var log = new Logger();
+                log.WriteKeyNotFoundExeption(ex.Message, condition);
             }
         }
         public virtual void RunSetterField(string condition, string value, bool isStatistic)
