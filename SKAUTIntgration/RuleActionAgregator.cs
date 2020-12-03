@@ -10,6 +10,7 @@ namespace SKAUTIntgration
     class RuleActionAgregator
     {
         MonitoringObjectAllUnitsPaged monitoring;
+        LoginRequester Login;
         readonly List<IRuleRequster> rules = new List<IRuleRequster>();
         public void SetMonitoring(string baseURL, DateTime period)
         {
@@ -55,7 +56,10 @@ namespace SKAUTIntgration
             rules.Add(new NavigationFiltrationStat(baseURL, period));
             rules.Add(new DiscreteSensorStat(baseURL, period));
         }
-        
+        public void SetLoginRequester(LoginRequester loginreq)
+        {
+            Login = loginreq;
+        }
         public void UpdateRulesValue(INIManager INI, string token)
         {
             foreach (var item in rules)
@@ -75,13 +79,20 @@ namespace SKAUTIntgration
             var totalIterration = Math.Round((double)totalCount / compare);
             for (int i = 0; i < totalIterration; i++)
             {
-                var xmlForm = RequestMaker(logger,i,compare);
-                saver.Saver(rootCatalog, i, xmlForm);
+                try
+                {
+                    var xmlForm = RequestMaker(logger,i,compare);
+                    saver.Saver(rootCatalog, i, xmlForm);
+                }
+                catch (Exception)
+                {
+                    var token = Login.ReLogin();
+                    UpdateRulesValue(Login.GetINI(), token);
+                }
 
             }
 
         }
-
         private int GetArrayLeght (MonitoringObjectAllUnitsPaged monitoring)
         {
             return monitoring.unitsId.Count;

@@ -9,7 +9,7 @@ namespace SKAUTIntgration
 {
     class Program
     {
-        static string sessionToken;
+        //static string sessionToken;
         //public static Dictionary<string, string> UnitsAndTypes = new Dictionary<string, string>();
         static void Main()
         {
@@ -18,25 +18,29 @@ namespace SKAUTIntgration
             var INI = GetINIManager(Environment.CurrentDirectory+@"\config.ini");
             var param = GetConfigParameter(INI);
             var baseURL = param[1];
-            Login(baseURL);
+            var loginreq = new LoginRequester();
+            var token = Login(baseURL, loginreq);
+            loginreq.SetINI(INI);
             var period = GetDateTime();
             var ruleRunner = new RuleActionAgregator();
             IFormater formater = new CSVFormater();
             ruleRunner.SetMonitoring(baseURL, period);
-            ruleRunner.UpdateMonitoring(INI, sessionToken);
+            ruleRunner.UpdateMonitoring(INI, token);
             ruleRunner.SaveMonitoringObject(formater, param[0]);
+            ruleRunner.SetLoginRequester(loginreq);
             ruleRunner.SetRules(baseURL, period);
-            ruleRunner.UpdateRulesValue(INI, sessionToken);
+            ruleRunner.UpdateRulesValue(INI, token);
             ruleRunner.MakeRequestAndSave(formater, param[0], int.Parse(param[2]));
             //var xmlForm = ruleRunner.MakeRequest();
             //formater.Saver(param[0],xmlForm);
         }
-        static void Login(string baseURL) // Верхнеуровневая процедура логирования
+        static string Login(string baseURL, LoginRequester loginreq ) // Верхнеуровневая процедура логирования
         {
             bool isRepeat = true;
+            string result = null;
             while (isRepeat)
             {
-                var loginreq = new LoginRequester();
+
                 Console.WriteLine("Введите логин");
                 var login = (string)Console.ReadLine();
                 Console.WriteLine("Введите пароль");
@@ -44,7 +48,7 @@ namespace SKAUTIntgration
                 var data = loginreq.Login(login, password, baseURL);
                 if (data[0] == "true" && data[1] == "true")
                 {
-                    sessionToken = data[2];
+                    result = data[2];
                     isRepeat = false;
                 }
                 if (isRepeat)
@@ -52,7 +56,7 @@ namespace SKAUTIntgration
                     Console.WriteLine("Ошибка. Повторите ввод логина и пароля");
                 }
             }
-
+            return result;
         }
         static DateTime GetDateTime()
         {
