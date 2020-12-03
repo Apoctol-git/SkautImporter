@@ -9,5 +9,6 @@ namespace SKAUTIntgration
     interface IFormater
     {
         void Saver(string basePath, List<SavingDocument> documents);
+        void Saver(string basePath, int numberItteration, List<SavingDocument> documents);
     }
 }

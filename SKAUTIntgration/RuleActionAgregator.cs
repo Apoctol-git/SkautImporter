@@ -76,7 +76,7 @@ namespace SKAUTIntgration
             for (int i = 0; i < totalIterration; i++)
             {
                 var xmlForm = RequestMaker(logger,i,compare);
-                saver.Saver(rootCatalog, xmlForm);
+                saver.Saver(rootCatalog, i, xmlForm);
 
             }
 
