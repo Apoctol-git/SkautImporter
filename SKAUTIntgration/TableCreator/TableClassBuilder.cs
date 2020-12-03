@@ -11,7 +11,7 @@ namespace SKAUTIntgration.TableCreator
         Dictionary<string, IPrototype> ClassList = new Dictionary<string, IPrototype>();
         public virtual void SetClassList()
         {
-            ClassList.Add("MonitoringObject", new DiscreteSensorStatisticTableClass());
+            ClassList.Add("MonitoringObject", new UnitTableClass());
             ClassList.Add("FuelFlowStatistic", new FuelFlowStatisticTableClass());
             ClassList.Add("FuelingDefuelingStatistic", new FuelingDefuelingTableClass());
             ClassList.Add("MotorModesStatistic", new MotorModesStatisticTableClass());

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SKAUTIntgration.TableCreator
 {
-    public class DiscreteSensorStatisticTableClass:BaseFieldFinder, IPrototype
+    public class UnitTableClass : BaseFieldFinder, IPrototype
     {
         public string Brand { get; set; }
         public string Color { get; set; }
@@ -27,7 +27,7 @@ namespace SKAUTIntgration.TableCreator
         public string VinNumber { get; set; }
         public string Year { get; set; }
 
-        public DiscreteSensorStatisticTableClass()
+        public UnitTableClass()
         {
             AddFieldRules("Brand", (string value) => Brand = value);
             AddFieldRules("Color", (string value) => Color = value);
