@@ -8,26 +8,26 @@ namespace SKAUTIntgration.TableCreator.Table
 {
     internal class FuelingDefuelingTable:ITable
     {
-        internal string UnitId { get; set; }
-        internal string BeginFuelVolumeL { get; set; }
-        internal string EndFuelVolumeL { get; set; }
-        internal string MinFuelVolumeL { get; set; }
-        internal string MaxFuelVolumeL { get; set; }
-        internal string FuelingTotalVolumeL { get; set; }
-        internal string DefuelingTotalVolumeL { get; set; }
-        internal string TotalFuelConsumptionL { get; set; }
-        internal string FuelingCount { get; set; }
-        internal string DefuelingCount { get; set; }
-        internal string Period { get; set; }
-        internal string OriginalPeriod { get; set; }
-        internal string Timestamp { get; set; }
-        internal string EventType { get; set; }
-        internal string EventBeginFuelVolumeL { get; set; }
-        internal string EventEndFuelVolumeL { get; set; }
-        internal string OriginalBeginFuelVolumeL { get; set; }
-        internal string OriginalEndFuelVolumeL { get; set; }
-        internal string LocationLatitude { get; set; }
-        internal string LocationLongitude { get; set; }
+        public string UnitId { get; set; }
+        public string BeginFuelVolumeL { get; set; }
+        public string EndFuelVolumeL { get; set; }
+        public string MinFuelVolumeL { get; set; }
+        public string MaxFuelVolumeL { get; set; }
+        public string FuelingTotalVolumeL { get; set; }
+        public string DefuelingTotalVolumeL { get; set; }
+        public string TotalFuelConsumptionL { get; set; }
+        public string FuelingCount { get; set; }
+        public string DefuelingCount { get; set; }
+        public string Period { get; set; }
+        public string OriginalPeriod { get; set; }
+        public string Timestamp { get; set; }
+        public string EventType { get; set; }
+        public string EventBeginFuelVolumeL { get; set; }
+        public string EventEndFuelVolumeL { get; set; }
+        public string OriginalBeginFuelVolumeL { get; set; }
+        public string OriginalEndFuelVolumeL { get; set; }
+        public string LocationLatitude { get; set; }
+        public string LocationLongitude { get; set; }
         public void SetUnitId(string value)
         {
             UnitId = value;

@@ -8,16 +8,16 @@ namespace SKAUTIntgration.TableCreator.Table
 {
     internal class FuelFlowStatisticTable:ITable
     {
-        internal string UnitId { get; set; }
-        internal string SensorNumber { get; set; }
-        internal string SensorTitle { get; set; }
-        internal string MovementConsumptionL { get; set; }
-        internal string EngineActiveWorkConsumptionL { get; set; }
-        internal string EngineIdleConsumptionL { get; set; }
-        internal string TotalConsumptionVolumeL { get; set; }
-        internal string TotalConsumptionWeightKg { get; set; }
-        internal string SpicAnalogSensorValuePointTimestamp { get; set; }
-        internal string SpicAnalogSensorValuePointValue { get; set; }
+        public string UnitId { get; set; }
+        public string SensorNumber { get; set; }
+        public string SensorTitle { get; set; }
+        public string MovementConsumptionL { get; set; }
+        public string EngineActiveWorkConsumptionL { get; set; }
+        public string EngineIdleConsumptionL { get; set; }
+        public string TotalConsumptionVolumeL { get; set; }
+        public string TotalConsumptionWeightKg { get; set; }
+        public string SpicAnalogSensorValuePointTimestamp { get; set; }
+        public string SpicAnalogSensorValuePointValue { get; set; }
         public void SetUnitId(string value)
         {
             UnitId = value;

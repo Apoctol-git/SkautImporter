@@ -19,6 +19,7 @@ namespace SKAUTIntgration.TableCreator
         internal List<string> PointsIsNavigationValid { get; set; }
         public NavigationValidationStatisticTableClass()
         {
+            PointsTimestamp = new List<string>();
             NavigationPointsLocationLatitude = new List<string>();
             NavigationPointsLocationLongitude = new List<string>();
             NavigationPointsAltitudeMeters = new List<string>();

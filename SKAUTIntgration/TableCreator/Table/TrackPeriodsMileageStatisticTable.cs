@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace SKAUTIntgration.TableCreator.Table
 {
-    class TrackPeriodsMileageStatisticTable:ITable
+    public class TrackPeriodsMileageStatisticTable:ITable
     {
-        internal string UnitId { get; set; }
-        internal string PeriodsMileageType { get; set; }
-        internal string PeriodsMileagePeriod { get; set; }
-        internal string PeriodsMileageMileageKm { get; set; }
-        internal string PeriodsMileageWorkTimeMileageKm { get; set; }
-        internal string PeriodsMileageAverageSpeedKmh { get; set; }
-        internal string PeriodsMileageMinSpeedKmh { get; set; }
-        internal string PeriodsMileageMaxSpeedKmh { get; set; }
-        internal string MovementDuration { get; set; }
-        internal string ParkingDuration { get; set; }
-        internal string BreakDuration { get; set; }
-        internal string TotalDuration { get; set; }
-        internal string MovementMileageKm { get; set; }
-        internal string BreakMileageKm { get; set; }
-        internal string TotalMileageKm { get; set; }
-        internal string WorkTimeMileageKm { get; set; }
-        internal string MinSpeedKmh { get; set; }
-        internal string MaxSpeedKmh { get; set; }
+        public string UnitId { get; set; }
+        public string PeriodsMileageType { get; set; }
+        public string PeriodsMileagePeriod { get; set; }
+        public string PeriodsMileageMileageKm { get; set; }
+        public string PeriodsMileageWorkTimeMileageKm { get; set; }
+        public string PeriodsMileageAverageSpeedKmh { get; set; }
+        public string PeriodsMileageMinSpeedKmh { get; set; }
+        public string PeriodsMileageMaxSpeedKmh { get; set; }
+        public string MovementDuration { get; set; }
+        public string ParkingDuration { get; set; }
+        public string BreakDuration { get; set; }
+        public string TotalDuration { get; set; }
+        public string MovementMileageKm { get; set; }
+        public string BreakMileageKm { get; set; }
+        public string TotalMileageKm { get; set; }
+        public string WorkTimeMileageKm { get; set; }
+        public string MinSpeedKmh { get; set; }
+        public string MaxSpeedKmh { get; set; }
 
         public TrackPeriodsMileageStatisticTable(string periodsMileageType, string periodsMileagePeriod, string periodsMileageMileageKm, string periodsMileageWorkTimeMileageKm, string periodsMileageAverageSpeedKmh, string periodsMileageMinSpeedKmh, string periodsMileageMaxSpeedKmh, string movementDuration, string parkingDuration, string breakDuration, string totalDuration, string movementMileageKm, string breakMileageKm, string totalMileageKm, string workTimeMileageKm, string minSpeedKmh, string maxSpeedKmh)
         {

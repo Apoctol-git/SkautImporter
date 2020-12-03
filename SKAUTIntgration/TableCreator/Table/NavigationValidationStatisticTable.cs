@@ -8,19 +8,19 @@ namespace SKAUTIntgration.TableCreator.Table
 {
     internal class NavigationValidationStatisticTable:ITable
     {
-        internal string UnitId { get; set; }
-        internal string ValidPointsCount { get; set; }
-        internal string InvalidPointsCount { get; set; }
-        internal string PointsTimestamp { get; set; }
-        internal string NavigationPointsLocationLatitude { get; set; }
-        internal string NavigationPointsLocationLongitude { get; set; }
-        internal string NavigationPointsAltitudeMeters { get; set; }
-        internal string NavigationPointsAngle { get; set; }
-        internal string NavigationPointsSatellitesCount { get; set; }
-        internal string NavigationSpeed { get; set; }
-        internal string NavigationNavigationSystemType { get; set; }
-        internal string NavigationHardwareValidation { get; set; }
-        internal string PointsIsNavigationValid { get; set; }
+        public string UnitId { get; set; }
+        public string ValidPointsCount { get; set; }
+        public string InvalidPointsCount { get; set; }
+        public string PointsTimestamp { get; set; }
+        public string NavigationPointsLocationLatitude { get; set; }
+        public string NavigationPointsLocationLongitude { get; set; }
+        public string NavigationPointsAltitudeMeters { get; set; }
+        public string NavigationPointsAngle { get; set; }
+        public string NavigationPointsSatellitesCount { get; set; }
+        public string NavigationSpeed { get; set; }
+        public string NavigationNavigationSystemType { get; set; }
+        public string NavigationHardwareValidation { get; set; }
+        public string PointsIsNavigationValid { get; set; }
 
         public NavigationValidationStatisticTable(string validPointsCount, string invalidPointsCount, string pointsTimestamp, string navigationPointsLocationLatitude, string navigationPointsLocationLongitude, string navigationPointsAltitudeMeters, string navigationPointsAngle, string navigationPointsSatellitesCount, string navigationSpeed, string navigationNavigationSystemType, string navigationHardwareValidation, string pointsIsNavigationValid)
         {

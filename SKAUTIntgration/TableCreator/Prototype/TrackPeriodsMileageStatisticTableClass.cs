@@ -19,9 +19,9 @@ namespace SKAUTIntgration.TableCreator
         internal string MovementMileageKm { get; set; }
         internal string BreakMileageKm { get; set; }
         internal string TotalMileageKm { get; set; }
-        internal string WorkTimeMileageKm { get; set; }
-        internal string MinSpeedKmh { get; set; }
-        internal string MaxSpeedKmh { get; set; }
+        //internal string WorkTimeMileageKm { get; set; }
+        //internal string MinSpeedKmh { get; set; }
+        //internal string MaxSpeedKmh { get; set; }
 
         public TrackPeriodsMileageStatisticTableClass()
         {
@@ -46,9 +46,9 @@ namespace SKAUTIntgration.TableCreator
             AddFieldRules("MovementMileageKm", (string value) => MovementMileageKm = value);
             AddFieldRules("BreakMileageKm", (string value) => BreakMileageKm = value);
             AddFieldRules("TotalMileageKm", (string value) => TotalMileageKm = value);
-            AddFieldRules("WorkTimeMileageKm", (string value) => WorkTimeMileageKm = value);
-            AddFieldRules("MinSpeedKmh", (string value) => MinSpeedKmh = value);
-            AddFieldRules("MaxSpeedKmh", (string value) => MaxSpeedKmh = value);
+            //AddFieldRules("WorkTimeMileageKm", (string value) => WorkTimeMileageKm = value);
+            //AddFieldRules("MinSpeedKmh", (string value) => MinSpeedKmh = value);
+            //AddFieldRules("MaxSpeedKmh", (string value) => MaxSpeedKmh = value);
         }
         public new List<ITable> GetTablesList()
         {
@@ -57,9 +57,10 @@ namespace SKAUTIntgration.TableCreator
             {
                 result.Add(new TrackPeriodsMileageStatisticTable(
                     PeriodsMileageType[i], PeriodsMileagePeriod[i], PeriodsMileageMileageKm[i],
-                    PeriodsMileageWorkTimeMileageKm[i], PeriodsMileageAverageSpeedKmh[i], PeriodsMileageMinSpeedKmh[i],
-                    PeriodsMileageMaxSpeedKmh[i], MovementDuration, ParkingDuration, BreakDuration, TotalDuration,
-                    MovementMileageKm,BreakMileageKm, TotalMileageKm, WorkTimeMileageKm, MinSpeedKmh, MaxSpeedKmh
+                    PeriodsMileageWorkTimeMileageKm[i + 1], PeriodsMileageAverageSpeedKmh[i], PeriodsMileageMinSpeedKmh[i+1],
+                    PeriodsMileageMaxSpeedKmh[i+1], MovementDuration, ParkingDuration, BreakDuration, TotalDuration,
+                    MovementMileageKm, BreakMileageKm, TotalMileageKm, PeriodsMileageWorkTimeMileageKm[0], PeriodsMileageMinSpeedKmh[0],
+                    PeriodsMileageMaxSpeedKmh[0]
                     ));
             }
             return result;
