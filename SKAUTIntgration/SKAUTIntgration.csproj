@@ -33,20 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ChoETL, Version=1.2.1.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ChoETL.1.2.1.4\lib\net45\ChoETL.dll</HintPath>
-    </Reference>
-    <Reference Include="ChoETL.JSON, Version=1.2.1.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ChoETL.JSON.1.2.1.4\lib\net45\ChoETL.JSON.dll</HintPath>
-    </Reference>
     <Reference Include="CsvHelper, Version=16.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <HintPath>..\packages\CsvHelper.16.1.0\lib\net47\CsvHelper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -93,18 +84,24 @@
     </Compile>
     <Compile Include="InterfaceAndAbstract\BaseStaticticReqestClass.cs" />
     <Compile Include="EnviromentTouch\CSVFormater.cs" />
-    <Compile Include="TableCreator\BaseFieldFinder.cs" />
-    <Compile Include="TableCreator\ITable.cs" />
+    <Compile Include="InterfaceAndAbstract\BaseFieldFinder.cs" />
+    <Compile Include="InterfaceAndAbstract\ITable.cs" />
+    <Compile Include="TableCreator\Prototype\DiscreteSensorStatisticTableClass.cs" />
     <Compile Include="TableCreator\Prototype\FuelFlowStatisticTableClass.cs" />
     <Compile Include="TableCreator\Prototype\FuelingDefuelingTableClass.cs" />
-    <Compile Include="TableCreator\Prototype\IPrototype.cs" />
+    <Compile Include="InterfaceAndAbstract\IPrototype.cs" />
     <Compile Include="TableCreator\Prototype\MotorModesStatisticTableClass.cs" />
     <Compile Include="TableCreator\Prototype\NavigationFiltrationStatisticTableClass.cs" />
+    <Compile Include="TableCreator\Table\DiscreteSensorStatisticTable.cs" />
+    <Compile Include="TableCreator\Table\NavigationValidationStatisticTable.cs" />
     <Compile Include="TableCreator\Prototype\NavigationValidationStatisticTableClass.cs" />
     <Compile Include="TableCreator\TableClassBuilder.cs" />
     <Compile Include="TableCreator\Prototype\TrackPeriodsMileageStatisticTableClass.cs" />
     <Compile Include="TableCreator\Prototype\TrackPeriodStatisticTableClass.cs" />
+    <Compile Include="TableCreator\Table\FuelFlowStatisticTable.cs" />
+    <Compile Include="TableCreator\Table\FuelingDefuelingTable.cs" />
     <Compile Include="TableCreator\Table\MotorModesStatisticTable.cs" />
+    <Compile Include="TableCreator\Table\TrackPeriodsMileageStatisticTable.cs" />
     <Compile Include="TableCreator\UnitTableClass.cs" />
     <Compile Include="UploadClass\DiscreteSensorStat.cs" />
     <Compile Include="UploadClass\FuelDefuelStat.cs" />
