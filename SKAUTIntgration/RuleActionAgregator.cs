@@ -48,10 +48,10 @@ namespace SKAUTIntgration
         {
             rules.Add(new FuelFlowStat(baseURL, period));
             rules.Add(new FuelDefuelStat(baseURL, period));
-            rules.Add(new FuelEventStat(baseURL, period));
+            //rules.Add(new FuelEventStat(baseURL, period));
             rules.Add(new MotorModesStat(baseURL, period));
             rules.Add(new NavigationValidationStat(baseURL, period));
-            rules.Add(new TrackPeriodStat(baseURL, period));
+            //rules.Add(new TrackPeriodStat(baseURL, period));
             rules.Add(new TrackPeriodsMileageStat(baseURL, period));
             rules.Add(new NavigationFiltrationStat(baseURL, period));
             rules.Add(new DiscreteSensorStat(baseURL, period));

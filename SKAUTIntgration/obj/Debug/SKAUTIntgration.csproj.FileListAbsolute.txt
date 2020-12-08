@@ -18,3 +18,4 @@ C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\System.C
 C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\System.ComponentModel.Annotations.dll
 C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\System.Configuration.ConfigurationManager.dll
 C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\obj\Debug\SKAUTIntgration.csprojAssemblyReference.cache

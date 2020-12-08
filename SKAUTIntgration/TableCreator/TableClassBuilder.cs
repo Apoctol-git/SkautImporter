@@ -16,7 +16,7 @@ namespace SKAUTIntgration.TableCreator
             ClassList.Add("FuelingDefuelingStatistic", new FuelingDefuelingTableClass());
             ClassList.Add("MotorModesStatistic", new MotorModesStatisticTableClass());
             ClassList.Add("NavigationValidationStatistic", new NavigationValidationStatisticTableClass());
-            ClassList.Add("TrackPeriodStatistic", new TrackPeriodStatisticTableClass());
+            //ClassList.Add("TrackPeriodStatistic", new TrackPeriodStatisticTableClass());
             ClassList.Add("TrackPeriodsMileageStatistic", new TrackPeriodsMileageStatisticTableClass());
             ClassList.Add("NavigationFiltrationStatistic", new NavigationFiltrationStatisticTableClass());
             ClassList.Add("DiscreteSensorStatistic", new DiscreteSensorStatisticTableClass());

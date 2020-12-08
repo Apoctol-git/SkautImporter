@@ -9,19 +9,28 @@ namespace SKAUTIntgration
 {
     class Program
     {
-        //static string sessionToken;
-        //public static Dictionary<string, string> UnitsAndTypes = new Dictionary<string, string>();
-        static void Main()
+        static void Main(string[] args)
         {
-            
-            //var baseURL = @"http://spic.scout365.ru:8081";
-            var INI = GetINIManager(Environment.CurrentDirectory+@"\config.ini");
+            try
+            {
+                RunProgram(args);
+            }
+            catch (Exception ex)
+            {
+                Logger logger = new Logger();
+                logger.WriteExeption("Непредвиденное исключение: "+ ex.Message + " Программа остановлена");
+                throw;
+            }
+        }
+        static void RunProgram(string[] args)
+        {
+            var INI = GetINIManager(Environment.CurrentDirectory + @"\config.ini");
             var param = GetConfigParameter(INI);
             var baseURL = param[1];
             var loginreq = new LoginRequester();
-            var token = Login(baseURL, loginreq);
+            var token = Login(baseURL, loginreq, args[0], args[1]);
             loginreq.SetINI(INI);
-            var period = GetDateTime();
+            var period = GetDateTime(args[2], args[3], args[4]);
             var ruleRunner = new RuleActionAgregator();
             IFormater formater = new CSVFormater();
             ruleRunner.SetMonitoring(baseURL, period);
@@ -31,20 +40,18 @@ namespace SKAUTIntgration
             ruleRunner.SetRules(baseURL, period);
             ruleRunner.UpdateRulesValue(INI, token);
             ruleRunner.MakeRequestAndSave(formater, param[0], int.Parse(param[2]));
-            //var xmlForm = ruleRunner.MakeRequest();
-            //formater.Saver(param[0],xmlForm);
         }
-        static string Login(string baseURL, LoginRequester loginreq ) // Верхнеуровневая процедура логирования
+        static string Login(string baseURL, LoginRequester loginreq, string login, string password ) // Верхнеуровневая процедура логирования
         {
             bool isRepeat = true;
             string result = null;
             while (isRepeat)
             {
 
-                Console.WriteLine("Введите логин");
-                var login = (string)Console.ReadLine();
-                Console.WriteLine("Введите пароль");
-                var password = (string)Console.ReadLine();
+                //Console.WriteLine("Введите логин");
+                //var login = (string)Console.ReadLine();
+                //Console.WriteLine("Введите пароль");
+                //var password = (string)Console.ReadLine();
                 var data = loginreq.Login(login, password, baseURL);
                 if (data[0] == "true" && data[1] == "true")
                 {
@@ -58,7 +65,7 @@ namespace SKAUTIntgration
             }
             return result;
         }
-        static DateTime GetDateTime()
+        static DateTime GetDateTime(string dayS,string mountS, string yearS)
         {
             int day=0;
             int mounth=0;
@@ -69,7 +76,7 @@ namespace SKAUTIntgration
             Console.WriteLine("Введите запрашиваемое число месяца");
             while (!daySuc)
             {
-                daySuc = int.TryParse(Console.ReadLine(),out day);
+                daySuc = int.TryParse(dayS, out day);
                 if (!daySuc)
                 {
                     Console.WriteLine("Повторите ввод числа месяца");
@@ -78,7 +85,7 @@ namespace SKAUTIntgration
             Console.WriteLine("Введите запрашиваемый номер месяца");
             while (!mounthSuc)
             {
-                mounthSuc = int.TryParse(Console.ReadLine(),out mounth);
+                mounthSuc = int.TryParse(mountS, out mounth);
                 if (!mounthSuc)
                 {
                     Console.WriteLine("Повторите ввод месяца");
@@ -87,7 +94,7 @@ namespace SKAUTIntgration
             Console.WriteLine("Введите запрашиваемый год");
             while (!yearSuc)
             {
-                yearSuc = int.TryParse(Console.ReadLine(),out year);
+                yearSuc = int.TryParse(yearS, out year);
                 if (!yearSuc)
                 {
                     Console.WriteLine("Повторите ввод года");
