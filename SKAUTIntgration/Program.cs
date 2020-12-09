@@ -73,7 +73,7 @@ namespace SKAUTIntgration
             var daySuc = false;
             var mounthSuc = false;
             var yearSuc = false;
-            Console.WriteLine("Введите запрашиваемое число месяца");
+           // Console.WriteLine("Введите запрашиваемое число месяца");
             while (!daySuc)
             {
                 daySuc = int.TryParse(dayS, out day);
@@ -82,7 +82,7 @@ namespace SKAUTIntgration
                     Console.WriteLine("Повторите ввод числа месяца");
                 }
             }
-            Console.WriteLine("Введите запрашиваемый номер месяца");
+            //Console.WriteLine("Введите запрашиваемый номер месяца");
             while (!mounthSuc)
             {
                 mounthSuc = int.TryParse(mountS, out mounth);
@@ -91,7 +91,7 @@ namespace SKAUTIntgration
                     Console.WriteLine("Повторите ввод месяца");
                 }
             }
-            Console.WriteLine("Введите запрашиваемый год");
+            //Console.WriteLine("Введите запрашиваемый год");
             while (!yearSuc)
             {
                 yearSuc = int.TryParse(yearS, out year);

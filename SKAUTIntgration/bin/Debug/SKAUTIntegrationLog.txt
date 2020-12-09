@@ -1,48 +1,6 @@
-﻿15:23:31.9222850 : Объект FuelFlowStatistic  ответ получен
-15:23:31.9640605 : Объект FuelFlowStatistic Для объекта мониторинга 12223 загружен
-15:23:33.1941529 : Объект FuelingDefuelingStatistic  ответ получен
-15:23:33.2448652 : Объект FuelingDefuelingStatistic Для объекта мониторинга 12223 загружен
-15:23:34.3976862 : Объект MotorModesStatistic  ответ получен
-15:23:34.4229051 : Объект MotorModesStatistic Для объекта мониторинга 12223 загружен
-15:23:35.6096276 : Объект NavigationValidationStatistic  ответ получен
-15:23:35.6433738 : Объект NavigationValidationStatistic Для объекта мониторинга 12223 загружен
-15:23:36.8492322 : Объект TrackPeriodsMileageStatistic  ответ получен
-15:23:36.9883719 : Объект TrackPeriodsMileageStatistic Для объекта мониторинга 12223 загружен
-15:23:38.2325641 : Объект DiscreteSensorStatistic  ответ получен
-15:23:38.2513127 : Объект DiscreteSensorStatistic Для объекта мониторинга 12223 загружен
-15:23:42.4188721 : Объект FuelFlowStatistic Для объекта мониторинга 12223 сохранён
-15:23:42.4878238 : Объект FuelingDefuelingStatistic Для объекта мониторинга 12223 сохранён
-15:23:42.5266217 : Объект MotorModesStatistic Для объекта мониторинга 12223 сохранён
-15:23:42.6596141 : Объект NavigationValidationStatistic Для объекта мониторинга 12223 сохранён
-15:23:42.6907157 : Объект TrackPeriodsMileageStatistic Для объекта мониторинга 12223 сохранён
-15:23:42.7236396 : Объект DiscreteSensorStatistic Для объекта мониторинга 12223 сохранён
-15:23:43.9149676 : Объект FuelFlowStatistic  ответ получен
-15:23:44.0637084 : Объект FuelFlowStatistic Для объекта мониторинга 10126 загружен
-15:23:45.7130599 : Объект FuelingDefuelingStatistic  ответ получен
-15:23:45.7347680 : Объект FuelingDefuelingStatistic Для объекта мониторинга 10126 загружен
-15:23:47.5873088 : Объект MotorModesStatistic  ответ получен
-15:23:47.9658966 : Объект MotorModesStatistic Для объекта мониторинга 10126 загружен
-15:23:49.2450761 : Объект NavigationValidationStatistic  ответ получен
-15:23:49.2689496 : Объект NavigationValidationStatistic Для объекта мониторинга 10126 загружен
-15:23:50.4340917 : Объект TrackPeriodsMileageStatistic  ответ получен
-15:23:50.4680448 : Объект TrackPeriodsMileageStatistic Для объекта мониторинга 10126 загружен
-15:23:51.6338918 : Объект DiscreteSensorStatistic  ответ получен
-15:23:51.6721925 : Объект DiscreteSensorStatistic Для объекта мониторинга 10126 загружен
-15:23:55.0954568 : Объект FuelFlowStatistic Для объекта мониторинга 10126 сохранён
-15:23:55.1233285 : Объект FuelingDefuelingStatistic Для объекта мониторинга 10126 сохранён
-15:23:55.1600941 : Объект MotorModesStatistic Для объекта мониторинга 10126 сохранён
-15:23:55.1903480 : Объект NavigationValidationStatistic Для объекта мониторинга 10126 сохранён
-15:23:55.2162849 : Объект TrackPeriodsMileageStatistic Для объекта мониторинга 10126 сохранён
-15:23:55.2383166 : Объект DiscreteSensorStatistic Для объекта мониторинга 10126 сохранён
-15:23:56.5537341 : Объект FuelFlowStatistic  ответ получен
-15:23:56.6044788 : Объект FuelFlowStatistic Для объекта мониторинга 9775 загружен
-15:23:57.9214659 : Объект FuelingDefuelingStatistic  ответ получен
-15:23:57.9385008 : Объект FuelingDefuelingStatistic Для объекта мониторинга 9775 загружен
-15:23:59.1973590 : Объект MotorModesStatistic  ответ получен
-15:23:59.2325670 : Объект MotorModesStatistic Для объекта мониторинга 9775 загружен
-15:24:00.4826596 : Объект NavigationValidationStatistic  ответ получен
-15:24:00.5136232 : Объект NavigationValidationStatistic Для объекта мониторинга 9775 загружен
-15:24:01.7537083 : Объект TrackPeriodsMileageStatistic  ответ получен
-15:24:01.7777186 : Объект TrackPeriodsMileageStatistic Для объекта мониторинга 9775 загружен
-15:24:02.9563446 : Объект DiscreteSensorStatistic  ответ получен
-15:24:03.0077946 : Объект DiscreteSensorStatistic Для объекта мониторинга 9775 загружен
+﻿17:09:37.3209374 : Объект FuelFlowStatistic  ответ получен
+17:09:37.3519317 : Объект FuelFlowStatistic Для объекта мониторинга 12223 загружен
+17:09:37.3679300 : Объект FuelFlowStatistic Для объекта мониторинга 10126 загружен
+17:09:37.3829203 : Объект FuelFlowStatistic Для объекта мониторинга 9775 загружен
+17:09:37.3986413 : Объект FuelFlowStatistic Для объекта мониторинга 11584 загружен
+17:09:37.4142341 : Объект FuelFlowStatistic Для объекта мониторинга 11626 загружен
