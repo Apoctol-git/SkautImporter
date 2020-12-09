@@ -53,7 +53,7 @@ namespace SKAUTIntgration
             rules.Add(new NavigationValidationStat(baseURL, period));
             //rules.Add(new TrackPeriodStat(baseURL, period));
             rules.Add(new TrackPeriodsMileageStat(baseURL, period));
-            rules.Add(new NavigationFiltrationStat(baseURL, period));
+            //rules.Add(new NavigationFiltrationStat(baseURL, period));
             rules.Add(new DiscreteSensorStat(baseURL, period));
         }
         public void SetLoginRequester(LoginRequester loginreq)

@@ -105,7 +105,6 @@
     <Compile Include="TableCreator\UnitTableClass.cs" />
     <Compile Include="UploadClass\DiscreteSensorStat.cs" />
     <Compile Include="UploadClass\FuelDefuelStat.cs" />
-    <Compile Include="UploadClass\FuelEventStat.cs" />
     <Compile Include="UploadClass\FuelFlowStat.cs" />
     <Compile Include="InterfaceAndAbstract\IFormater.cs" />
     <Compile Include="EnviromentTouch\Logger.cs" />
@@ -114,7 +113,6 @@
     <Compile Include="InterfaceAndAbstract\IRuleRequster.cs" />
     <Compile Include="REST\LoginRequester.cs" />
     <Compile Include="UploadClass\MonitoringObjectAllUnitsPaged.cs" />
-    <Compile Include="UploadClass\NavigationFiltrationStat.cs" />
     <Compile Include="UploadClass\NavigationValidationStat.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -122,7 +120,6 @@
     <Compile Include="RuleActionAgregator.cs" />
     <Compile Include="REST\TechicalElement\SavingDocument.cs" />
     <Compile Include="UploadClass\TrackPeriodsMileageStat.cs" />
-    <Compile Include="UploadClass\TrackPeriodStat.cs" />
     <Compile Include="REST\TechicalElement\XMLelement.cs" />
     <Compile Include="EnviromentTouch\XMLFormater.cs" />
   </ItemGroup>
