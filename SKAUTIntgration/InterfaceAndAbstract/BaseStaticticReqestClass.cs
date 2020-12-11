@@ -39,12 +39,14 @@ namespace SKAUTIntgration
         // Метод должен вызываться из дочернего класса, и компоновать конкретные Url котороые сейчас null
         public void SetAllUrl (string baseUrl, string UrlServer)
         {
-            var temp = baseUrl + urlStartStatSession;
-            urlStartStatSession = temp;
-            temp = baseUrl + urlBuildStatistic;
-            urlBuildStatistic = temp;
-            addStatisticToRequest =baseUrl + "/spic/" + UrlServer + "/rest/AddStatisticsRequest";
-            getStatistics = baseUrl+"/spic/" + UrlServer + "/rest/GetStatistics";
+            if (urlStartStatSession.Length<=54)
+            {
+                urlStartStatSession = baseUrl + urlStartStatSession;
+                urlBuildStatistic = baseUrl + urlBuildStatistic;
+                addStatisticToRequest =baseUrl + "/spic/" + UrlServer + "/rest/AddStatisticsRequest";
+                getStatistics = baseUrl+"/spic/" + UrlServer + "/rest/GetStatistics";
+            }
+
         }
         //подготовка тела запроса в Json который отправляется в открытие сессии статистик
         public void JSONprepare(DateTime periodStart) //ВНИМАНИЕ!!!!! Стоит временная заглушка на типе объекта. Снять при необходимости!

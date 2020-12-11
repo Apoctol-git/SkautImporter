@@ -107,8 +107,8 @@ namespace SKAUTIntgration
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Console.WriteLine("Нажмите люубую клавишу что бы закрыть программу");
-                Console.ReadKey();
+                //Console.WriteLine("Нажмите люубую клавишу что бы закрыть программу");
+                //Console.ReadKey();
                 System.Environment.Exit(500);
                 return DateTime.Now;
             }

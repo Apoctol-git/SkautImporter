@@ -1,4 +1,5 @@
-﻿using SKAUTIntgration.TableCreator;
+﻿using SKAUTIntgration.EnviromentTouch;
+using SKAUTIntgration.TableCreator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace SKAUTIntgration
     {
         MonitoringObjectAllUnitsPaged monitoring;
         LoginRequester Login;
+        bool IsJsonSetted;
         readonly List<IRuleRequster> rules = new List<IRuleRequster>();
         public void SetMonitoring(string baseURL, DateTime period)
         {
@@ -69,6 +71,7 @@ namespace SKAUTIntgration
                 item.Token = token;
                 item.RequestNeedParameter(monitoring);
             }
+            IsJsonSetted = INI.GetPrivateString("SetJSON", "value") == "1" ? true : false;
         }
         public void MakeRequestAndSave(IFormater saver, string rootCatalog, int compare) 
         {
@@ -81,11 +84,12 @@ namespace SKAUTIntgration
             {
                 try
                 {
-                    var xmlForm = RequestMaker(logger,i,compare);
+                    var xmlForm = RequestMaker(logger,i,compare,rootCatalog);
                     saver.Saver(rootCatalog, i, xmlForm);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    logger.WriteExeption(ex.Message);
                     var token = Login.ReLogin();
                     UpdateRulesValue(Login.GetINI(), token);
                 }
@@ -97,16 +101,21 @@ namespace SKAUTIntgration
         {
             return monitoring.unitsId.Count;
         }
-        private List<SavingDocument> RequestMaker(Logger logger, int it, int compare)
+        private List<SavingDocument> RequestMaker(Logger logger, int it, int compare, string rootCatalog)
         {
             List<SavingDocument> responses = new List<SavingDocument>();
             TableClassBuilder builder = new TableClassBuilder();
+            JSONSaver logResp = new JSONSaver(rootCatalog);
             builder.SetClassList();
             foreach (var item in rules)
             {
                 if (item.IsActivated)
                 {
                     var respCollection = item.RequestResultArray(it,compare);
+                    if (IsJsonSetted)
+                    {
+                        LogReq(logResp, item.TargetCatalog, respCollection);
+                    }
                     logger.WriteLog(item.Name, "-1", "ответ получен");
                     foreach (var resp in respCollection)
                     {
@@ -129,6 +138,13 @@ namespace SKAUTIntgration
                 }
             }
             return responses;
+        }
+        private void LogReq(JSONSaver logger, string targetCatalog, Dictionary<string,string> respCollect)
+        {
+            foreach (var item in respCollect)
+            {
+                logger.Write(targetCatalog, item.Key, item.Value);
+            }
         }
         //private int UnitIdKeyFinder(string unitId, List<SavingDocument> array)
         //{
