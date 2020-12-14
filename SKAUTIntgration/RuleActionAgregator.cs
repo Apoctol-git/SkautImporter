@@ -116,7 +116,7 @@ namespace SKAUTIntgration
                     {
                         LogReq(logResp, item.TargetCatalog, respCollection);
                     }
-                    logger.WriteLog(item.Name, "-1", "ответ получен");
+                    //logger.WriteLog(item.Name, "-1", "ответ получен");
                     foreach (var resp in respCollection)
                     {
                         var responseAnswer = item.ResponseParser(resp.Value);
@@ -133,7 +133,7 @@ namespace SKAUTIntgration
                             }
                         }
                         responses.Add(document);
-                        logger.WriteLog(item.Name, resp.Key, "загружен");
+                        //logger.WriteLog(item.Name, resp.Key, "загружен");
                     }
                 }
             }

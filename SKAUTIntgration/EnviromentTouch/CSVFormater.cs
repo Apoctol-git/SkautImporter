@@ -27,7 +27,9 @@ namespace SKAUTIntgration
                     {
                         var path = basePath + document.Path + @"\";
                         var unitId = document.UnitId == "-1" ? i.ToString() : "_" + document.UnitId;
-                        var period = document.Period.Year.ToString() + document.Period.Month.ToString() + document.Period.Day.ToString();
+                        var period = document.Period.Year.ToString() +
+                            (document.Period.Month < 10 ? "0" + document.Period.Month.ToString() : document.Period.Month.ToString())
+                            + (document.Period.Day < 10 ? "0" + document.Period.Day.ToString() : document.Period.Day.ToString());
                         var name = period+ "_" +document.Name+"_" +unitId+ ".csv";
                         using (StreamWriter streamReader = new StreamWriter(path + name,false, Encoding.UTF8))
                         {
@@ -56,20 +58,12 @@ namespace SKAUTIntgration
         }
         public void Saver(string basePath, int numberItteration, List<SavingDocument> documents)
         {
-
+            CleanDirectory(basePath, numberItteration, documents);
+            string cName = null;
             foreach (var document in documents)
             {
-                if (numberItteration == 0)
-                {
-                    DirectoryInfo directory = new DirectoryInfo(basePath + document.Path);
-                    if (directory.Exists)
-                    {
-                        directory.Delete(true);
-                    }
-                }
                 var logger = new Logger();
-                //foreach (var savingElevent in document.SavingElevents)
-                //{
+
                 var savingElevent = document.SavingElevents;
                 var notCatched = true;
                 SetNextNumber();
@@ -93,6 +87,15 @@ namespace SKAUTIntgration
                                 //    {
                                 //csvWriter.Configuration.RegisterClassMap(savingElevent[0].GetCurrentClassMap(csvWriter));
                                 //csvWriter.Configuration.Delimiter = ",";
+                                if (cName==document.Name)
+                                {
+                                    csvWriter.Configuration.HasHeaderRecord = false;
+                                }
+                                else
+                                {
+                                    cName = document.Name;
+                                    csvWriter.Configuration.HasHeaderRecord = true;
+                                }
                                 csvWriter.WriteRecords(savingElevent);
 
                             }
@@ -104,11 +107,23 @@ namespace SKAUTIntgration
                         Directory.CreateDirectory(basePath + document.Path);
                     }
                 }
-                //}
-                logger.WriteLog(document.Name, document.UnitId, "сохранён");
+                //logger.WriteLog(document.Name, document.UnitId, "сохранён");
             }
         }
-        
+        private void CleanDirectory(string basePath, int numberItteration, List<SavingDocument> documents)
+        {
+            if (numberItteration == 0)
+            {
+                foreach (var document in documents)
+                {
+                    DirectoryInfo directory = new DirectoryInfo(basePath + document.Path);
+                    if (directory.Exists)
+                    {
+                        directory.Delete(true);
+                    }
+                }
+            }
+        }
         private void SetNextNumber()
         {
             i++;
