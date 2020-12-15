@@ -60,6 +60,7 @@ namespace SKAUTIntgration
         {
             CleanDirectory(basePath, numberItteration, documents);
             string cName = null;
+            bool isHeaderAdded = false;
             foreach (var document in documents)
             {
                 var logger = new Logger();
@@ -89,12 +90,22 @@ namespace SKAUTIntgration
                                 //csvWriter.Configuration.Delimiter = ",";
                                 if (cName==document.Name)
                                 {
-                                    csvWriter.Configuration.HasHeaderRecord = false;
+                                    if (!isHeaderAdded)
+                                    {
+                                        csvWriter.Configuration.HasHeaderRecord = savingElevent.Count == 0 ? false : true;
+                                        isHeaderAdded = savingElevent.Count == 0 ? false : true;
+                                    }
+                                    else
+                                    {
+                                        csvWriter.Configuration.HasHeaderRecord = false;
+                                    }
+                                    
                                 }
                                 else
                                 {
                                     cName = document.Name;
                                     csvWriter.Configuration.HasHeaderRecord = true;
+                                    isHeaderAdded = false;
                                 }
                                 csvWriter.WriteRecords(savingElevent);
 
