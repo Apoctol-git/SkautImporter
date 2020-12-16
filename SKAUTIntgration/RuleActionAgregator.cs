@@ -92,6 +92,7 @@ namespace SKAUTIntgration
                     logger.WriteExeption(ex.Message);
                     var token = Login.ReLogin();
                     UpdateRulesValue(Login.GetINI(), token);
+                    i--;
                 }
 
             }
