@@ -11,14 +11,15 @@ namespace SKAUTIntgration
     {
         static void Main(string[] args)
         {
+            Logger logger = new Logger();
+            logger.RemoveOldLogs();
             try
             {
                 RunProgram(args);
             }
             catch (Exception ex)
             {
-                Logger logger = new Logger();
-                logger.WriteExeption("Непредвиденное исключение: "+ ex.Message + " Программа остановлена");
+                logger.WriteExeption("Непредвиденное исключение: "+ ex.Message + " Программа остановлена", ex.StackTrace);
                 throw;
             }
         }

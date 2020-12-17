@@ -24,11 +24,12 @@ namespace SKAUTIntgration
                 writer.WriteLine(text);
             }
         }
-        public void WriteExeption(string message)
+        public void WriteExeption(string message, string stackTrace)
         {
             using (var writer = new StreamWriter(path, true, Encoding.UTF8))
             {
                writer.WriteLine(DateTime.Now.TimeOfDay+" : "+message);
+               writer.WriteLine("По адресу:"+ stackTrace);
             }
         }
         public void WriteKeyNotFoundExeption(string message, string keyValue)

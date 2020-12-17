@@ -77,7 +77,7 @@ namespace SKAUTIntgration
         {
             //Dictionary<string[],Dictionary<string, string>[]> responses = new Dictionary<string[], Dictionary<string, string>[]>();
             var logger = new Logger();
-            logger.RemoveOldLogs();
+            //logger.RemoveOldLogs();
             var totalCount = GetArrayLeght(monitoring);
             var totalIterration = Math.Round((double)totalCount / compare);
             for (int i = 0; i < totalIterration; i++)
@@ -89,7 +89,7 @@ namespace SKAUTIntgration
                 }
                 catch (Exception ex)
                 {
-                    logger.WriteExeption(ex.Message);
+                    logger.WriteExeption(ex.Message,ex.StackTrace);
                     var token = Login.ReLogin();
                     UpdateRulesValue(Login.GetINI(), token);
                     i--;

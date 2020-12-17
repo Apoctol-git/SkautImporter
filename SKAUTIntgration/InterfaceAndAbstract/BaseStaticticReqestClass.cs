@@ -194,8 +194,15 @@ namespace SKAUTIntgration
             var result = new Dictionary<string, string>();
             for (int i = iterationNumber * compare; i < (iterationNumber + 1) * compare; i++)
             {
-                var item = JSONRunSession[i];
-                result.Add(item.Key, RequestSender.SendPostRequest(Token, getStatistics, item.Value));
+                try
+                {
+                    var item = JSONRunSession[i];
+                    result.Add(item.Key, RequestSender.SendPostRequest(Token, getStatistics, item.Value));
+                }
+                catch (ArgumentException)
+                {
+                }
+
             }
             return result;
         }
