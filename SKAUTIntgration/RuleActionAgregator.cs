@@ -80,7 +80,7 @@ namespace SKAUTIntgration
             //logger.RemoveOldLogs();
             var totalCount = GetArrayLeght(monitoring);
             var totalIterration = Math.Round((double)totalCount / compare);
-            for (int i = 0; i < totalIterration; i++)
+            for (int i = 0; i <= totalIterration; i++)
             {
                 try
                 {
