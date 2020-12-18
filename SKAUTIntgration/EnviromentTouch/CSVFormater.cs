@@ -105,7 +105,7 @@ namespace SKAUTIntgration
                                 {
                                     cName = document.Name;
                                     csvWriter.Configuration.HasHeaderRecord = true;
-                                    isHeaderAdded = false;
+                                    isHeaderAdded = savingElevent.Count == 0 ? false : true;
                                 }
                                 csvWriter.WriteRecords(savingElevent);
 

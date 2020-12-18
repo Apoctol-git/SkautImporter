@@ -8,7 +8,7 @@ namespace SKAUTIntgration.TableCreator.Table
 {
     public class MotorModesStatisticTable:ITable
     {
-        public string Unitid { get; set; }
+        public string UnitId { get; set; }
         public string EngineActiveWorkHours { get; set; }
         public string EngineIdleHours { get; set; }
         public string EngineOffHours { get; set; }
@@ -33,7 +33,7 @@ namespace SKAUTIntgration.TableCreator.Table
         }
         public void SetUnitId(string value)
         {
-            Unitid = value;
+            UnitId = value;
         }
 
     }
