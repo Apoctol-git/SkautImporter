@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,7 +14,9 @@ namespace SKAUTIntgration
 
         public Logger()
         {
-            path = Environment.CurrentDirectory + @"\SKAUTIntegrationLog.txt";
+            //path = Environment.CurrentDirectory + @"\SKAUTIntegrationLog.txt";
+            RegistryKey reg = Registry.ClassesRoot;
+            path = reg.OpenSubKey("SKAUT_ROOT").GetValue("").ToString()+@"\SKAUTIntegrationLog.txt";
         }
         public void WriteLog(string loggingObject, string unitId, string status)
         {

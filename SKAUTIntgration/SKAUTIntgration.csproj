@@ -8,10 +8,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>SKAUTIntgration</RootNamespace>
     <AssemblyName>SKAUTIntgration</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -82,10 +83,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="EnviromentTouch\JSONSaver.cs" />
     <Compile Include="InterfaceAndAbstract\BaseStaticticReqestClass.cs" />
     <Compile Include="EnviromentTouch\CSVFormater.cs" />
     <Compile Include="InterfaceAndAbstract\BaseFieldFinder.cs" />
     <Compile Include="InterfaceAndAbstract\ITable.cs" />
+    <Compile Include="REST\Proxy.cs" />
     <Compile Include="TableCreator\Prototype\DiscreteSensorStatisticTableClass.cs" />
     <Compile Include="TableCreator\Prototype\FuelFlowStatisticTableClass.cs" />
     <Compile Include="TableCreator\Prototype\FuelingDefuelingTableClass.cs" />

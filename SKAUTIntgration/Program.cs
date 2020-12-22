@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,9 +26,12 @@ namespace SKAUTIntgration
         }
         static void RunProgram(string[] args)
         {
-            var INI = GetINIManager(Environment.CurrentDirectory + @"\config.ini");
+            RegistryKey reg = Registry.ClassesRoot;
+            string path = reg.OpenSubKey("SKAUT_ROOT").GetValue("").ToString();
+            var INI = GetINIManager(path + @"\config.ini");
             var param = GetConfigParameter(INI);
             var baseURL = param[1];
+            SetProxy(INI);
             var loginreq = new LoginRequester();
             var token = Login(baseURL, loginreq, args[0], args[1]);
             loginreq.SetINI(INI);
@@ -41,6 +45,17 @@ namespace SKAUTIntgration
             ruleRunner.SetRules(baseURL, period);
             ruleRunner.UpdateRulesValue(INI, token);
             ruleRunner.MakeRequestAndSave(formater, param[0], int.Parse(param[2]));
+        }
+        static void SetProxy(INIManager INI)
+        {
+            var Host = INI.GetPrivateString("Proxy", "Host");
+            var Port = INI.GetPrivateString("Proxy", "Port");
+            var User = INI.GetPrivateString("Proxy", "User");
+            var Password = INI.GetPrivateString("Proxy", "Password");
+            if (Host!="0"&& Port != "0"&& User != "0"&& Password != "0")
+            {
+                RequestSender.SetProxy(Host, int.Parse(Port), User, Password);
+            }
         }
         static string Login(string baseURL, LoginRequester loginreq, string login, string password ) // Верхнеуровневая процедура логирования
         {

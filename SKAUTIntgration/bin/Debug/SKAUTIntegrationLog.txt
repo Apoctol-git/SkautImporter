@@ -1,6 +1,3 @@
-﻿17:09:37.3209374 : Объект FuelFlowStatistic  ответ получен
-17:09:37.3519317 : Объект FuelFlowStatistic Для объекта мониторинга 12223 загружен
-17:09:37.3679300 : Объект FuelFlowStatistic Для объекта мониторинга 10126 загружен
-17:09:37.3829203 : Объект FuelFlowStatistic Для объекта мониторинга 9775 загружен
-17:09:37.3986413 : Объект FuelFlowStatistic Для объекта мониторинга 11584 загружен
-17:09:37.4142341 : Объект FuelFlowStatistic Для объекта мониторинга 11626 загружен
+﻿20:34:10.0265930 : Непредвиденное исключение: Индекс находился вне границ массива. Программа остановлена
+По адресу:   в SKAUTIntgration.Program.RunProgram(String[] args) в C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\Program.cs:строка 35
+   в SKAUTIntgration.Program.Main(String[] args) в C:\Users\Apoctol\source\repos\SKAUTIntgration\SKAUTIntgration\Program.cs:строка 19
