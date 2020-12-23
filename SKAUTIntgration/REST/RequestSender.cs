@@ -10,17 +10,19 @@ namespace SKAUTIntgration
 {
     public class RequestSender
     {
-        static string proxyUrl;
-        static int proxyPort;
-        static string proxyUserName;
-        static string proxyPassword;
+        //static string proxyUrl;
+        //static int proxyPort;
+        //static string proxyUserName;
+        //static string proxyPassword;
+        static Proxy proxy;
         static bool IsProxyActivated =false;
         static public void SetProxy (string proxyUrl, int proxyPort, string proxyUserName, string proxyPassword)
         {
-            RequestSender.proxyUrl = proxyUrl;
-            RequestSender.proxyPort = proxyPort;
-            RequestSender.proxyUserName = proxyUserName;
-            RequestSender.proxyPassword = proxyPassword;
+            //RequestSender.proxyUrl = proxyUrl;
+            //RequestSender.proxyPort = proxyPort;
+            //RequestSender.proxyUserName = proxyUserName;
+            //RequestSender.proxyPassword = proxyPassword;
+            proxy = new Proxy(0, proxyUrl, proxyPort, proxyUserName, proxyPassword);
             IsProxyActivated = true;
         }
         static public string GetRequest(string token, string url)
@@ -30,10 +32,7 @@ namespace SKAUTIntgration
                
                 if (IsProxyActivated)
                 {
-                    request.Proxy.Host = proxyUrl;
-                    request.Proxy.Port = proxyPort;
-                    request.Proxy.Username = proxyUserName;
-                    request.Proxy.Password = proxyPassword;
+                    request.Proxy = proxy;
                 }
                 request.UserAgent = "";
                 request.AddHeader("ScoutAuthorization", token);
@@ -72,10 +71,7 @@ namespace SKAUTIntgration
                 //{
                 if (IsProxyActivated)
                 {
-                    request.Proxy.Host = proxyUrl;
-                    request.Proxy.Port = proxyPort;
-                    request.Proxy.Username = proxyUserName;
-                    request.Proxy.Password = proxyPassword;
+                    request.Proxy = proxy;
                 }
                 request.UserAgent = "";
                 request.AddHeader("ScoutAuthorization", token);
@@ -123,7 +119,6 @@ namespace SKAUTIntgration
             {
                 if (IsProxyActivated)
                 {
-                    var proxy = new Proxy(0, proxyUrl, proxyPort, proxyUserName, proxyPassword);
                     request.Proxy = proxy;
                     //request.Proxy.Host = proxyUrl;
                     //request.Proxy.Port = proxyPort;
