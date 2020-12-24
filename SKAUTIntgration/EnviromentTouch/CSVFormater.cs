@@ -53,12 +53,12 @@ namespace SKAUTIntgration
                     }
                 }
                 //}
-                logger.WriteLog(document.Name, document.UnitId, "сохранён");
+                //logger.WriteLog(document.Name, document.UnitId, "сохранён");
             }
         }
         public void Saver(string basePath, int numberItteration, List<SavingDocument> documents)
         {
-            CleanDirectory(basePath, numberItteration, documents);
+            //CleanDirectory(basePath, numberItteration, documents);
             string cName = null;
             bool isHeaderAdded = false;
             foreach (var document in documents)
@@ -77,8 +77,17 @@ namespace SKAUTIntgration
                         var period = document.Period.Year.ToString() + 
                             (document.Period.Month<10?"0"+document.Period.Month.ToString(): document.Period.Month.ToString())
                             + (document.Period.Day<10?"0"+document.Period.Day.ToString(): document.Period.Day.ToString());
-                        var name = period+ "_" +document.Name+"_" + numberItteration + ".csv";
-                        using (StreamWriter streamReader = new StreamWriter(path + name,true, Encoding.UTF8))
+                        var name = period + "_" + document.Name + "_" + numberItteration + ".csv";
+                        bool isReplace = false;
+                        if (cName != document.Name)
+                        {
+                            var fi = new FileInfo(path + name);
+                            if (fi.Exists)
+                            {
+                                isReplace = true;
+                            }
+                        }
+                        using (StreamWriter streamReader = new StreamWriter(path + name,!isReplace, Encoding.UTF8))
                         {
                             using (CsvWriter csvWriter = new CsvWriter(streamReader, System.Globalization.CultureInfo.CurrentCulture))
                             {

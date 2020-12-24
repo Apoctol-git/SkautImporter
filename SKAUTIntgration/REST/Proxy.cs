@@ -10,9 +10,11 @@ namespace SKAUTIntgration.REST
 {
     public class Proxy: ProxyClient
     {
+        public TcpClient Client { get; set; }
         public Proxy(ProxyType proxyType, string address, int port, string username, string password) : base(proxyType, address, port, username, password)
         {
-            
+            var a = CreateConnectionToProxy();
+            Client = a;
         }
 
         public override TcpClient CreateConnection(string destinationHost, int destinationPort, TcpClient tcpClient = null)

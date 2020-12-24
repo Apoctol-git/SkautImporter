@@ -119,7 +119,14 @@ namespace SKAUTIntgration
             {
                 if (IsProxyActivated)
                 {
+                    Logger logger = new Logger();
+                    logger.WriteLog("Запрос уходит через прокси сервер");
+                    logger.WriteLog(proxy.Host + "Host прокси сервера");
+                    logger.WriteLog(proxy.Port + "Port прокси сервера");
+                    logger.WriteLog(proxy.Username + "Username прокси сервера");
+                    logger.WriteLog(proxy.Password + "Password прокси сервера");
                     request.Proxy = proxy;
+                    logger.WriteLog("состояние соединения: " + proxy.Client.Connected);
                     //request.Proxy.Host = proxyUrl;
                     //request.Proxy.Port = proxyPort;
                     //request.Proxy.Username = proxyUserName;

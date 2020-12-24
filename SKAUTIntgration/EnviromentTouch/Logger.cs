@@ -18,12 +18,11 @@ namespace SKAUTIntgration
             RegistryKey reg = Registry.ClassesRoot;
             path = reg.OpenSubKey("SKAUT_ROOT").GetValue("").ToString()+@"\SKAUTIntegrationLog.txt";
         }
-        public void WriteLog(string loggingObject, string unitId, string status)
+        public void WriteLog(string message)
         {
             using (var writer = new StreamWriter(path,true, Encoding.UTF8))
             {
-                var dinamicText = unitId == "-1" ? null : "Для объекта мониторинга " + unitId;
-                var text = DateTime.Now.TimeOfDay + " : "+ "Объект " + loggingObject + " " + dinamicText + " " + status;
+                var text = DateTime.Now.TimeOfDay + message;
                 writer.WriteLine(text);
             }
         }
